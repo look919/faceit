@@ -67,17 +67,19 @@ export const RandomizeTeams = () => {
 
   if (randomizeState === "not_initiated") {
     return (
-      <Button
-        className="bg-gray-600"
-        onClick={() => setRandomizeState("initiated")}
-      >
-        Randomize teams
-      </Button>
+      <div className="w-full flex justify-center">
+        <Button
+          className="bg-gray-600"
+          onClick={() => setRandomizeState("initiated")}
+        >
+          Randomize teams
+        </Button>
+      </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-6 w-full justify-center items-center">
       <Input onKeyDown={addPlayerOnEnter} className="max-w-64" />
       <div className="flex gap-2">
         {allPlayers.map((player) => {

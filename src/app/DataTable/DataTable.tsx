@@ -34,6 +34,10 @@ export function DataTable<TData, TValue>({
     getCoreRowModel: getCoreRowModel(),
   });
 
+  if (table.getRowModel().rows.length === 0) {
+    return null;
+  }
+
   return (
     <div className="rounded-md border">
       <Table>
@@ -60,30 +64,22 @@ export function DataTable<TData, TValue>({
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows.length ? (
-            table.getRowModel().rows.map((row) => (
-              <TableRow
-                key={row.id}
-                data-state={row.getIsSelected() && "selected"}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell
-                    key={cell.id}
-                    className="border-x text-right"
-                    style={{ width: cell.column.getSize() }}
-                  >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))
-          ) : (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No results.
-              </TableCell>
+          {table.getRowModel().rows.map((row) => (
+            <TableRow
+              key={row.id}
+              data-state={row.getIsSelected() && "selected"}
+            >
+              {row.getVisibleCells().map((cell) => (
+                <TableCell
+                  key={cell.id}
+                  className="border-x text-right"
+                  style={{ width: cell.column.getSize() }}
+                >
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </TableCell>
+              ))}
             </TableRow>
-          )}
+          ))}
         </TableBody>
       </Table>
     </div>
