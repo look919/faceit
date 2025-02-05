@@ -9,7 +9,7 @@ const countKda = (kills: number, deaths: number, assists: number) => {
 };
 
 const main = async () => {
-  const rawData = readFileSync("./stats.json", "utf8");
+  const rawData = readFileSync("./src/data/stats.json", "utf8");
   const stats = JSON.parse(rawData) as Stats[];
 
   for (const [steamId, data] of Object.entries(stats)) {
