@@ -30,7 +30,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
       {
         accessorKey: "winRatePercentage",
         header: "Win Rate",
-        cell: ({ getValue }) => `${getValue<number>().toFixed(2)}%`,
+        cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
         maxSize: 60,
       },
       {
@@ -96,7 +96,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
       {
         accessorKey: "headshotPercentage",
         header: "HS %",
-        cell: ({ getValue }) => `${getValue<number>().toFixed(2)}%`,
+        cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
         maxSize: 60,
       },
       {
@@ -121,7 +121,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         accessorKey: "roundsWinPercentage",
         header: "Rounds Win %",
         maxSize: 60,
-        cell: ({ getValue }) => `${getValue<number>().toFixed(2)}%`,
+        cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
       },
       {
         accessorKey: "damagePerGame",
