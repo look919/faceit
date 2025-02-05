@@ -20,7 +20,7 @@ export type DataTableRecord = {
   roundsWon: number;
   totalRounds: number;
   headshotsPerGame: number;
-  roundPerGame: number;
+  roundsWonPerGame: number;
   totalRoundsPerGame: number;
   roundsWinPercentage: number;
   damage: number;
