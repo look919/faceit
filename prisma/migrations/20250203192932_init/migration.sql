@@ -1,0 +1,28 @@
+-- CreateTable
+CREATE TABLE "PlayerStats" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "winRatePercentage" REAL NOT NULL,
+    "gamesPlayed" INTEGER NOT NULL,
+    "gamesWon" INTEGER NOT NULL,
+    "gamesLost" INTEGER NOT NULL,
+    "gamesDrawn" INTEGER NOT NULL,
+    "kda" REAL NOT NULL,
+    "killsPerGame" REAL NOT NULL,
+    "deathsPerGame" REAL NOT NULL,
+    "assistsPerGame" REAL NOT NULL,
+    "damagePerRound" REAL NOT NULL,
+    "damagePerGame" REAL NOT NULL,
+    "headshotPercentage" REAL NOT NULL,
+    "kills" INTEGER NOT NULL,
+    "deaths" INTEGER NOT NULL,
+    "assists" INTEGER NOT NULL,
+    "headshots" INTEGER NOT NULL,
+    "roundsWon" INTEGER NOT NULL,
+    "totalRounds" INTEGER NOT NULL,
+    "headshotsPerGame" REAL NOT NULL,
+    "roundPerGame" REAL NOT NULL,
+    "totalRoundsPerGame" REAL NOT NULL,
+    "roundsWinPercentage" REAL NOT NULL,
+    "damage" INTEGER NOT NULL
+);

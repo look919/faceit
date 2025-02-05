@@ -1,0 +1,39 @@
+export type DataTableRecord = {
+  id: bigint;
+  name: string;
+  winRatePercentage: number;
+  gamesPlayed: number;
+  gamesWon: number;
+  gamesLost: number;
+  gamesDrawn: number;
+  kda: number;
+  killsPerGame: number;
+  deathsPerGame: number;
+  assistsPerGame: number;
+  damagePerRound: number;
+  damagePerGame: number;
+  headshotPercentage: number;
+  kills: number;
+  deaths: number;
+  assists: number;
+  headshots: number;
+  roundsWon: number;
+  totalRounds: number;
+  headshotsPerGame: number;
+  roundPerGame: number;
+  totalRoundsPerGame: number;
+  roundsWinPercentage: number;
+  damage: number;
+};
+
+export type Stats = {
+  kills: number;
+  deaths: number;
+  assists: number;
+  headshots: number;
+  rounds_won: number;
+  total_rounds: number;
+  damage: number;
+  match_outcome: "Win" | "Loss" | "Draw";
+  name: string;
+};
