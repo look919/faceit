@@ -1,0 +1,112 @@
+{
+  "76561198012973043": {
+    "name": "Spectral.",
+    "kills": 11,
+    "deaths": 18,
+    "assists": 6,
+    "headshots": 4,
+    "damage": 1589,
+    "rounds_won": 7,
+    "total_rounds": 20,
+    "match_outcome": "Loss"
+  },
+  "76561198021072691": {
+    "name": "Cashotto",
+    "kills": 14,
+    "deaths": 16,
+    "assists": 8,
+    "headshots": 3,
+    "damage": 1610,
+    "rounds_won": 7,
+    "total_rounds": 20,
+    "match_outcome": "Loss"
+  },
+  "76561198052806870": {
+    "name": "МadMax",
+    "kills": 17,
+    "deaths": 13,
+    "assists": 5,
+    "headshots": 5,
+    "damage": 1949,
+    "rounds_won": 13,
+    "total_rounds": 20,
+    "match_outcome": "Win"
+  },
+  "76561198057152777": {
+    "name": "Arturek",
+    "kills": 15,
+    "deaths": 19,
+    "assists": 4,
+    "headshots": 7,
+    "damage": 2141,
+    "rounds_won": 7,
+    "total_rounds": 20,
+    "match_outcome": "Loss"
+  },
+  "76561198137842758": {
+    "name": "Tomi",
+    "kills": 16,
+    "deaths": 17,
+    "assists": 5,
+    "headshots": 11,
+    "damage": 2237,
+    "rounds_won": 7,
+    "total_rounds": 20,
+    "match_outcome": "Loss"
+  },
+  "76561198331672091": {
+    "name": "DeiDaRa",
+    "kills": 12,
+    "deaths": 18,
+    "assists": 4,
+    "headshots": 4,
+    "damage": 1720,
+    "rounds_won": 7,
+    "total_rounds": 20,
+    "match_outcome": "Loss"
+  },
+  "76561198434276633": {
+    "name": "ElefanT",
+    "kills": 28,
+    "deaths": 13,
+    "assists": 6,
+    "headshots": 13,
+    "damage": 4127,
+    "rounds_won": 13,
+    "total_rounds": 20,
+    "match_outcome": "Win"
+  },
+  "76561198829696008": {
+    "name": "USYK",
+    "kills": 16,
+    "deaths": 13,
+    "assists": 4,
+    "headshots": 4,
+    "damage": 2013,
+    "rounds_won": 13,
+    "total_rounds": 20,
+    "match_outcome": "Win"
+  },
+  "76561198961450375": {
+    "name": "UKROP",
+    "kills": 16,
+    "deaths": 13,
+    "assists": 5,
+    "headshots": 5,
+    "damage": 1862,
+    "rounds_won": 13,
+    "total_rounds": 20,
+    "match_outcome": "Win"
+  },
+  "76561199522084942": {
+    "name": "VETALь",
+    "kills": 11,
+    "deaths": 16,
+    "assists": 6,
+    "headshots": 5,
+    "damage": 1606,
+    "rounds_won": 13,
+    "total_rounds": 20,
+    "match_outcome": "Win"
+  }
+}
