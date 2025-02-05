@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "node loadStatsToPrisma.js && git push origin main"
   },
   "dependencies": {
     "@prisma/client": "^6.3.0",
