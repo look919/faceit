@@ -81,7 +81,7 @@ export const RandomizeTeams = () => {
   return (
     <div className="flex flex-col gap-6 w-full justify-center items-center">
       <Input onKeyDown={addPlayerOnEnter} className="max-w-64" />
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap p-4 justify-center">
         {allPlayers.map((player) => {
           return (
             <Toggle
