@@ -1,11 +1,45 @@
 import { columns } from "./DataTable/columns";
 import { DataTable } from "./DataTable/DataTable";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 
-export default async function Home() {
+const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
+  {
+    winRatePercentage: "desc", // Order by winRatePercentage (descending)
+  },
+  {
+    gamesPlayed: "desc", // Order by gamesPlayed (descending)
+  },
+  {
+    kda: "desc", // Order by KDA (descending)
+  },
+];
+
+const getAllPlayers = async () => {
   const prisma = new PrismaClient();
 
-  const players = await prisma.playerStats.findMany();
+  const playersWithThreeOrMoreGames = await prisma.playerStats.findMany({
+    where: {
+      gamesPlayed: {
+        gte: 3,
+      },
+    },
+    orderBy,
+  });
+
+  const playersWithLessThan3Games = await prisma.playerStats.findMany({
+    where: {
+      gamesPlayed: {
+        lt: 3,
+      },
+    },
+    orderBy,
+  });
+
+  return [...playersWithThreeOrMoreGames, ...playersWithLessThan3Games];
+};
+
+export default async function Home() {
+  const players = await getAllPlayers();
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
