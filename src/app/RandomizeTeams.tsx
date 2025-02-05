@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Toggle } from "@/components/ui/toggle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function randomizeIndexes(): [number[], number[]] {
   const allNumbers = Array.from({ length: 10 }, (_, i) => i); // Array of numbers from 0 to 9
@@ -24,12 +24,11 @@ function randomizeIndexes(): [number[], number[]] {
   return [randomizedArray, remainingArray];
 }
 export const RandomizeTeams = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const [randomizeState, setRandomizeState] = useState<
     "not_initiated" | "initiated" | "randomized"
   >("not_initiated");
-  const [allPlayers, setAllPlayers] = useState<string[]>(
-    JSON.parse(localStorage.getItem("players") || "[]")
-  );
+  const [allPlayers, setAllPlayers] = useState<string[]>([]);
 
   const [selectedPlayers, setSelectedPlayers] = useState<string[]>([]);
   const [randomizedIndexes, setRandomizedIndexes] = useState<
@@ -42,6 +41,14 @@ export const RandomizeTeams = () => {
       setSelectedPlayers([...selectedPlayers, player]);
     }
   };
+
+  useEffect(() => {
+    // Check if localStorage is available (i.e., not on the server side)
+    if (typeof window !== "undefined" && !isMounted) {
+      setAllPlayers(JSON.parse(localStorage.getItem("players") || "[]"));
+      setIsMounted(true);
+    }
+  }, [isMounted]);
 
   const addPlayerOnEnter = async (
     event: React.KeyboardEvent<HTMLInputElement>
