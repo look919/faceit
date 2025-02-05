@@ -1,7 +1,12 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, Getter } from "@tanstack/react-table";
 import { DataTableRecord } from "./types";
+
+const renderDecimalValue = (getValue: Getter<number>) => {
+  const value = getValue();
+  return value % 1 === 0 ? value.toFixed(0) : value.toFixed(2);
+};
 
 export const columns: ColumnDef<DataTableRecord>[] = [
   {
@@ -61,28 +66,31 @@ export const columns: ColumnDef<DataTableRecord>[] = [
       {
         accessorKey: "kda",
         header: "KDA",
-        cell: ({ getValue }) => `${getValue<number>().toFixed(2)}`,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
       {
         accessorKey: "killsPerGame",
         header: "Kills",
         maxSize: 60,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
       },
       {
         accessorKey: "deathsPerGame",
         header: "Deaths",
         maxSize: 60,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
       },
       {
         accessorKey: "assistsPerGame",
         header: "Assists",
         maxSize: 60,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
       },
       {
         accessorKey: "damagePerRound",
         header: "ADR",
-        cell: ({ getValue }) => `${getValue<number>().toFixed(2)}`,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
       {
@@ -95,16 +103,19 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         accessorKey: "headshotsPerGame",
         header: "HSs Per Game",
         maxSize: 60,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
       },
       {
         accessorKey: "roundsWonPerGame",
         header: "Rounds win per Game",
         maxSize: 60,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
       },
       {
         accessorKey: "totalRoundsPerGame",
         header: "Rounds Per Game",
         maxSize: 60,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
       },
       {
         accessorKey: "roundsWinPercentage",
@@ -116,6 +127,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         accessorKey: "damagePerGame",
         header: "DMG per game",
         maxSize: 60,
+        cell: ({ getValue }) => renderDecimalValue(getValue),
       },
     ],
   },
