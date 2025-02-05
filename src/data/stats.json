@@ -5,7 +5,7 @@
     "deaths": 14,
     "assists": 4,
     "headshots": 6,
-    "damage": 1807,
+    "damage": 1288,
     "rounds_won": 13,
     "total_rounds": 20,
     "match_outcome": "Win"
@@ -16,7 +16,7 @@
     "deaths": 16,
     "assists": 1,
     "headshots": 11,
-    "damage": 2315,
+    "damage": 1751,
     "rounds_won": 7,
     "total_rounds": 20,
     "match_outcome": "Loss"
@@ -27,7 +27,7 @@
     "deaths": 14,
     "assists": 7,
     "headshots": 8,
-    "damage": 1683,
+    "damage": 1371,
     "rounds_won": 13,
     "total_rounds": 20,
     "match_outcome": "Win"
@@ -38,7 +38,7 @@
     "deaths": 17,
     "assists": 5,
     "headshots": 5,
-    "damage": 1638,
+    "damage": 1434,
     "rounds_won": 13,
     "total_rounds": 20,
     "match_outcome": "Win"
@@ -49,7 +49,7 @@
     "deaths": 17,
     "assists": 5,
     "headshots": 4,
-    "damage": 1525,
+    "damage": 1237,
     "rounds_won": 7,
     "total_rounds": 20,
     "match_outcome": "Loss"
@@ -60,7 +60,7 @@
     "deaths": 15,
     "assists": 3,
     "headshots": 8,
-    "damage": 2295,
+    "damage": 1572,
     "rounds_won": 7,
     "total_rounds": 20,
     "match_outcome": "Loss"
@@ -71,7 +71,7 @@
     "deaths": 15,
     "assists": 5,
     "headshots": 11,
-    "damage": 2523,
+    "damage": 2076,
     "rounds_won": 7,
     "total_rounds": 20,
     "match_outcome": "Loss"
@@ -82,7 +82,7 @@
     "deaths": 16,
     "assists": 7,
     "headshots": 8,
-    "damage": 2074,
+    "damage": 1755,
     "rounds_won": 13,
     "total_rounds": 20,
     "match_outcome": "Win"
@@ -93,7 +93,7 @@
     "deaths": 15,
     "assists": 5,
     "headshots": 12,
-    "damage": 3144,
+    "damage": 2515,
     "rounds_won": 13,
     "total_rounds": 20,
     "match_outcome": "Win"
@@ -104,7 +104,7 @@
     "deaths": 17,
     "assists": 5,
     "headshots": 9,
-    "damage": 2549,
+    "damage": 1742,
     "rounds_won": 7,
     "total_rounds": 20,
     "match_outcome": "Loss"
