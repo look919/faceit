@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Statystyki graczy",
-  description: "Graczy Ji, ale nie tylko, bo jest też np. Michał",
+  title: "Czy Michal bedzie zamykal tabele?",
+  description: "Gracze Ji, ale nie tylko, bo jest też np. Michał",
 };
 
 export default function RootLayout({
