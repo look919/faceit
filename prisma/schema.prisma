@@ -36,4 +36,5 @@ model PlayerStats {
   totalRoundsPerGame Float
   roundsWinPercentage Float
   damage            Int
+  knifeKills        Int   @default(0)
 }
