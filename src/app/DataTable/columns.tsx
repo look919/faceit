@@ -156,6 +156,11 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         maxSize: 60,
       },
       {
+        accessorKey: "knifeKills",
+        header: "Knives",
+        maxSize: 60,
+      },
+      {
         accessorKey: "damage",
         header: "DMG",
         maxSize: 60,

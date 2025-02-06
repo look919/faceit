@@ -36,4 +36,5 @@ export type Stats = {
   damage: number;
   match_outcome: "Win" | "Loss" | "Draw";
   name: string;
+  knife_kills: number;
 };

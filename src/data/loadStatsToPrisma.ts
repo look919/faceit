@@ -40,6 +40,9 @@ const main = async () => {
       roundsWon: existingPlayer
         ? existingPlayer.roundsWon + data.rounds_won
         : data.rounds_won,
+      knifeKills: existingPlayer
+        ? existingPlayer.knifeKills + data.knife_kills
+        : data.knife_kills,
     };
 
     const resultDeterminedStats = existingPlayer
