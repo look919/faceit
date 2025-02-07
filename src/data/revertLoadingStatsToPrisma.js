@@ -80,7 +80,9 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                     return [3 /*break*/, 7];
                 }
                 if (!(existingPlayer.gamesPlayed === 1)) return [3 /*break*/, 5];
-                return [4 /*yield*/, prisma.playerStats.delete({ where: { id: Number(steamId) } })];
+                return [4 /*yield*/, prisma[model].delete({
+                        where: { id: Number(steamId) },
+                    })];
             case 4:
                 _e.sent();
                 console.log("Removed player ".concat(steamId, " (first game undone)."));
@@ -129,7 +131,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                         ? (collectableStats.roundsWon / collectableStats.totalRounds) * 100
                         : 0,
                 };
-                return [4 /*yield*/, prisma.playerStats.update({
+                return [4 /*yield*/, prisma[model].update({
                         where: { id: Number(steamId) },
                         data: __assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats),
                     })];

@@ -8,14 +8,7 @@ const countKda = (kills: number, deaths: number, assists: number) => {
   return (kills + assists * 0.5) / Math.max(1, deaths);
 };
 
-const resetSessionStats = async () => {
-  await prisma.sessionPlayerStats.deleteMany();
-  console.log("Session stats reset.");
-};
-
 const main = async () => {
-  await resetSessionStats(); // Clear session stats at the start
-
   const rawData = readFileSync("./src/data/stats.json", "utf8");
   const stats = JSON.parse(rawData) as Stats[];
 

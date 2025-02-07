@@ -53,40 +53,27 @@ var prisma = new client_1.PrismaClient();
 var countKda = function (kills, deaths, assists) {
     return (kills + assists * 0.5) / Math.max(1, deaths);
 };
-var resetSessionStats = function () { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, prisma.sessionPlayerStats.deleteMany()];
-            case 1:
-                _a.sent();
-                console.log("Session stats reset.");
-                return [2 /*return*/];
-        }
-    });
-}); };
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
     var rawData, stats, _i, _a, _b, steamId, data, _c, _d, model, existingPlayer, collectableStats, resultDeterminedStats, countableStats;
     return __generator(this, function (_e) {
         switch (_e.label) {
-            case 0: return [4 /*yield*/, resetSessionStats()];
-            case 1:
-                _e.sent(); // Clear session stats at the start
+            case 0:
                 rawData = (0, fs_1.readFileSync)("./src/data/stats.json", "utf8");
                 stats = JSON.parse(rawData);
                 _i = 0, _a = Object.entries(stats);
-                _e.label = 2;
-            case 2:
-                if (!(_i < _a.length)) return [3 /*break*/, 8];
+                _e.label = 1;
+            case 1:
+                if (!(_i < _a.length)) return [3 /*break*/, 7];
                 _b = _a[_i], steamId = _b[0], data = _b[1];
                 _c = 0, _d = ["playerStats", "sessionPlayerStats"];
-                _e.label = 3;
-            case 3:
-                if (!(_c < _d.length)) return [3 /*break*/, 7];
+                _e.label = 2;
+            case 2:
+                if (!(_c < _d.length)) return [3 /*break*/, 6];
                 model = _d[_c];
                 return [4 /*yield*/, prisma[model].findUnique({
                         where: { id: Number(steamId) },
                     })];
-            case 4:
+            case 3:
                 existingPlayer = _e.sent();
                 collectableStats = {
                     gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
@@ -153,16 +140,16 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                         create: __assign(__assign(__assign({ id: Number(steamId) }, collectableStats), resultDeterminedStats), countableStats),
                         update: __assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats),
                     })];
-            case 5:
+            case 4:
                 _e.sent();
-                _e.label = 6;
-            case 6:
+                _e.label = 5;
+            case 5:
                 _c++;
-                return [3 /*break*/, 3];
-            case 7:
-                _i++;
                 return [3 /*break*/, 2];
-            case 8:
+            case 6:
+                _i++;
+                return [3 /*break*/, 1];
+            case 7:
                 console.log("Stats updated in the database.");
                 return [2 /*return*/];
         }

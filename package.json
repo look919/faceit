@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "node src/data/loadStatsToPrisma.js && git add . && git commit -m \"Script loaded data to db\" && git push origin master"
+    "deploy": "node src/data/loadStatsToPrisma.js && git add . && git commit -m \"Script loaded data to db\" && git push origin master",
+    "loadStats": "node src/data/loadStatsToPrisma.js"
   },
   "dependencies": {
     "@prisma/client": "^6.3.0",
