@@ -24,7 +24,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
             .flatRows.findIndex((r) => r.id === row.id);
           return sortedIndex + 1;
         },
-        maxSize: 40,
+        maxSize: 20,
         enableSorting: false,
       },
       {
@@ -33,7 +33,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         cell: ({ row }) => (
           <div className="text-left">{row.getValue<number>("name")}</div>
         ),
-        minSize: 240,
+        minSize: 200,
         enableSorting: false,
       },
       {
@@ -62,6 +62,12 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         header: "Draws",
         maxSize: 60,
       },
+      {
+        accessorKey: "kda",
+        header: "KDA",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
+        maxSize: 60,
+      },
     ],
   },
   {
@@ -73,12 +79,6 @@ export const columns: ColumnDef<DataTableRecord>[] = [
     ),
     enableSorting: false,
     columns: [
-      {
-        accessorKey: "kda",
-        header: "KDA",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
       {
         accessorKey: "killsPerGame",
         header: "Kills",
