@@ -4,20 +4,29 @@ import { ColumnDef, Getter } from "@tanstack/react-table";
 import { DataTableRecord } from "./types";
 
 const renderDecimalValue = (getValue: Getter<number>) => {
-  const value = getValue();
-  return value % 1 === 0 ? value.toFixed(0) : value.toFixed(2);
+  return parseFloat(getValue().toFixed(2));
 };
 
 export const columns: ColumnDef<DataTableRecord>[] = [
   {
     accessorKey: "General",
     header: () => <div className="">General statistics</div>,
+    enableSorting: false,
     columns: [
       {
         accessorKey: "No.",
         header: "No.",
-        cell: ({ row }) => `${row.index + 1}`,
+        cell: ({ row, table }) => {
+          console.log(table.getSortedRowModel());
+
+          const sortedIndex = table
+            .getSortedRowModel()
+            .flatRows.findIndex((r) => r.id === row.id);
+          return sortedIndex + 1;
+          return `${table.getSortedRowModel().rowsById[row.id].index + 1}`;
+        },
         maxSize: 40,
+        enableSorting: false,
       },
       {
         accessorKey: "name",
@@ -62,6 +71,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         Average statistics
       </div>
     ),
+    enableSorting: false,
     columns: [
       {
         accessorKey: "kda",
@@ -134,6 +144,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
   {
     accessorKey: "total",
     header: () => <div className="">Total statistics</div>,
+    enableSorting: false,
     columns: [
       {
         accessorKey: "kills",
@@ -157,7 +168,12 @@ export const columns: ColumnDef<DataTableRecord>[] = [
       },
       {
         accessorKey: "knifeKills",
-        header: "Knives",
+        header: "Knife kills",
+        maxSize: 60,
+      },
+      {
+        accessorKey: "knifeDeaths",
+        header: "Knife deaths",
         maxSize: 60,
       },
       {

@@ -6,6 +6,7 @@ import {
   getCoreRowModel,
   useReactTable,
   getSortedRowModel,
+  SortingState,
 } from "@tanstack/react-table";
 
 import {
@@ -17,6 +18,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]; // columns definition for sorting
@@ -27,11 +29,14 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const [sorting, setSorting] = React.useState<SortingState>([]);
   const table = useReactTable({
     data,
     columns,
     getSortedRowModel: getSortedRowModel(),
     getCoreRowModel: getCoreRowModel(),
+    onSortingChange: setSorting,
+    state: { sorting },
   });
 
   if (table.getRowModel().rows.length === 0) {
@@ -48,14 +53,28 @@ export function DataTable<TData, TValue>({
                 <TableHead
                   key={header.id}
                   colSpan={header.colSpan}
-                  className="text-center border-x m-1 text-sm"
+                  className={cn(
+                    header.column.getCanSort()
+                      ? "cursor-pointer select-none"
+                      : "",
+                    "text-center border-x m-1 text-sm"
+                  )}
+                  onClick={header.column.getToggleSortingHandler()}
                 >
                   {header.isPlaceholder ? null : (
-                    <div>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
+                    <div className="flex justify-center items-center">
+                      <div>
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                      </div>
+                      <div>
+                        {{
+                          asc: " 🔼",
+                          desc: " 🔽",
+                        }[header.column.getIsSorted() as string] ?? null}
+                      </div>
                     </div>
                   )}
                 </TableHead>

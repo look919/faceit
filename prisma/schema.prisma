@@ -37,4 +37,35 @@ model PlayerStats {
   roundsWinPercentage Float
   damage            Int
   knifeKills        Int   @default(0)
+  knifeDeaths       Int   @default(0)
+}
+
+model SessionPlayerStats {
+  id                 BigInt     @id @default(autoincrement())
+  name               String
+  winRatePercentage  Float
+  gamesPlayed        Int
+  gamesWon           Int
+  gamesLost          Int
+  gamesDrawn         Int
+  kda               Float
+  killsPerGame      Float
+  deathsPerGame     Float
+  assistsPerGame    Float
+  damagePerRound    Float
+  damagePerGame     Float
+  headshotPercentage Float
+  kills             Int
+  deaths            Int
+  assists           Int
+  headshots         Int
+  roundsWon         Int
+  totalRounds       Int
+  headshotsPerGame  Float
+  roundsWonPerGame  Float
+  totalRoundsPerGame Float
+  roundsWinPercentage Float
+  damage            Int
+  knifeKills        Int   @default(0)
+  knifeDeaths       Int   @default(0)
 }
