@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Czy Michal bedzie zamykal tabele?",
+  title: "Tomeczki",
   description: "Gracze Ji, ale nie tylko, bo jest też np. Michał",
 };
 

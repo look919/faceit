@@ -48,14 +48,14 @@ export function DataTable<TData, TValue>({
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+            <TableRow key={headerGroup.id} className="hover:bg-slate-900">
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={header.id}
                   colSpan={header.colSpan}
                   className={cn(
                     header.column.getCanSort()
-                      ? "cursor-pointer select-none"
+                      ? "cursor-pointer select-none hover:bg-slate-800"
                       : "",
                     "text-center border-x m-1 text-sm"
                   )}
@@ -87,6 +87,7 @@ export function DataTable<TData, TValue>({
             <TableRow
               key={row.id}
               data-state={row.getIsSelected() && "selected"}
+              className="hover:bg-slate-600"
             >
               {row.getVisibleCells().map((cell) => (
                 <TableCell

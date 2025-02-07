@@ -88,7 +88,7 @@ export const RandomizeTeams = () => {
               pressed={selectedPlayers.includes(player)}
               onClick={() => togglePlayer(player)}
               className={
-                "data-[state=on]:bg-sky-300 data-[state=off]:bg-gray-600"
+                "data-[state=on]:bg-sky-300 data-[state=off]:bg-gray-600 hover:data-[state=off]:bg-gray-500 hover:data-[state=off]:text-white"
               }
               key={player}
             >
