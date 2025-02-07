@@ -21,8 +21,8 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]; // columns definition for sorting
-  data: TData[]; // data that needs to be sorted
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
 }
 
 export function DataTable<TData, TValue>({

@@ -23,7 +23,6 @@ export const columns: ColumnDef<DataTableRecord>[] = [
             .getSortedRowModel()
             .flatRows.findIndex((r) => r.id === row.id);
           return sortedIndex + 1;
-          return `${table.getSortedRowModel().rowsById[row.id].index + 1}`;
         },
         maxSize: 40,
         enableSorting: false,
@@ -35,6 +34,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
           <div className="text-left">{row.getValue<number>("name")}</div>
         ),
         minSize: 240,
+        enableSorting: false,
       },
       {
         accessorKey: "winRatePercentage",

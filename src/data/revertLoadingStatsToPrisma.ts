@@ -25,7 +25,9 @@ const main = async () => {
 
       // If this was the first game, remove the player from the database
       if (existingPlayer.gamesPlayed === 1) {
-        await prisma.playerStats.delete({ where: { id: Number(steamId) } });
+        await prisma[model as "playerStats"].delete({
+          where: { id: Number(steamId) },
+        });
         console.log(`Removed player ${steamId} (first game undone).`);
         continue;
       }
@@ -95,7 +97,7 @@ const main = async () => {
           : 0,
       };
 
-      await prisma.playerStats.update({
+      await prisma[model as "playerStats"].update({
         where: { id: Number(steamId) },
         data: {
           ...collectableStats,

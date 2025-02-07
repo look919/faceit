@@ -1,7 +1,9 @@
-import { columns } from "./DataTable/columns";
-import { DataTable } from "./DataTable/DataTable";
 import { PrismaClient, Prisma } from "@prisma/client";
 import { RandomizeTeams } from "./RandomizeTeams";
+import { Logo } from "./Logo";
+import { DataCategory } from "./DataTable/DataCategory";
+import { DataTable } from "./DataTable/DataTable";
+import { columns } from "./DataTable/columns";
 
 const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
@@ -15,7 +17,7 @@ const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   },
 ];
 
-const getAllPlayers = async () => {
+const getGeneralTabPlayers = async () => {
   const prisma = new PrismaClient();
 
   const playersWithThreeOrMoreGames = await prisma.playerStats.findMany({
@@ -39,22 +41,33 @@ const getAllPlayers = async () => {
   return [...playersWithThreeOrMoreGames, ...playersWithLessThan3Games];
 };
 
+const getSessionPlayers = async () => {
+  const prisma = new PrismaClient();
+
+  const sessionPlayers = await prisma.sessionPlayerStats.findMany({
+    orderBy,
+  });
+
+  return sessionPlayers;
+};
+
 export default async function Home() {
-  const players = await getAllPlayers();
+  const players = await getGeneralTabPlayers();
+  const sessionPlayers = await getSessionPlayers();
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen gap-16 pb-4 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div className="w-full flex mb-3 text-center p-2 justify-center">
-          <span className="text-sky-500 text-4xl rotate-6 inline-flex">
-            Tomeczki
-          </span>
-          <div className="text-2xl mx-2 mt-3">i</div>
-          <span className="text-red-500 text-4xl text-center -rotate-6 inline-flex">
-            Dupeczki
-          </span>
-        </div>
-        <DataTable columns={columns} data={players} />
+        <Logo />
+        {sessionPlayers.length === 0 ? (
+          <DataTable data={players} columns={columns} />
+        ) : (
+          <DataCategory
+            sessionPlayers={sessionPlayers}
+            generalPlayers={players}
+          />
+        )}
+
         <RandomizeTeams />
       </main>
       <footer className="row-start-3 text-center text-sm text-gray-500">
