@@ -20,25 +20,25 @@ const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
 const getGeneralTabPlayers = async () => {
   const prisma = new PrismaClient();
 
-  const playersWithThreeOrMoreGames = await prisma.playerStats.findMany({
+  const playersWithFiveOrMoreGames = await prisma.playerStats.findMany({
     where: {
       gamesPlayed: {
-        gte: 3,
+        gte: 5,
       },
     },
     orderBy,
   });
 
-  const playersWithLessThan3Games = await prisma.playerStats.findMany({
+  const playersWithLessThanFiveGames = await prisma.playerStats.findMany({
     where: {
       gamesPlayed: {
-        lt: 3,
+        lt: 5,
       },
     },
     orderBy,
   });
 
-  return [...playersWithThreeOrMoreGames, ...playersWithLessThan3Games];
+  return [...playersWithFiveOrMoreGames, ...playersWithLessThanFiveGames];
 };
 
 const getSessionPlayers = async () => {
