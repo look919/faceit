@@ -8,11 +8,18 @@ const countKda = (kills: number, deaths: number, assists: number) => {
   return (kills + assists * 0.5) / Math.max(1, deaths);
 };
 
+// Get player name from command-line arguments
+const args = process.argv.slice(2);
+const playerNameArg = args.find((arg) => arg.startsWith("--name="));
+const playerName = playerNameArg ? playerNameArg.split("=")[1] : null;
+
 const main = async () => {
   const rawData = readFileSync("./src/data/stats.json", "utf8");
   const stats = JSON.parse(rawData) as Stats[];
 
   for (const [steamId, data] of Object.entries(stats)) {
+    if (playerName && data.name !== playerName) continue; // Skip players that don't match
+
     for (const model of ["playerStats", "sessionPlayerStats"] as const) {
       const existingPlayer = await prisma[model as "playerStats"].findUnique({
         where: { id: Number(steamId) },

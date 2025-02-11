@@ -53,6 +53,10 @@ var prisma = new client_1.PrismaClient();
 var countKda = function (kills, deaths, assists) {
     return (kills + assists * 0.5) / Math.max(1, deaths);
 };
+// Get player name from command-line arguments
+var args = process.argv.slice(2);
+var playerNameArg = args.find(function (arg) { return arg.startsWith("--name="); });
+var playerName = playerNameArg ? playerNameArg.split("=")[1] : null;
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
     var rawData, stats, _i, _a, _b, steamId, data, _c, _d, model, existingPlayer, collectableStats, resultDeterminedStats, countableStats;
     return __generator(this, function (_e) {
@@ -63,92 +67,99 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 _i = 0, _a = Object.entries(stats);
                 _e.label = 1;
             case 1:
-                if (!(_i < _a.length)) return [3 /*break*/, 10];
+                if (!(_i < _a.length)) return [3 /*break*/, 7];
                 _b = _a[_i], steamId = _b[0], data = _b[1];
+                if (playerName && data.name !== playerName)
+                    return [3 /*break*/, 6]; // Skip players that don't match
                 _c = 0, _d = ["playerStats", "sessionPlayerStats"];
                 _e.label = 2;
             case 2:
-                if (!(_c < _d.length)) return [3 /*break*/, 8];
+                if (!(_c < _d.length)) return [3 /*break*/, 6];
                 model = _d[_c];
                 return [4 /*yield*/, prisma[model].findUnique({
                         where: { id: Number(steamId) },
                     })];
             case 3:
                 existingPlayer = _e.sent();
-                if (!existingPlayer) {
-                    console.log("Skipping player ".concat(steamId, " (not found in DB)."));
-                    return [3 /*break*/, 7];
-                }
-                if (!(existingPlayer.gamesPlayed === 1)) return [3 /*break*/, 5];
-                return [4 /*yield*/, prisma[model].delete({
-                        where: { id: Number(steamId) },
-                    })];
-            case 4:
-                _e.sent();
-                console.log("Removed player ".concat(steamId, " (first game undone)."));
-                return [3 /*break*/, 7];
-            case 5:
                 collectableStats = {
-                    gamesPlayed: existingPlayer.gamesPlayed - 1,
-                    kills: Math.max(0, existingPlayer.kills - data.kills),
-                    deaths: Math.max(0, existingPlayer.deaths - data.deaths),
-                    assists: Math.max(0, existingPlayer.assists - data.assists),
-                    headshots: Math.max(0, existingPlayer.headshots - data.headshots),
-                    damage: Math.max(0, existingPlayer.damage - data.damage),
-                    totalRounds: Math.max(0, existingPlayer.totalRounds - data.total_rounds),
-                    roundsWon: Math.max(0, existingPlayer.roundsWon - data.rounds_won),
-                    knifeKills: Math.max(0, existingPlayer.knifeKills - data.knife_kills),
-                    knifeDeaths: Math.max(0, existingPlayer.knifeDeaths - data.knife_deaths),
+                    gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
+                    name: data.name,
+                    kills: existingPlayer ? existingPlayer.kills + data.kills : data.kills,
+                    deaths: existingPlayer
+                        ? existingPlayer.deaths + data.deaths
+                        : data.deaths,
+                    assists: existingPlayer
+                        ? existingPlayer.assists + data.assists
+                        : data.assists,
+                    headshots: existingPlayer
+                        ? existingPlayer.headshots + data.headshots
+                        : data.headshots,
+                    damage: existingPlayer
+                        ? existingPlayer.damage + data.damage
+                        : data.damage,
+                    totalRounds: existingPlayer
+                        ? existingPlayer.totalRounds + data.total_rounds
+                        : data.total_rounds,
+                    roundsWon: existingPlayer
+                        ? existingPlayer.roundsWon + data.rounds_won
+                        : data.rounds_won,
+                    knifeKills: existingPlayer
+                        ? existingPlayer.knifeKills + data.knife_kills
+                        : data.knife_kills,
+                    knifeDeaths: existingPlayer
+                        ? existingPlayer.knifeDeaths + data.knife_deaths
+                        : data.knife_deaths,
                 };
-                resultDeterminedStats = {
-                    gamesWon: data.match_outcome === "Win"
-                        ? Math.max(0, existingPlayer.gamesWon - 1)
-                        : existingPlayer.gamesWon,
-                    gamesLost: data.match_outcome === "Loss"
-                        ? Math.max(0, existingPlayer.gamesLost - 1)
-                        : existingPlayer.gamesLost,
-                    gamesDrawn: data.match_outcome === "Draw"
-                        ? Math.max(0, existingPlayer.gamesDrawn - 1)
-                        : existingPlayer.gamesDrawn,
-                };
+                resultDeterminedStats = existingPlayer
+                    ? {
+                        gamesWon: data.match_outcome === "Win"
+                            ? existingPlayer.gamesWon + 1
+                            : existingPlayer.gamesWon,
+                        gamesLost: data.match_outcome === "Loss"
+                            ? existingPlayer.gamesLost + 1
+                            : existingPlayer.gamesLost,
+                        gamesDrawn: data.match_outcome === "Draw"
+                            ? existingPlayer.gamesDrawn + 1
+                            : existingPlayer.gamesDrawn,
+                    }
+                    : {
+                        gamesWon: data.match_outcome === "Win" ? 1 : 0,
+                        gamesLost: data.match_outcome === "Loss" ? 1 : 0,
+                        gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
+                    };
                 countableStats = {
                     kda: countKda(collectableStats.kills, collectableStats.deaths, collectableStats.assists),
                     killsPerGame: collectableStats.kills / collectableStats.gamesPlayed,
                     deathsPerGame: collectableStats.deaths / collectableStats.gamesPlayed,
                     assistsPerGame: collectableStats.assists / collectableStats.gamesPlayed,
-                    damagePerRound: collectableStats.totalRounds
-                        ? collectableStats.damage / collectableStats.totalRounds
-                        : 0,
+                    damagePerRound: collectableStats.damage / collectableStats.totalRounds,
                     damagePerGame: collectableStats.damage / collectableStats.gamesPlayed,
-                    headshotPercentage: collectableStats.kills
-                        ? (collectableStats.headshots / collectableStats.kills) * 100
-                        : 0,
+                    headshotPercentage: (collectableStats.headshots / collectableStats.kills) * 100,
                     winRatePercentage: (resultDeterminedStats.gamesWon / collectableStats.gamesPlayed) * 100,
                     headshotsPerGame: collectableStats.headshots / collectableStats.gamesPlayed,
                     roundsWonPerGame: collectableStats.roundsWon / collectableStats.gamesPlayed,
                     totalRoundsPerGame: collectableStats.totalRounds / collectableStats.gamesPlayed,
-                    roundsWinPercentage: collectableStats.totalRounds
-                        ? (collectableStats.roundsWon / collectableStats.totalRounds) * 100
-                        : 0,
+                    roundsWinPercentage: (collectableStats.roundsWon / collectableStats.totalRounds) * 100,
                 };
-                return [4 /*yield*/, prisma[model].update({
+                return [4 /*yield*/, prisma[model].upsert({
                         where: { id: Number(steamId) },
-                        data: __assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats),
+                        create: __assign(__assign(__assign({ id: Number(steamId) }, collectableStats), resultDeterminedStats), countableStats),
+                        update: __assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats),
                     })];
-            case 6:
+            case 4:
                 _e.sent();
-                console.log("Reverted stats for player ".concat(steamId, "."));
-                _e.label = 7;
-            case 7:
+                _e.label = 5;
+            case 5:
                 _c++;
                 return [3 /*break*/, 2];
-            case 8:
-                console.log("Stats reverted in the database.");
-                _e.label = 9;
-            case 9:
+            case 6:
                 _i++;
                 return [3 /*break*/, 1];
-            case 10: return [2 /*return*/];
+            case 7:
+                console.log(playerName
+                    ? "Stats updated for ".concat(playerName, ".")
+                    : "Stats updated for all players.");
+                return [2 /*return*/];
         }
     });
 }); };

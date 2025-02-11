@@ -8,9 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "node src/data/loadStatsToPrisma.js && git add . && git commit -m \"Script loaded data to db\" && git push origin master",
     "loadStats": "node src/data/loadStatsToPrisma.js",
-    "clearSession": "node src/data/clearSessionStats.js"
+    "revertStats": "node src/data/revertLoadingStatsToPrisma.js",
+    "clearSession": "node src/data/clearSessionStats.js",
+    "loadStatsForPlayer": "node src/data/loadStatsToPrismaForPlayer.js",
+    "revertStatsForPlayer": "node src/data/revertLoadingStatsToPrismaForPlayer.js",
+    "deploy": "pnpm run loadStats && git add . && git commit -m \"Script loaded data to db\" && git push origin master"
   },
   "dependencies": {
     "@prisma/client": "^6.3.0",

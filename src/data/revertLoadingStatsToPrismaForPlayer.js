@@ -53,6 +53,10 @@ var prisma = new client_1.PrismaClient();
 var countKda = function (kills, deaths, assists) {
     return (kills + assists * 0.5) / Math.max(1, deaths);
 };
+// Get player name from command-line arguments
+var args = process.argv.slice(2);
+var playerNameArg = args.find(function (arg) { return arg.startsWith("--name="); });
+var playerName = playerNameArg ? playerNameArg.split("=")[1] : null;
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
     var rawData, stats, _i, _a, _b, steamId, data, _c, _d, model, existingPlayer, collectableStats, resultDeterminedStats, countableStats;
     return __generator(this, function (_e) {
@@ -65,6 +69,8 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
             case 1:
                 if (!(_i < _a.length)) return [3 /*break*/, 10];
                 _b = _a[_i], steamId = _b[0], data = _b[1];
+                if (playerName && data.name !== playerName)
+                    return [3 /*break*/, 9]; // Skip players that don't match
                 _c = 0, _d = ["playerStats", "sessionPlayerStats"];
                 _e.label = 2;
             case 2:
