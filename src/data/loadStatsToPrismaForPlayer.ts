@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PlayerStats, PrismaClient, WeaponStats } from "@prisma/client";
 import { readFileSync } from "fs";
 import { Stats } from "../app/DataTable/types";
 
@@ -21,9 +21,13 @@ const main = async () => {
     if (playerName && data.name !== playerName) continue; // Skip players that don't match
 
     for (const model of ["playerStats", "sessionPlayerStats"] as const) {
-      const existingPlayer = await prisma[model as "playerStats"].findUnique({
-        where: { id: Number(steamId) },
-      });
+      const existingPlayer =
+        model === "playerStats"
+          ? await prisma[model].findUnique({
+              where: { id: Number(steamId) },
+              include: { weapons: model === "playerStats" },
+            })
+          : await prisma[model].findUnique({ where: { id: Number(steamId) } });
 
       const collectableStats = {
         gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
@@ -101,6 +105,7 @@ const main = async () => {
           (collectableStats.roundsWon / collectableStats.totalRounds) * 100,
       };
 
+      // 1. Update or create player stats
       await prisma[model as "playerStats"].upsert({
         where: { id: Number(steamId) },
         create: {
@@ -115,6 +120,42 @@ const main = async () => {
           ...countableStats,
         },
       });
+
+      if (model === "playerStats") {
+        // 2. Handle weapon stats separately
+        const weaponStats = Object.entries(data.weapons).map(
+          ([weapon, kills]) => {
+            const existingWeapon = (
+              existingPlayer as PlayerStats & { weapons: WeaponStats[] }
+            ).weapons?.find((weaponStat) => weaponStat.name === weapon);
+
+            if (existingWeapon) {
+              // Update existing weapon stats
+              return prisma.weaponStats.update({
+                where: { id: existingWeapon.id },
+                data: {
+                  totalKills: existingWeapon.totalKills + kills,
+                  averageKillsPerGame:
+                    (existingWeapon.totalKills + kills) /
+                    collectableStats.gamesPlayed,
+                },
+              });
+            } else {
+              // Create new weapon if it doesn't exist
+              return prisma.weaponStats.create({
+                data: {
+                  name: weapon,
+                  totalKills: kills,
+                  averageKillsPerGame: kills / collectableStats.gamesPlayed,
+                  playerId: Number(steamId),
+                },
+              });
+            }
+          }
+        );
+        // 3. Await all weapon updates/insertions
+        await Promise.all(weaponStats);
+      }
     }
   }
 

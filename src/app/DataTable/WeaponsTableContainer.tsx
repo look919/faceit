@@ -36,7 +36,8 @@ export const WeaponsTableContainer = (props: WeaponsTableContainerProps) => {
           AVG
         </Label>
       </div>
-      <DataTable data={mappedWeaponsData} columns={columns as any} />
+      {/* @ts-expect-error: cant fix that */}
+      <DataTable data={mappedWeaponsData} columns={columns} />
     </div>
   );
 };

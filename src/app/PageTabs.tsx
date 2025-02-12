@@ -3,23 +3,21 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SessionPlayerStats } from "@prisma/client";
 import React from "react";
 
-import { StatsTableContainer } from "./StatsTableContainer";
-import { RandomizeTeams } from "../RandomizeTeams";
-import { WeaponsTableContainer } from "./WeaponsTableContainer";
-import { PlayerStatsWithWeapons } from "./mapWeaponsData";
+import { StatsTableContainer } from "./DataTable/StatsTableContainer";
+import { RandomizeTeams } from "./RandomizeTeams";
+import { WeaponsTableContainer } from "./DataTable/WeaponsTableContainer";
+import { PlayerStatsWithWeapons } from "./DataTable/mapWeaponsData";
 
-type StatsCategoryProps = {
+type PageTabsProps = {
   generalPlayers: PlayerStatsWithWeapons[];
   sessionPlayers: SessionPlayerStats[];
 };
 
 type Tab = "session" | "general" | "randomize_teams";
 
-export const StatsCategory = ({
-  generalPlayers,
-  sessionPlayers,
-}: StatsCategoryProps) => {
-  const [category, setCategory] = React.useState<Tab>("session");
+export const PageTabs = ({ generalPlayers, sessionPlayers }: PageTabsProps) => {
+  const [category, setCategory] = React.useState<Tab>("general");
+  const isThereAnySessionData = sessionPlayers.length > 0;
 
   return (
     <Tabs
@@ -27,8 +25,10 @@ export const StatsCategory = ({
       onValueChange={(newValue) => setCategory(newValue as Tab)}
     >
       <TabsList className="my-2">
-        <TabsTrigger value="session">Session</TabsTrigger>
         <TabsTrigger value="general">General</TabsTrigger>
+        {isThereAnySessionData ? (
+          <TabsTrigger value="session">Session</TabsTrigger>
+        ) : null}
         <TabsTrigger value="randomize_teams">Randomize teams</TabsTrigger>
       </TabsList>
       {category === "randomize_teams" ? (

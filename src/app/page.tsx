@@ -1,8 +1,6 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 import { Logo } from "./Logo";
-import { StatsCategory } from "./DataTable/StatsCategory";
-
-import { StatsTableContainer } from "./DataTable/StatsTableContainer";
+import { PageTabs } from "./PageTabs";
 
 const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
@@ -64,14 +62,8 @@ export default async function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen gap-16 pb-4 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Logo />
-        {sessionPlayers.length === 0 ? (
-          <StatsTableContainer data={players} />
-        ) : (
-          <StatsCategory
-            sessionPlayers={sessionPlayers}
-            generalPlayers={players}
-          />
-        )}
+
+        <PageTabs sessionPlayers={sessionPlayers} generalPlayers={players} />
       </main>
       <footer className="row-start-3 text-center text-sm text-gray-500">
         Wirkus.pro 2025
