@@ -7,68 +7,121 @@ const renderDecimalValue = (getValue: Getter<number>) => {
   return parseFloat(getValue().toFixed(2));
 };
 
-export const columns: ColumnDef<DataTableRecord>[] = [
+const startColumns: ColumnDef<DataTableRecord>[] = [
+  {
+    accessorKey: "No.",
+    header: "No.",
+    cell: ({ row, table }) => {
+      const sortedIndex = table
+        .getSortedRowModel()
+        .flatRows.findIndex((r) => r.id === row.id);
+      return sortedIndex + 1;
+    },
+    maxSize: 20,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "name",
+    header: "Name",
+    cell: ({ row }) => (
+      <div className="text-left">{row.getValue<number>("name")}</div>
+    ),
+    minSize: 200,
+    enableSorting: false,
+  },
+];
+
+const generalColumns: ColumnDef<DataTableRecord>[] = [
+  {
+    accessorKey: "winRatePercentage",
+    header: "Win Rate",
+    cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
+    maxSize: 60,
+  },
+  {
+    accessorKey: "gamesPlayed",
+    header: "Games",
+    maxSize: 60,
+  },
+  {
+    accessorKey: "gamesWon",
+    header: "Wins",
+    maxSize: 60,
+  },
+  {
+    accessorKey: "gamesLost",
+    header: "Losses",
+    maxSize: 60,
+  },
+  {
+    accessorKey: "gamesDrawn",
+    header: "Draws",
+    maxSize: 60,
+  },
+  {
+    accessorKey: "kda",
+    header: "KDA",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
+    maxSize: 60,
+  },
+  {
+    accessorKey: "knifeKills",
+    header: "Knife kills",
+    maxSize: 60,
+  },
+  {
+    accessorKey: "knifeDeaths",
+    header: "Knife deaths",
+    maxSize: 60,
+  },
+];
+
+const basicAverageColumns: ColumnDef<DataTableRecord>[] = [
+  {
+    accessorKey: "killsPerGame",
+    header: "Kills",
+    maxSize: 60,
+    cell: ({ getValue }) => renderDecimalValue(getValue),
+  },
+  {
+    accessorKey: "deathsPerGame",
+    header: "Deaths",
+    maxSize: 60,
+    cell: ({ getValue }) => renderDecimalValue(getValue),
+  },
+  {
+    accessorKey: "assistsPerGame",
+    header: "Assists",
+    maxSize: 60,
+    cell: ({ getValue }) => renderDecimalValue(getValue),
+  },
+  {
+    accessorKey: "damagePerRound",
+    header: "ADR",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
+    maxSize: 60,
+  },
+  {
+    accessorKey: "headshotPercentage",
+    header: "HS %",
+    cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
+    maxSize: 60,
+  },
+  {
+    accessorKey: "roundsWinPercentage",
+    header: "Rounds Win %",
+    maxSize: 60,
+    cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
+  },
+];
+
+export const simpleColumns: ColumnDef<DataTableRecord>[] = [
+  ...startColumns,
   {
     accessorKey: "General",
     header: () => <div className="">General statistics</div>,
     enableSorting: false,
-    columns: [
-      {
-        accessorKey: "No.",
-        header: "No.",
-        cell: ({ row, table }) => {
-          console.log(table.getSortedRowModel());
-
-          const sortedIndex = table
-            .getSortedRowModel()
-            .flatRows.findIndex((r) => r.id === row.id);
-          return sortedIndex + 1;
-        },
-        maxSize: 20,
-        enableSorting: false,
-      },
-      {
-        accessorKey: "name",
-        header: "Name",
-        cell: ({ row }) => (
-          <div className="text-left">{row.getValue<number>("name")}</div>
-        ),
-        minSize: 200,
-        enableSorting: false,
-      },
-      {
-        accessorKey: "winRatePercentage",
-        header: "Win Rate",
-        cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
-        maxSize: 60,
-      },
-      {
-        accessorKey: "gamesPlayed",
-        header: "Games",
-        maxSize: 60,
-      },
-      {
-        accessorKey: "gamesWon",
-        header: "Wins",
-        maxSize: 60,
-      },
-      {
-        accessorKey: "gamesLost",
-        header: "Losses",
-        maxSize: 60,
-      },
-      {
-        accessorKey: "gamesDrawn",
-        header: "Draws",
-        maxSize: 60,
-      },
-      {
-        accessorKey: "kda",
-        header: "KDA",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-    ],
+    columns: generalColumns,
   },
   {
     accessorKey: "average",
@@ -78,37 +131,28 @@ export const columns: ColumnDef<DataTableRecord>[] = [
       </div>
     ),
     enableSorting: false,
+    columns: basicAverageColumns,
+  },
+];
+
+export const advancedColumns: ColumnDef<DataTableRecord>[] = [
+  ...startColumns,
+  {
+    accessorKey: "advanced General",
+    header: () => <div className="">General statistics</div>,
+    enableSorting: false,
+    columns: generalColumns,
+  },
+  {
+    accessorKey: "advanced average",
+    header: () => (
+      <div className="flex justify-center w-full col-span-full">
+        Average statistics
+      </div>
+    ),
+    enableSorting: false,
     columns: [
-      {
-        accessorKey: "killsPerGame",
-        header: "Kills",
-        maxSize: 60,
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
-      {
-        accessorKey: "deathsPerGame",
-        header: "Deaths",
-        maxSize: 60,
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
-      {
-        accessorKey: "assistsPerGame",
-        header: "Assists",
-        maxSize: 60,
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
-      {
-        accessorKey: "damagePerRound",
-        header: "ADR",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-      {
-        accessorKey: "headshotPercentage",
-        header: "HS %",
-        cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
-        maxSize: 60,
-      },
+      ...basicAverageColumns,
       {
         accessorKey: "headshotsPerGame",
         header: "HSs Per Game",
@@ -126,12 +170,6 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         header: "Rounds Per Game",
         maxSize: 60,
         cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
-      {
-        accessorKey: "roundsWinPercentage",
-        header: "Rounds Win %",
-        maxSize: 60,
-        cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
       },
       {
         accessorKey: "damagePerGame",
@@ -166,16 +204,7 @@ export const columns: ColumnDef<DataTableRecord>[] = [
         header: "HS's",
         maxSize: 60,
       },
-      {
-        accessorKey: "knifeKills",
-        header: "Knife kills",
-        maxSize: 60,
-      },
-      {
-        accessorKey: "knifeDeaths",
-        header: "Knife deaths",
-        maxSize: 60,
-      },
+
       {
         accessorKey: "damage",
         header: "DMG",

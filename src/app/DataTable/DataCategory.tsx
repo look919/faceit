@@ -1,9 +1,9 @@
 "use client";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { DataTable } from "./DataTable";
-import { columns } from "./columns";
 import { PlayerStats, SessionPlayerStats } from "@prisma/client";
 import React from "react";
+
+import { DataTableContainer } from "./DataTableContainer";
 
 type DataCategoryProps = {
   generalPlayers: PlayerStats[];
@@ -29,8 +29,7 @@ export const DataCategory = ({
         <TabsTrigger value="session">Session</TabsTrigger>
         <TabsTrigger value="general">General</TabsTrigger>
       </TabsList>
-      <DataTable
-        columns={columns}
+      <DataTableContainer
         data={category === "session" ? sessionPlayers : generalPlayers}
       />
     </Tabs>

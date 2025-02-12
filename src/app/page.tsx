@@ -2,8 +2,8 @@ import { PrismaClient, Prisma } from "@prisma/client";
 import { RandomizeTeams } from "./RandomizeTeams";
 import { Logo } from "./Logo";
 import { DataCategory } from "./DataTable/DataCategory";
-import { DataTable } from "./DataTable/DataTable";
-import { columns } from "./DataTable/columns";
+
+import { DataTableContainer } from "./DataTable/DataTableContainer";
 
 const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
@@ -60,7 +60,7 @@ export default async function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Logo />
         {sessionPlayers.length === 0 ? (
-          <DataTable data={players} columns={columns} />
+          <DataTableContainer data={players} />
         ) : (
           <DataCategory
             sessionPlayers={sessionPlayers}
