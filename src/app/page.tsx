@@ -67,8 +67,6 @@ export default async function Home() {
             generalPlayers={players}
           />
         )}
-
-        <RandomizeTeams />
       </main>
       <footer className="row-start-3 text-center text-sm text-gray-500">
         Wirkus.pro 2025
