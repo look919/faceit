@@ -113,6 +113,46 @@ const main = async () => {
         },
       });
 
+      if (model === "playerStats") {
+        const existingWeapons = await prisma.weaponStats.findMany({
+          where: { playerId: Number(steamId) },
+        });
+
+        const weaponUpdates = Object.entries(data.weapons).map(
+          async ([weapon, kills]) => {
+            const existingWeapon = existingWeapons.find(
+              (w) => w.name === weapon
+            );
+
+            if (!existingWeapon) return;
+
+            const newTotalKills = Math.max(
+              0,
+              existingWeapon.totalKills - kills
+            );
+
+            if (newTotalKills === 0) {
+              // Remove weapon if it has no kills left
+              return prisma.weaponStats.delete({
+                where: { id: existingWeapon.id },
+              });
+            } else {
+              // Otherwise, update weapon stats
+              return prisma.weaponStats.update({
+                where: { id: existingWeapon.id },
+                data: {
+                  totalKills: newTotalKills,
+                  averageKillsPerGame:
+                    newTotalKills / collectableStats.gamesPlayed,
+                },
+              });
+            }
+          }
+        );
+
+        await Promise.all(weaponUpdates);
+      }
+
       console.log(`Reverted stats for player ${steamId}.`);
     }
 
