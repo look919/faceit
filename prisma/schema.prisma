@@ -38,6 +38,8 @@ model PlayerStats {
   damage            Int
   knifeKills        Int   @default(0)
   knifeDeaths       Int   @default(0)
+
+  weapons           WeaponStats[]
 }
 
 model SessionPlayerStats {
@@ -68,4 +70,13 @@ model SessionPlayerStats {
   damage            Int
   knifeKills        Int   @default(0)
   knifeDeaths       Int   @default(0)
+}
+
+model WeaponStats {
+  id          Int    @id @default(autoincrement())
+  name        String
+  totalKills       Int
+  averageKillsPerGame Float
+  playerId    BigInt
+  player      PlayerStats @relation(fields: [playerId], references: [id])
 }

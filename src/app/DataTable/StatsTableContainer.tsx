@@ -6,11 +6,11 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { DataTable } from "./DataTable";
 
-type DataTableContainerProps = {
+type StatsTableContainerProps = {
   data: PlayerStats[];
 };
 
-export const DataTableContainer = (props: DataTableContainerProps) => {
+export const StatsTableContainer = (props: StatsTableContainerProps) => {
   const [isChecked, setIsChecked] = React.useState(false);
 
   return (

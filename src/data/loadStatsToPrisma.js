@@ -54,102 +54,172 @@ var countKda = function (kills, deaths, assists) {
     return (kills + assists * 0.5) / Math.max(1, deaths);
 };
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var rawData, stats, _i, _a, _b, steamId, data, _c, _d, model, existingPlayer, collectableStats, resultDeterminedStats, countableStats;
-    return __generator(this, function (_e) {
-        switch (_e.label) {
+    var rawData, stats, _loop_1, _i, _a, _b, steamId, data;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
             case 0:
                 rawData = (0, fs_1.readFileSync)("./src/data/stats.json", "utf8");
                 stats = JSON.parse(rawData);
+                _loop_1 = function (steamId, data) {
+                    var _loop_2, _d, _e, model;
+                    return __generator(this, function (_f) {
+                        switch (_f.label) {
+                            case 0:
+                                _loop_2 = function (model) {
+                                    var existingPlayer, _g, collectableStats, resultDeterminedStats, countableStats, weaponStats;
+                                    return __generator(this, function (_h) {
+                                        switch (_h.label) {
+                                            case 0:
+                                                if (!(model === "playerStats")) return [3 /*break*/, 2];
+                                                return [4 /*yield*/, prisma[model].findUnique({
+                                                        where: { id: Number(steamId) },
+                                                        include: { weapons: model === "playerStats" },
+                                                    })];
+                                            case 1:
+                                                _g = _h.sent();
+                                                return [3 /*break*/, 4];
+                                            case 2: return [4 /*yield*/, prisma[model].findUnique({ where: { id: Number(steamId) } })];
+                                            case 3:
+                                                _g = _h.sent();
+                                                _h.label = 4;
+                                            case 4:
+                                                existingPlayer = _g;
+                                                collectableStats = {
+                                                    gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
+                                                    name: data.name,
+                                                    kills: existingPlayer ? existingPlayer.kills + data.kills : data.kills,
+                                                    deaths: existingPlayer
+                                                        ? existingPlayer.deaths + data.deaths
+                                                        : data.deaths,
+                                                    assists: existingPlayer
+                                                        ? existingPlayer.assists + data.assists
+                                                        : data.assists,
+                                                    headshots: existingPlayer
+                                                        ? existingPlayer.headshots + data.headshots
+                                                        : data.headshots,
+                                                    damage: existingPlayer
+                                                        ? existingPlayer.damage + data.damage
+                                                        : data.damage,
+                                                    totalRounds: existingPlayer
+                                                        ? existingPlayer.totalRounds + data.total_rounds
+                                                        : data.total_rounds,
+                                                    roundsWon: existingPlayer
+                                                        ? existingPlayer.roundsWon + data.rounds_won
+                                                        : data.rounds_won,
+                                                    knifeKills: existingPlayer
+                                                        ? existingPlayer.knifeKills + data.knife_kills
+                                                        : data.knife_kills,
+                                                    knifeDeaths: existingPlayer
+                                                        ? existingPlayer.knifeDeaths + data.knife_deaths
+                                                        : data.knife_deaths,
+                                                };
+                                                resultDeterminedStats = existingPlayer
+                                                    ? {
+                                                        gamesWon: data.match_outcome === "Win"
+                                                            ? existingPlayer.gamesWon + 1
+                                                            : existingPlayer.gamesWon,
+                                                        gamesLost: data.match_outcome === "Loss"
+                                                            ? existingPlayer.gamesLost + 1
+                                                            : existingPlayer.gamesLost,
+                                                        gamesDrawn: data.match_outcome === "Draw"
+                                                            ? existingPlayer.gamesDrawn + 1
+                                                            : existingPlayer.gamesDrawn,
+                                                    }
+                                                    : {
+                                                        gamesWon: data.match_outcome === "Win" ? 1 : 0,
+                                                        gamesLost: data.match_outcome === "Loss" ? 1 : 0,
+                                                        gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
+                                                    };
+                                                countableStats = {
+                                                    kda: countKda(collectableStats.kills, collectableStats.deaths, collectableStats.assists),
+                                                    killsPerGame: collectableStats.kills / collectableStats.gamesPlayed,
+                                                    deathsPerGame: collectableStats.deaths / collectableStats.gamesPlayed,
+                                                    assistsPerGame: collectableStats.assists / collectableStats.gamesPlayed,
+                                                    damagePerRound: collectableStats.damage / collectableStats.totalRounds,
+                                                    damagePerGame: collectableStats.damage / collectableStats.gamesPlayed,
+                                                    headshotPercentage: (collectableStats.headshots / collectableStats.kills) * 100,
+                                                    winRatePercentage: (resultDeterminedStats.gamesWon / collectableStats.gamesPlayed) * 100,
+                                                    headshotsPerGame: collectableStats.headshots / collectableStats.gamesPlayed,
+                                                    roundsWonPerGame: collectableStats.roundsWon / collectableStats.gamesPlayed,
+                                                    totalRoundsPerGame: collectableStats.totalRounds / collectableStats.gamesPlayed,
+                                                    roundsWinPercentage: (collectableStats.roundsWon / collectableStats.totalRounds) * 100,
+                                                };
+                                                // 1. Update or create player stats
+                                                return [4 /*yield*/, prisma[model].upsert({
+                                                        where: { id: Number(steamId) },
+                                                        create: __assign(__assign(__assign({ id: Number(steamId) }, collectableStats), resultDeterminedStats), countableStats),
+                                                        update: __assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats),
+                                                    })];
+                                            case 5:
+                                                // 1. Update or create player stats
+                                                _h.sent();
+                                                if (!(model === "playerStats")) return [3 /*break*/, 7];
+                                                weaponStats = Object.entries(data.weapons).map(function (_a) {
+                                                    var _b;
+                                                    var weapon = _a[0], kills = _a[1];
+                                                    var existingWeapon = (_b = existingPlayer.weapons) === null || _b === void 0 ? void 0 : _b.find(function (weaponStat) { return weaponStat.name === weapon; });
+                                                    if (existingWeapon) {
+                                                        // Update existing weapon stats
+                                                        return prisma.weaponStats.update({
+                                                            where: { id: existingWeapon.id },
+                                                            data: {
+                                                                totalKills: existingWeapon.totalKills + kills,
+                                                                averageKillsPerGame: (existingWeapon.totalKills + kills) /
+                                                                    collectableStats.gamesPlayed,
+                                                            },
+                                                        });
+                                                    }
+                                                    else {
+                                                        // Create new weapon if it doesn't exist
+                                                        return prisma.weaponStats.create({
+                                                            data: {
+                                                                name: weapon,
+                                                                totalKills: kills,
+                                                                averageKillsPerGame: kills / collectableStats.gamesPlayed,
+                                                                playerId: Number(steamId),
+                                                            },
+                                                        });
+                                                    }
+                                                });
+                                                // 3. Await all weapon updates/insertions
+                                                return [4 /*yield*/, Promise.all(weaponStats)];
+                                            case 6:
+                                                // 3. Await all weapon updates/insertions
+                                                _h.sent();
+                                                _h.label = 7;
+                                            case 7: return [2 /*return*/];
+                                        }
+                                    });
+                                };
+                                _d = 0, _e = ["playerStats", "sessionPlayerStats"];
+                                _f.label = 1;
+                            case 1:
+                                if (!(_d < _e.length)) return [3 /*break*/, 4];
+                                model = _e[_d];
+                                return [5 /*yield**/, _loop_2(model)];
+                            case 2:
+                                _f.sent();
+                                _f.label = 3;
+                            case 3:
+                                _d++;
+                                return [3 /*break*/, 1];
+                            case 4: return [2 /*return*/];
+                        }
+                    });
+                };
                 _i = 0, _a = Object.entries(stats);
-                _e.label = 1;
+                _c.label = 1;
             case 1:
-                if (!(_i < _a.length)) return [3 /*break*/, 7];
+                if (!(_i < _a.length)) return [3 /*break*/, 4];
                 _b = _a[_i], steamId = _b[0], data = _b[1];
-                _c = 0, _d = ["playerStats", "sessionPlayerStats"];
-                _e.label = 2;
+                return [5 /*yield**/, _loop_1(steamId, data)];
             case 2:
-                if (!(_c < _d.length)) return [3 /*break*/, 6];
-                model = _d[_c];
-                return [4 /*yield*/, prisma[model].findUnique({
-                        where: { id: Number(steamId) },
-                    })];
+                _c.sent();
+                _c.label = 3;
             case 3:
-                existingPlayer = _e.sent();
-                collectableStats = {
-                    gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
-                    name: data.name,
-                    kills: existingPlayer ? existingPlayer.kills + data.kills : data.kills,
-                    deaths: existingPlayer
-                        ? existingPlayer.deaths + data.deaths
-                        : data.deaths,
-                    assists: existingPlayer
-                        ? existingPlayer.assists + data.assists
-                        : data.assists,
-                    headshots: existingPlayer
-                        ? existingPlayer.headshots + data.headshots
-                        : data.headshots,
-                    damage: existingPlayer
-                        ? existingPlayer.damage + data.damage
-                        : data.damage,
-                    totalRounds: existingPlayer
-                        ? existingPlayer.totalRounds + data.total_rounds
-                        : data.total_rounds,
-                    roundsWon: existingPlayer
-                        ? existingPlayer.roundsWon + data.rounds_won
-                        : data.rounds_won,
-                    knifeKills: existingPlayer
-                        ? existingPlayer.knifeKills + data.knife_kills
-                        : data.knife_kills,
-                    knifeDeaths: existingPlayer
-                        ? existingPlayer.knifeDeaths + data.knife_deaths
-                        : data.knife_deaths,
-                };
-                resultDeterminedStats = existingPlayer
-                    ? {
-                        gamesWon: data.match_outcome === "Win"
-                            ? existingPlayer.gamesWon + 1
-                            : existingPlayer.gamesWon,
-                        gamesLost: data.match_outcome === "Loss"
-                            ? existingPlayer.gamesLost + 1
-                            : existingPlayer.gamesLost,
-                        gamesDrawn: data.match_outcome === "Draw"
-                            ? existingPlayer.gamesDrawn + 1
-                            : existingPlayer.gamesDrawn,
-                    }
-                    : {
-                        gamesWon: data.match_outcome === "Win" ? 1 : 0,
-                        gamesLost: data.match_outcome === "Loss" ? 1 : 0,
-                        gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
-                    };
-                countableStats = {
-                    kda: countKda(collectableStats.kills, collectableStats.deaths, collectableStats.assists),
-                    killsPerGame: collectableStats.kills / collectableStats.gamesPlayed,
-                    deathsPerGame: collectableStats.deaths / collectableStats.gamesPlayed,
-                    assistsPerGame: collectableStats.assists / collectableStats.gamesPlayed,
-                    damagePerRound: collectableStats.damage / collectableStats.totalRounds,
-                    damagePerGame: collectableStats.damage / collectableStats.gamesPlayed,
-                    headshotPercentage: (collectableStats.headshots / collectableStats.kills) * 100,
-                    winRatePercentage: (resultDeterminedStats.gamesWon / collectableStats.gamesPlayed) * 100,
-                    headshotsPerGame: collectableStats.headshots / collectableStats.gamesPlayed,
-                    roundsWonPerGame: collectableStats.roundsWon / collectableStats.gamesPlayed,
-                    totalRoundsPerGame: collectableStats.totalRounds / collectableStats.gamesPlayed,
-                    roundsWinPercentage: (collectableStats.roundsWon / collectableStats.totalRounds) * 100,
-                };
-                return [4 /*yield*/, prisma[model].upsert({
-                        where: { id: Number(steamId) },
-                        create: __assign(__assign(__assign({ id: Number(steamId) }, collectableStats), resultDeterminedStats), countableStats),
-                        update: __assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats),
-                    })];
-            case 4:
-                _e.sent();
-                _e.label = 5;
-            case 5:
-                _c++;
-                return [3 /*break*/, 2];
-            case 6:
                 _i++;
                 return [3 /*break*/, 1];
-            case 7:
+            case 4:
                 console.log("Stats updated in the database.");
                 return [2 /*return*/];
         }

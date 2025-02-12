@@ -1,9 +1,8 @@
 import { PrismaClient, Prisma } from "@prisma/client";
-import { RandomizeTeams } from "./RandomizeTeams";
 import { Logo } from "./Logo";
-import { DataCategory } from "./DataTable/DataCategory";
+import { StatsCategory } from "./DataTable/StatsCategory";
 
-import { DataTableContainer } from "./DataTable/DataTableContainer";
+import { StatsTableContainer } from "./DataTable/StatsTableContainer";
 
 const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
@@ -26,6 +25,9 @@ const getGeneralTabPlayers = async () => {
         gte: 5,
       },
     },
+    include: {
+      weapons: true,
+    },
     orderBy,
   });
 
@@ -34,6 +36,9 @@ const getGeneralTabPlayers = async () => {
       gamesPlayed: {
         lt: 5,
       },
+    },
+    include: {
+      weapons: true,
     },
     orderBy,
   });
@@ -60,9 +65,9 @@ export default async function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Logo />
         {sessionPlayers.length === 0 ? (
-          <DataTableContainer data={players} />
+          <StatsTableContainer data={players} />
         ) : (
-          <DataCategory
+          <StatsCategory
             sessionPlayers={sessionPlayers}
             generalPlayers={players}
           />

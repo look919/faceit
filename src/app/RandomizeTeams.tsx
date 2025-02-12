@@ -24,11 +24,9 @@ function randomizeIndexes(): [number[], number[]] {
 
   return [randomizedArray, remainingArray];
 }
+
 export const RandomizeTeams = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [randomizeState, setRandomizeState] = useState<
-    "not_initiated" | "initiated" | "randomized"
-  >("not_initiated");
   const [allPlayers, setAllPlayers] = useState<string[]>([]);
 
   const [selectedPlayers, setSelectedPlayers] = useState<string[]>([]);
@@ -70,7 +68,11 @@ export const RandomizeTeams = () => {
     <div className="flex flex-col gap-6 mt-6 w-full justify-center ">
       <div>
         <Label className="text-xs ml-1">Add new player</Label>
-        <Input onKeyDown={addPlayerOnEnter} className="max-w-64" />
+        <Input
+          onKeyDown={addPlayerOnEnter}
+          className="max-w-64"
+          placeholder="save on enter"
+        />
       </div>
       <div className="flex gap-2 flex-wrap mt-4 justify-center">
         {allPlayers.map((player) => {
@@ -99,14 +101,13 @@ export const RandomizeTeams = () => {
         className="bg-sky-400 w-fit"
         disabled={selectedPlayers.length > 10}
         onClick={() => {
-          setRandomizeState("randomized");
           setRandomizedIndexes(randomizeIndexes());
         }}
       >
         Randomize teams
       </Button>
 
-      {randomizeState === "randomized" && (
+      {randomizedIndexes[0].length ? (
         <div className="flex gap-4 w-1/2 justify-between">
           <div className="flex flex-col gap-2">
             <span className="text-lg text-sky-500">Team ZXC</span>
@@ -125,7 +126,7 @@ export const RandomizeTeams = () => {
             ))}
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

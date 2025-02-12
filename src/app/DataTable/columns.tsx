@@ -1,37 +1,10 @@
 "use client";
 
-import { ColumnDef, Getter } from "@tanstack/react-table";
-import { DataTableRecord } from "./types";
+import { ColumnDef } from "@tanstack/react-table";
+import { StatsTableRecord } from "./types";
+import { renderDecimalValue, startColumns } from "./columns-utils";
 
-const renderDecimalValue = (getValue: Getter<number>) => {
-  return parseFloat(getValue().toFixed(2));
-};
-
-const startColumns: ColumnDef<DataTableRecord>[] = [
-  {
-    accessorKey: "No.",
-    header: "No.",
-    cell: ({ row, table }) => {
-      const sortedIndex = table
-        .getSortedRowModel()
-        .flatRows.findIndex((r) => r.id === row.id);
-      return sortedIndex + 1;
-    },
-    maxSize: 20,
-    enableSorting: false,
-  },
-  {
-    accessorKey: "name",
-    header: "Name",
-    cell: ({ row }) => (
-      <div className="text-left">{row.getValue<number>("name")}</div>
-    ),
-    minSize: 200,
-    enableSorting: false,
-  },
-];
-
-const generalColumns: ColumnDef<DataTableRecord>[] = [
+const generalColumns: ColumnDef<StatsTableRecord>[] = [
   {
     accessorKey: "winRatePercentage",
     header: "Win Rate",
@@ -76,7 +49,7 @@ const generalColumns: ColumnDef<DataTableRecord>[] = [
   },
 ];
 
-const basicAverageColumns: ColumnDef<DataTableRecord>[] = [
+const basicAverageColumns: ColumnDef<StatsTableRecord>[] = [
   {
     accessorKey: "killsPerGame",
     header: "Kills",
@@ -115,7 +88,7 @@ const basicAverageColumns: ColumnDef<DataTableRecord>[] = [
   },
 ];
 
-export const simpleColumns: ColumnDef<DataTableRecord>[] = [
+export const simpleColumns: ColumnDef<StatsTableRecord>[] = [
   ...startColumns,
   {
     accessorKey: "General",
@@ -135,7 +108,7 @@ export const simpleColumns: ColumnDef<DataTableRecord>[] = [
   },
 ];
 
-export const advancedColumns: ColumnDef<DataTableRecord>[] = [
+export const advancedColumns: ColumnDef<StatsTableRecord>[] = [
   ...startColumns,
   {
     accessorKey: "advanced General",

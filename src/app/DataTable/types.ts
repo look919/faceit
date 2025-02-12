@@ -1,4 +1,6 @@
-export type DataTableRecord = {
+import { WeaponStats } from "@prisma/client";
+
+export type StatsTableRecord = {
   id: bigint;
   name: string;
   winRatePercentage: number;
@@ -24,6 +26,58 @@ export type DataTableRecord = {
   totalRoundsPerGame: number;
   roundsWinPercentage: number;
   damage: number;
+
+  weapons?: WeaponStats[];
+};
+
+export type WeaponsTableRecord = {
+  id: bigint;
+  name: string;
+  knifeDeaths: number;
+  knifeKills: number;
+  knifeKillsPerGame: number;
+  zeusKills: number;
+  zeusKillsPerGame: number;
+  grenadeOrMolotovKills: number;
+  grenadeOrMolotovKillsPerGame: number;
+  glockKills: number;
+  glockKillsPerGame: number;
+  uspOrP2000Kills: number;
+  uspOrP2000KillsPerGame: number;
+  deagleKills: number;
+  deagleKillsPerGame: number;
+  otherPistolsKills: number;
+  otherPistolsKillsPerGame: number;
+  mac10OrMp9Kills: number;
+  mac10OrMp9KillsPerGame: number;
+  p90Kills: number;
+  p90KillsPerGame: number;
+  otherSMGKills: number;
+  otherSMGKillsPerGame: number;
+  shotgunKills: number;
+  shotgunKillsPerGame: number;
+  negevOrM249Kills: number;
+  negevOrM249KillsPerGame: number;
+  ak47Kills: number;
+  ak47KillsPerGame: number;
+  m4a4Kills: number;
+  m4a4KillsPerGame: number;
+  m4a1sKills: number;
+  m4a1sKillsPerGame: number;
+  awpKills: number;
+  awpKillsPerGame: number;
+  scoutKills: number;
+  scoutKillsPerGame: number;
+  famasKills: number;
+  famasKillsPerGame: number;
+  galilKills: number;
+  galilKillsPerGame: number;
+  autocampKills: number;
+  autocampKillsPerGame: number;
+  scopedRiflesKills: number;
+  scopedRiflesKillsPerGame: number;
+  otherKills: number;
+  otherKillsPerGame: number;
 };
 
 export type Stats = {
@@ -38,4 +92,5 @@ export type Stats = {
   name: string;
   knife_kills: number;
   knife_deaths: number;
+  weapons: { [weaponName: string]: number };
 };
