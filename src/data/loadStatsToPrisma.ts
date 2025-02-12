@@ -120,7 +120,7 @@ const main = async () => {
           ([weapon, kills]) => {
             const existingWeapon = (
               existingPlayer as PlayerStats & { weapons: WeaponStats[] }
-            ).weapons?.find((weaponStat) => weaponStat.name === weapon);
+            )?.weapons?.find((weaponStat) => weaponStat.name === weapon);
 
             if (existingWeapon) {
               // Update existing weapon stats

@@ -3,7 +3,7 @@ import { StatsTableRecord } from "./types";
 
 export const renderDecimalValue = (getValue: Getter<number>) => {
   const value = getValue<number | undefined>();
-  return value ? parseFloat(getValue().toFixed(2)) : "-";
+  return typeof value === "number" ? parseFloat(getValue().toFixed(2)) : "-";
 };
 
 export const startColumns: ColumnDef<StatsTableRecord>[] = [

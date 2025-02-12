@@ -34,7 +34,7 @@ export const PageTabs = ({ generalPlayers, sessionPlayers }: PageTabsProps) => {
       {category === "randomize_teams" ? (
         <RandomizeTeams />
       ) : (
-        <div className="mt-12">
+        <div className="mt-6">
           <h2 className="text-2xl font-bold">Stats</h2>
           <StatsTableContainer
             data={category === "session" ? sessionPlayers : generalPlayers}

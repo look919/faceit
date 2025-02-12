@@ -157,7 +157,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                                 weaponStats = Object.entries(data.weapons).map(function (_a) {
                                                     var _b;
                                                     var weapon = _a[0], kills = _a[1];
-                                                    var existingWeapon = (_b = existingPlayer.weapons) === null || _b === void 0 ? void 0 : _b.find(function (weaponStat) { return weaponStat.name === weapon; });
+                                                    var existingWeapon = (_b = existingPlayer === null || existingPlayer === void 0 ? void 0 : existingPlayer.weapons) === null || _b === void 0 ? void 0 : _b.find(function (weaponStat) { return weaponStat.name === weapon; });
                                                     if (existingWeapon) {
                                                         // Update existing weapon stats
                                                         return prisma.weaponStats.update({
