@@ -1,7 +1,7 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 import { Logo } from "./Logo";
 import { PageTabs } from "./PageTabs";
-import { NUMBER_OF_MATCHES_SEPARATOR, SEPARATOR_PLAYER } from "./utils";
+import { NUMBER_OF_MATCHES_SEPARATOR, SEPARATOR_PLAYER } from "../utils";
 
 const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {

@@ -6,7 +6,7 @@ import React from "react";
 import { StatsTableContainer } from "./DataTable/StatsTableContainer";
 import { RandomizeTeams } from "./RandomizeTeams";
 import { WeaponsTableContainer } from "./DataTable/WeaponsTableContainer";
-import { PlayerStatsWithWeapons } from "./utils";
+import { PlayerStatsWithWeapons } from "../utils";
 
 type PageTabsProps = {
   generalPlayers: PlayerStatsWithWeapons[];

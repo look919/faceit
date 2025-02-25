@@ -136,7 +136,6 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     })];
                             case 4:
                                 _f.sent();
-                                console.log("Reverted stats for player ".concat(steamId, "."));
                                 if (!(model === "playerStats")) return [3 /*break*/, 7];
                                 return [4 /*yield*/, prisma.weaponStats.findMany({
                                         where: { playerId: Number(steamId) },
@@ -176,7 +175,9 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                             case 6:
                                 _f.sent();
                                 _f.label = 7;
-                            case 7: return [2 /*return*/];
+                            case 7:
+                                console.log("Reverted stats for player ".concat(steamId, "."));
+                                return [2 /*return*/];
                         }
                     });
                 };
