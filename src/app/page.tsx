@@ -14,7 +14,7 @@ const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   },
 ];
 
-const NUMBER_OF_MATCHES_SEPARATOR = 8;
+export const NUMBER_OF_MATCHES_SEPARATOR = 8;
 
 const getGeneralTabPlayers = async () => {
   const prisma = new PrismaClient();
