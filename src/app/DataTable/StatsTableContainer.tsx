@@ -5,7 +5,7 @@ import { simpleColumns, advancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { DataTable } from "./DataTable";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "../page";
+import { NUMBER_OF_MATCHES_SEPARATOR } from "../utils";
 
 type StatsTableContainerProps = {
   data: PlayerStats[];

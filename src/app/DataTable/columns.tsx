@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { StatsTableRecord } from "./types";
+import { StatsTableRecord } from "../utils";
 import {
   renderDecimalPercentageValue,
   renderDecimalValue,

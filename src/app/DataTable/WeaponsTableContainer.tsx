@@ -7,7 +7,8 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { DataTable } from "./DataTable";
-import { mapWeaponsData, PlayerStatsWithWeapons } from "./mapWeaponsData";
+import { mapWeaponsData } from "./mapWeaponsData";
+import { PlayerStatsWithWeapons } from "../utils";
 
 type WeaponsTableContainerProps = {
   data: PlayerStatsWithWeapons[];
@@ -36,7 +37,6 @@ export const WeaponsTableContainer = (props: WeaponsTableContainerProps) => {
           AVG
         </Label>
       </div>
-      {/* @ts-expect-error: cant fix that */}
       <DataTable data={mappedWeaponsData} columns={columns} />
     </div>
   );

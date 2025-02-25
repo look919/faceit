@@ -1,5 +1,5 @@
 import { ColumnDef, Getter } from "@tanstack/react-table";
-import { StatsTableRecord } from "./types";
+import { StatsTableRecord } from "../utils";
 
 export const renderDecimalValue = (getValue: Getter<number>) => {
   const value = getValue<number | undefined>();

@@ -1,7 +1,7 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 import { Logo } from "./Logo";
 import { PageTabs } from "./PageTabs";
-import { PlayerStatsWithWeapons } from "./DataTable/mapWeaponsData";
+import { NUMBER_OF_MATCHES_SEPARATOR, SEPARATOR_PLAYER } from "./utils";
 
 const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
@@ -14,38 +14,6 @@ const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
     kda: "desc",
   },
 ];
-
-export const NUMBER_OF_MATCHES_SEPARATOR = 8;
-const SEPARATOR_PLAYER = {
-  id: 0,
-  name: "//////////////////////////////////",
-  winRatePercentage: null,
-  gamesPlayed: null,
-  gamesWon: null,
-  gamesLost: null,
-  gamesDrawn: null,
-  kda: null,
-  killsPerGame: null,
-  deathsPerGame: null,
-  assistsPerGame: null,
-  damagePerRound: null,
-  damagePerGame: null,
-  headshotPercentage: null,
-  kills: null,
-  deaths: null,
-  assists: null,
-  headshots: null,
-  roundsWon: null,
-  totalRounds: null,
-  headshotsPerGame: null,
-  roundsWonPerGame: null,
-  totalRoundsPerGame: null,
-  roundsWinPercentage: null,
-  damage: null,
-  knifeKills: null,
-  knifeDeaths: null,
-  weapons: [],
-} as unknown as PlayerStatsWithWeapons;
 
 const getGeneralTabPlayers = async () => {
   const prisma = new PrismaClient();

@@ -1,8 +1,4 @@
-import { PlayerStats, WeaponStats } from "@prisma/client";
-
-export type PlayerStatsWithWeapons = PlayerStats & {
-  weapons: WeaponStats[];
-};
+import { PlayerStatsWithWeapons } from "../utils";
 
 export const mapWeaponsData = (data: PlayerStatsWithWeapons[]) =>
   data.map((player) => {
