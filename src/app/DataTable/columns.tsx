@@ -2,33 +2,41 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { StatsTableRecord } from "./types";
-import { renderDecimalValue, startColumns } from "./columns-utils";
+import {
+  renderDecimalPercentageValue,
+  renderDecimalValue,
+  startColumns,
+} from "./columns-utils";
 
 const generalColumns: ColumnDef<StatsTableRecord>[] = [
   {
     accessorKey: "winRatePercentage",
     header: "Win Rate",
-    cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
+    cell: ({ getValue }) => renderDecimalPercentageValue(getValue),
     maxSize: 60,
   },
   {
     accessorKey: "gamesPlayed",
     header: "Games",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
     maxSize: 60,
   },
   {
     accessorKey: "gamesWon",
     header: "Wins",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
     maxSize: 60,
   },
   {
     accessorKey: "gamesLost",
     header: "Losses",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
     maxSize: 60,
   },
   {
     accessorKey: "gamesDrawn",
     header: "Draws",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
     maxSize: 60,
   },
   {
@@ -40,11 +48,13 @@ const generalColumns: ColumnDef<StatsTableRecord>[] = [
   {
     accessorKey: "knifeKills",
     header: "Knife kills",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
     maxSize: 60,
   },
   {
     accessorKey: "knifeDeaths",
     header: "Knife deaths",
+    cell: ({ getValue }) => renderDecimalValue(getValue),
     maxSize: 60,
   },
 ];
@@ -77,14 +87,14 @@ const basicAverageColumns: ColumnDef<StatsTableRecord>[] = [
   {
     accessorKey: "headshotPercentage",
     header: "HS %",
-    cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
+    cell: ({ getValue }) => renderDecimalPercentageValue(getValue),
     maxSize: 60,
   },
   {
     accessorKey: "roundsWinPercentage",
     header: "Rounds Win %",
     maxSize: 60,
-    cell: ({ getValue }) => `${renderDecimalValue(getValue)}%`,
+    cell: ({ getValue }) => renderDecimalPercentageValue(getValue),
   },
 ];
 
@@ -160,38 +170,45 @@ export const advancedColumns: ColumnDef<StatsTableRecord>[] = [
       {
         accessorKey: "kills",
         header: "Kills",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
       {
         accessorKey: "deaths",
         header: "Deaths",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
       {
         accessorKey: "assists",
         header: "Assists",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
       {
         accessorKey: "headshots",
         header: "HS's",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
 
       {
         accessorKey: "damage",
         header: "DMG",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
 
       {
         accessorKey: "roundsWon",
         header: "Rounds Won",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
       {
         accessorKey: "totalRounds",
         header: "All Rounds",
+        cell: ({ getValue }) => renderDecimalValue(getValue),
         maxSize: 60,
       },
     ],

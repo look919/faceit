@@ -1,25 +1,56 @@
 import { PrismaClient, Prisma } from "@prisma/client";
 import { Logo } from "./Logo";
 import { PageTabs } from "./PageTabs";
+import { PlayerStatsWithWeapons } from "./DataTable/mapWeaponsData";
 
 const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
-    winRatePercentage: "desc", // Order by winRatePercentage (descending)
+    winRatePercentage: "desc",
   },
   {
-    gamesPlayed: "desc", // Order by gamesPlayed (descending)
+    gamesPlayed: "desc",
   },
   {
-    kda: "desc", // Order by KDA (descending)
+    kda: "desc",
   },
 ];
 
 export const NUMBER_OF_MATCHES_SEPARATOR = 8;
+const SEPARATOR_PLAYER = {
+  id: 0,
+  name: "//////////////////////////////////",
+  winRatePercentage: null,
+  gamesPlayed: null,
+  gamesWon: null,
+  gamesLost: null,
+  gamesDrawn: null,
+  kda: null,
+  killsPerGame: null,
+  deathsPerGame: null,
+  assistsPerGame: null,
+  damagePerRound: null,
+  damagePerGame: null,
+  headshotPercentage: null,
+  kills: null,
+  deaths: null,
+  assists: null,
+  headshots: null,
+  roundsWon: null,
+  totalRounds: null,
+  headshotsPerGame: null,
+  roundsWonPerGame: null,
+  totalRoundsPerGame: null,
+  roundsWinPercentage: null,
+  damage: null,
+  knifeKills: null,
+  knifeDeaths: null,
+  weapons: [],
+} as unknown as PlayerStatsWithWeapons;
 
 const getGeneralTabPlayers = async () => {
   const prisma = new PrismaClient();
 
-  const playersWithFiveOrMoreGames = await prisma.playerStats.findMany({
+  const playersWithMoreGamesThanSeparator = await prisma.playerStats.findMany({
     where: {
       gamesPlayed: {
         gte: NUMBER_OF_MATCHES_SEPARATOR,
@@ -31,7 +62,7 @@ const getGeneralTabPlayers = async () => {
     orderBy,
   });
 
-  const playersWithLessThanFiveGames = await prisma.playerStats.findMany({
+  const playersWithLessGamesThanSeparator = await prisma.playerStats.findMany({
     where: {
       gamesPlayed: {
         lt: NUMBER_OF_MATCHES_SEPARATOR,
@@ -40,10 +71,24 @@ const getGeneralTabPlayers = async () => {
     include: {
       weapons: true,
     },
-    orderBy,
+    orderBy: [
+      {
+        gamesPlayed: "desc",
+      },
+      {
+        winRatePercentage: "desc",
+      },
+      {
+        kda: "desc",
+      },
+    ],
   });
 
-  return [...playersWithFiveOrMoreGames, ...playersWithLessThanFiveGames];
+  return [
+    ...playersWithMoreGamesThanSeparator,
+    SEPARATOR_PLAYER,
+    ...playersWithLessGamesThanSeparator,
+  ];
 };
 
 const getSessionPlayers = async () => {
