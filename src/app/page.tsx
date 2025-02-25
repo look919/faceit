@@ -14,13 +14,15 @@ const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   },
 ];
 
+const NUMBER_OF_MATCHES_SEPARATOR = 8;
+
 const getGeneralTabPlayers = async () => {
   const prisma = new PrismaClient();
 
   const playersWithFiveOrMoreGames = await prisma.playerStats.findMany({
     where: {
       gamesPlayed: {
-        gte: 5,
+        gte: NUMBER_OF_MATCHES_SEPARATOR,
       },
     },
     include: {
@@ -32,7 +34,7 @@ const getGeneralTabPlayers = async () => {
   const playersWithLessThanFiveGames = await prisma.playerStats.findMany({
     where: {
       gamesPlayed: {
-        lt: 5,
+        lt: NUMBER_OF_MATCHES_SEPARATOR,
       },
     },
     include: {
