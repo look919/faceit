@@ -1,6 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { renderDecimalValue, startColumns } from "./columns-utils";
-import { WeaponsTableRecord } from "../../utils";
+import { renderDecimalValue, startColumns } from "../columns-utils";
+import { WeaponsTableRecord } from "../../../utils";
 
 export const weaponsTotalKillsColumns: ColumnDef<WeaponsTableRecord>[] = [
   ...(startColumns as ColumnDef<WeaponsTableRecord>[]),

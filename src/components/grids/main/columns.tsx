@@ -1,12 +1,12 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { StatsTableRecord } from "../../utils";
+import { StatsTableRecord } from "@/utils";
 import {
   renderDecimalPercentageValue,
   renderDecimalValue,
   startColumns,
-} from "./columns-utils";
+} from "../columns-utils";
 
 const generalColumns: ColumnDef<StatsTableRecord>[] = [
   {

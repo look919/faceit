@@ -8,7 +8,6 @@ import {
   getSortedRowModel,
   SortingState,
 } from "@tanstack/react-table";
-
 import {
   Table,
   TableBody,
@@ -20,15 +19,15 @@ import {
 import React from "react";
 import { cn } from "@/lib/utils";
 
-interface DataTableProps<TData, TValue> {
+interface GridProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
+export function Grid<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: GridProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const table = useReactTable({
     data,

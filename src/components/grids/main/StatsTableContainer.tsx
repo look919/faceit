@@ -4,8 +4,8 @@ import React from "react";
 import { simpleColumns, advancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { DataTable } from "./DataTable";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "../../utils";
+import { Grid } from "../../ui/Grid";
+import { NUMBER_OF_MATCHES_SEPARATOR } from "../../../utils";
 
 type StatsTableContainerProps = {
   data: PlayerStats[];
@@ -28,7 +28,7 @@ export const StatsTableContainer = (props: StatsTableContainerProps) => {
         </Label>
       </div>
 
-      <DataTable
+      <Grid
         data={props.data}
         columns={isChecked ? advancedColumns : simpleColumns}
       />

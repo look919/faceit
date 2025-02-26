@@ -3,12 +3,12 @@ import React from "react";
 import {
   weaponsAverageKillsColumns,
   weaponsTotalKillsColumns,
-} from "./weaponColumns";
+} from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { DataTable } from "./DataTable";
+import { Grid } from "../../ui/Grid";
 import { mapWeaponsData } from "./mapWeaponsData";
-import { PlayerStatsWithWeapons } from "../../utils";
+import { PlayerStatsWithWeapons } from "../../../utils";
 
 type WeaponsTableContainerProps = {
   data: PlayerStatsWithWeapons[];
@@ -38,7 +38,7 @@ export const WeaponsTableContainer = (props: WeaponsTableContainerProps) => {
         </Label>
       </div>
       {/* @ts-expect-error Cant fix it right now */}
-      <DataTable data={mappedWeaponsData} columns={columns} />
+      <Grid data={mappedWeaponsData} columns={columns} />
     </div>
   );
 };

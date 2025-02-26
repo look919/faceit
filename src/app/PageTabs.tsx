@@ -3,9 +3,9 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SessionPlayerStats } from "@prisma/client";
 import React from "react";
 
-import { StatsTableContainer } from "./DataTable/StatsTableContainer";
+import { StatsTableContainer } from "../components/grids/main/StatsTableContainer";
 import { RandomizeTeams } from "./RandomizeTeams";
-import { WeaponsTableContainer } from "./DataTable/WeaponsTableContainer";
+import { WeaponsTableContainer } from "../components/grids/weapons/WeaponsTableContainer";
 import { PlayerStatsWithWeapons } from "../utils";
 
 type PageTabsProps = {
