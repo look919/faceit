@@ -5,7 +5,7 @@ import React from "react";
 
 import { StatsTableContainer } from "../components/grids/main/StatsTableContainer";
 import { RandomizeTeams } from "./RandomizeTeams";
-import { WeaponsTableContainer } from "../components/grids/weapons/WeaponsTableContainer";
+// import { WeaponsTableContainer } from "../components/grids/weapons/WeaponsTableContainer";
 import { PlayerStatsWithWeapons } from "../utils";
 
 type PageTabsProps = {
@@ -42,12 +42,12 @@ export const PageTabs = ({ generalPlayers, sessionPlayers }: PageTabsProps) => {
         </div>
       )}
 
-      {category === "general" && (
+      {/* {category === "general" && (
         <div className="mt-12">
           <h2 className="text-2xl font-bold">Weapons</h2>
           <WeaponsTableContainer data={generalPlayers} />
         </div>
-      )}
+      )} */}
     </Tabs>
   );
 };

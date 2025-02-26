@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Logo } from "@/components/Logo";
+import { Logo } from "@/components/layout/Logo";
+import { Nav } from "@/components/layout/Nav";
+import { NavLink } from "@/components/layout/NavLink";
+import { Footer } from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,11 +34,13 @@ export default function RootLayout({
         <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen gap-16 pb-4 font-[family-name:var(--font-geist-sans)]">
           <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
             <Logo />
+            <Nav>
+              <NavLink href="/" name="General" />
+              <NavLink href="/session" name="Session" />
+            </Nav>
             {children}
           </main>
-          <footer className="row-start-3 text-center text-sm text-gray-500">
-            Wirkus.pro 2025
-          </footer>
+          <Footer />
         </div>
       </body>
     </html>

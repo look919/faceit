@@ -1,5 +1,4 @@
 import { PrismaClient, Prisma } from "@prisma/client";
-import { Logo } from "@/components/Logo";
 import { PageTabs } from "./PageTabs";
 import { NUMBER_OF_MATCHES_SEPARATOR, SEPARATOR_PLAYER } from "../utils";
 
