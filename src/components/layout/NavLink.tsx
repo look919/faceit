@@ -3,7 +3,9 @@
 import { cn } from "@/lib/utils";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
+
 type NavLinkProps = LinkProps & {
+  tier: "main" | "sub";
   name: string;
   className?: string;
 };
@@ -11,7 +13,11 @@ type NavLinkProps = LinkProps & {
 export const NavLink = (props: NavLinkProps) => {
   const pathname = usePathname();
 
-  const isActive = pathname === props.href;
+  const isMainNavLink = props.tier === "main";
+
+  const isActive = !isMainNavLink
+    ? pathname.includes(props.href as string)
+    : pathname.includes((props.href as string).split("/")[1]);
 
   return (
     <li>

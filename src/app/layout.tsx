@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tomeczki",
-  description: "Gracze Ji, ale nie tylko, bo jest też np. Michał",
+  description: "Gracze Ji - SEZON 2!",
 };
 
 export default function RootLayout({
@@ -34,9 +34,9 @@ export default function RootLayout({
         <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen gap-16 pb-4 font-[family-name:var(--font-geist-sans)]">
           <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
             <Logo />
-            <Nav>
-              <NavLink href="/" name="General" />
-              <NavLink href="/session" name="Session" />
+            <Nav ariaLabel="primary navigation">
+              <NavLink tier="main" href="/general/main" name="General" />
+              <NavLink tier="main" href="/session/main" name="Session" />
             </Nav>
             {children}
           </main>

@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model PlayerStats {
+model LEGACY_PlayerStats {
   id                 BigInt     @id @default(autoincrement())
   name               String
   winRatePercentage  Float
@@ -39,44 +39,53 @@ model PlayerStats {
   knifeKills        Int   @default(0)
   knifeDeaths       Int   @default(0)
 
-  weapons           WeaponStats[]
+  // weapons           WeaponStats[]
 }
 
-model SessionPlayerStats {
+model PlayerStats {
   id                 BigInt     @id @default(autoincrement())
   name               String
-  winRatePercentage  Float
+  avatar             String
+
   gamesPlayed        Int
   gamesWon           Int
   gamesLost          Int
   gamesDrawn         Int
-  kda               Float
-  killsPerGame      Float
-  deathsPerGame     Float
-  assistsPerGame    Float
-  damagePerRound    Float
-  damagePerGame     Float
+
+  kills              Int
+  deaths             Int
+  assists            Int
+  headshots          Int
+  damage             Int
+  roundsWon          Int
+  totalRounds        Int
+
+  kda                Float
+  kd                 Float
+
+  winRatePercentage  Float
   headshotPercentage Float
-  kills             Int
-  deaths            Int
-  assists           Int
-  headshots         Int
-  roundsWon         Int
-  totalRounds       Int
-  headshotsPerGame  Float
-  roundsWonPerGame  Float
-  totalRoundsPerGame Float
   roundsWinPercentage Float
-  damage            Int
-  knifeKills        Int   @default(0)
-  knifeDeaths       Int   @default(0)
+
+  damagePerRound     Float
+
+  killsPerGame       Float
+  deathsPerGame      Float
+  assistsPerGame     Float
+  headshotsPerGame   Float
+  roundsWonPerGame   Float
+  totalRoundsPerGame Float
+  damagePerGame      Float
+
+
 }
 
-model WeaponStats {
-  id          Int    @id @default(autoincrement())
-  name        String
-  totalKills       Int
-  averageKillsPerGame Float
-  playerId    BigInt
-  player      PlayerStats @relation(fields: [playerId], references: [id])
-}
+
+// model WeaponStats {
+//   id          Int    @id @default(autoincrement())
+//   name        String
+//   totalKills       Int
+//   averageKillsPerGame Float
+//   playerId    BigInt
+//   player      PlayerStats @relation(fields: [playerId], references: [id])
+// }
