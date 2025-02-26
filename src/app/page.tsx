@@ -73,16 +73,5 @@ export default async function Home() {
   const players = await getGeneralTabPlayers();
   const sessionPlayers = await getSessionPlayers();
 
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] justify-items-center min-h-screen gap-16 pb-4 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Logo />
-
-        <PageTabs sessionPlayers={sessionPlayers} generalPlayers={players} />
-      </main>
-      <footer className="row-start-3 text-center text-sm text-gray-500">
-        Wirkus.pro 2025
-      </footer>
-    </div>
-  );
+  return <PageTabs sessionPlayers={sessionPlayers} generalPlayers={players} />;
 }

@@ -14,7 +14,7 @@ const playerNameArg = args.find((arg) => arg.startsWith("--name="));
 const playerName = playerNameArg ? playerNameArg.split("=")[1] : null;
 
 const main = async () => {
-  const rawData = readFileSync("./src/data/stats.json", "utf8");
+  const rawData = readFileSync("./src/scripts/stats.json", "utf8");
   const stats = JSON.parse(rawData) as Stats[];
 
   for (const [steamId, data] of Object.entries(stats)) {

@@ -62,7 +62,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
-                rawData = (0, fs_1.readFileSync)("./src/data/stats.json", "utf8");
+                rawData = (0, fs_1.readFileSync)("./src/scripts/stats.json", "utf8");
                 stats = JSON.parse(rawData);
                 _loop_1 = function (steamId, data) {
                     var _loop_2, _d, _e, model;
