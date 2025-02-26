@@ -18,6 +18,8 @@ export default function CategoryLayout({
       <Nav>
         <NavLink tier="sub" href="/general/main" name="Main" />
         <NavLink tier="sub" href="/general/weapons" name="Weapons" />
+        <NavLink tier="sub" href="/general/maps" name="Maps" />
+        <NavLink tier="sub" href="/general/advanced" name="Advanced" />
       </Nav>
       {children}
     </section>

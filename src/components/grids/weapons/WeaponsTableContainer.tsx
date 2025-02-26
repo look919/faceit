@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Grid } from "../../ui/Grid";
 import { mapWeaponsData } from "./mapWeaponsData";
-import { PlayerStatsWithWeapons } from "../../../utils";
+import { PlayerStatsWithWeapons } from "@/utils/types";
 
 type WeaponsTableContainerProps = {
   data: PlayerStatsWithWeapons[];

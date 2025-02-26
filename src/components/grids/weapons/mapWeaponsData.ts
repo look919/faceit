@@ -1,4 +1,4 @@
-import { PlayerStatsWithWeapons } from "../../../utils";
+import { PlayerStatsWithWeapons } from "@/utils/types";
 
 export const mapWeaponsData = (data: PlayerStatsWithWeapons[]) =>
   data.map((player) => {

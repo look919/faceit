@@ -1,23 +1,10 @@
 import { StatsTableContainer } from "@/components/grids/main/StatsTableContainer";
-import { PrismaClient, Prisma } from "@prisma/client";
-
-const orderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
-  {
-    winRatePercentage: "desc",
-  },
-  {
-    gamesPlayed: "desc",
-  },
-  {
-    kda: "desc",
-  },
-];
+import { defaultOrderBy } from "@/utils/order";
+import { prisma } from "@/lib/prisma";
 
 const getSessionPlayers = async () => {
-  const prisma = new PrismaClient();
-
   const sessionPlayers = await prisma.sessionPlayerStats.findMany({
-    orderBy,
+    orderBy: defaultOrderBy,
   });
 
   return sessionPlayers;

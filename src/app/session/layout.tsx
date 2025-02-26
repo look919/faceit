@@ -4,7 +4,7 @@ import { NavLink } from "@/components/layout/NavLink";
 import { PageHeader } from "@/components/layout/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Tomeczki - Sesja",
+  title: "Tomeczki - Session",
 };
 
 export default function CategoryLayout({

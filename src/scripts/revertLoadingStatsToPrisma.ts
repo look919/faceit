@@ -1,4 +1,4 @@
-import { Stats } from "../utils";
+import { Stats } from "../utils/types";
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
 

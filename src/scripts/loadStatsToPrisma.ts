@@ -1,6 +1,6 @@
 import { PlayerStats, PrismaClient, WeaponStats } from "@prisma/client";
 import { readFileSync } from "fs";
-import { Stats } from "../utils";
+import { Stats } from "../utils/types";
 
 const prisma = new PrismaClient();
 
