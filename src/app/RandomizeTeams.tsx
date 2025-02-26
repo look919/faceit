@@ -65,8 +65,8 @@ export const RandomizeTeams = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 mt-6 w-full justify-center ">
-      <div>
+    <div className="flex flex-col gap-6 mt-6 w- items-center justify-center max-w-screen-md">
+      <div className="flex flex-col gap-1 items-center">
         <Label className="text-xs ml-1">Add new player</Label>
         <Input
           onKeyDown={addPlayerOnEnter}
