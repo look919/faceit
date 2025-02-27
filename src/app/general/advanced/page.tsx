@@ -1,13 +1,74 @@
-import { MainGrid } from "@/components/grids/main/MainGrid";
+import { AdvancedGrid } from "@/components/grids/advanced/AdvancedGrid";
 import { prisma } from "@/lib/prisma";
-import { mainOrderBy } from "@/utils/order";
+import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
+import { advancedOrderBy } from "@/utils/order";
 
 const getGeneralAdvancedPlayers = async () => {
-  const generalAdvancedPlayers = await prisma.sessionPlayerStats.findMany({
-    orderBy: mainOrderBy,
+  const generalAdvancedPlayers = await prisma.playerStats.findMany({
+    orderBy: advancedOrderBy,
+    include: { weapons: true },
+    where: {
+      isSessionPlayer: false,
+      gamesPlayed: {
+        gte: NUMBER_OF_MATCHES_SEPARATOR,
+      },
+    },
   });
 
-  return generalAdvancedPlayers;
+  const weaponStats = generalAdvancedPlayers.map((player) => {
+    const knife = player.weapons.find((weapon) => weapon.name === "Knife");
+    const zeus = player.weapons.find((weapon) => weapon.name === "Zeus");
+    return {
+      id: player.id,
+      knife,
+      zeus,
+    };
+  });
+
+  return generalAdvancedPlayers.map((player, index) => {
+    return {
+      id: player.id,
+      name: player.name,
+      avatar: player.avatar,
+
+      mvps: player.mvps,
+      aces: player.aces,
+      entryFrags: player.entryFrags,
+      killsTroughSmoke: player.killsThroughSmoke,
+      killsOnFlash: player.killsOnFlash,
+      killsTroughWall: player.killsThroughWall,
+      killsInJump: player.killsInJump,
+
+      acesPerGame: player.acesPerGame,
+      mvpsPerGame: player.mvpsPerGame,
+      entryFragsPerGame: player.entryFragsPerGame,
+      killsInJumpPerGame: player.killsInJumpPerGame,
+      killsTroughWallPerGame: player.killsThroughSmokePerGame,
+      killsOnFlashPerGame: player.killsOnFlashPerGame,
+      killsTroughSmokePerGame: player.killsThroughSmokePerGame,
+
+      clutches1v1Played: player.clutches1v1Played,
+      clutches1v1Won: player.clutches1v1Won,
+      clutches1v2Played: player.clutches1v2Played,
+      clutches1v2Won: player.clutches1v1Won,
+      clutches1v3Played: player.clutches1v3Played,
+      clutches1v3Won: player.clutches1v3Won,
+      clutches1v4Played: player.clutches1v4Played,
+      clutches1v4Won: player.clutches1v4Won,
+      clutches1v5Played: player.clutches1v5Played,
+      clutches1v5Won: player.clutches1v5Won,
+      clutches1v1WinPercentage: player.clutches1v1WinPercentage,
+      clutches1v2WinPercentage: player.clutches1v2WinPercentage,
+      clutches1v3WinPercentage: player.clutches1v3WinPercentage,
+      clutches1v4WinPercentage: player.clutches1v4WinPercentage,
+      clutches1v5WinPercentage: player.clutches1v5WinPercentage,
+
+      knifeKills: weaponStats[index]!.knife?.kills,
+      knifeDeaths: weaponStats[index].knife?.deaths,
+      zeusKills: weaponStats[index].zeus?.kills,
+      zeusDeaths: weaponStats[index].zeus?.deaths,
+    };
+  });
 };
 
 export default async function GeneralAdvancedPage() {
@@ -15,7 +76,7 @@ export default async function GeneralAdvancedPage() {
 
   return (
     <div>
-      <MainGrid data={generalAdvancedPlayers} />
+      <AdvancedGrid data={generalAdvancedPlayers} />
     </div>
   );
 }

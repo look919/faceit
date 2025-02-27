@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { mainOrderBy } from "@/utils/order";
 
 const getSessionAdvancedPlayers = async () => {
-  const sessionAdvancedPlayers = await prisma.sessionPlayerStats.findMany({
+  const sessionAdvancedPlayers = await prisma.playerStats.findMany({
     orderBy: mainOrderBy,
   });
 
