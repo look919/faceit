@@ -1,10 +1,10 @@
 import { MainGrid } from "@/components/grids/main/MainGrid";
 import { prisma } from "@/lib/prisma";
-import { defaultOrderBy } from "@/utils/order";
+import { mainOrderBy } from "@/utils/order";
 
 const getGeneralAdvancedPlayers = async () => {
   const generalAdvancedPlayers = await prisma.sessionPlayerStats.findMany({
-    orderBy: defaultOrderBy,
+    orderBy: mainOrderBy,
   });
 
   return generalAdvancedPlayers;

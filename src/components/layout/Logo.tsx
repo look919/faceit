@@ -1,6 +1,6 @@
 export const Logo = () => {
   return (
-    <div className="mb-10 p-2 w-full flex flex-col items-center">
+    <div className="mb-10 p-2 w-full flex flex-col items-center justify-self-center">
       <div className="flex text-center">
         <span className="text-sky-500 text-4xl rotate-6 inline-flex">
           Tomeczki

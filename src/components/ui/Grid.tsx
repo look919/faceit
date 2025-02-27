@@ -22,20 +22,30 @@ import { cn } from "@/lib/utils";
 interface GridProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  columnVisibilityFromProps?: Record<string, boolean>;
 }
 
 export function Grid<TData, TValue>({
   columns,
   data,
+  columnVisibilityFromProps,
 }: GridProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnVisibility, setColumnVisibility] = React.useState(
+    columnVisibilityFromProps || { Rifles: false }
+  );
+
   const table = useReactTable({
     data,
     columns,
+    state: {
+      sorting,
+      columnVisibility,
+    },
     getSortedRowModel: getSortedRowModel(),
     getCoreRowModel: getCoreRowModel(),
     onSortingChange: setSorting,
-    state: { sorting },
+    onColumnVisibilityChange: setColumnVisibility,
   });
 
   if (table.getRowModel().rows.length === 0) {
@@ -48,36 +58,38 @@ export function Grid<TData, TValue>({
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id} className="hover:bg-slate-900">
-              {headerGroup.headers.map((header) => (
-                <TableHead
-                  key={header.id}
-                  colSpan={header.colSpan}
-                  className={cn(
-                    header.column.getCanSort()
-                      ? "cursor-pointer select-none hover:bg-slate-800"
-                      : "",
-                    "text-center border-x m-1 text-sm"
-                  )}
-                  onClick={header.column.getToggleSortingHandler()}
-                >
-                  {header.isPlaceholder ? null : (
-                    <div className="flex justify-center items-center">
-                      <div>
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+              {headerGroup.headers.map((header) =>
+                header.column.getIsVisible() ? (
+                  <TableHead
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    className={cn(
+                      header.column.getCanSort()
+                        ? "cursor-pointer select-none hover:bg-slate-800"
+                        : "",
+                      "text-center border-x m-1 text-sm"
+                    )}
+                    onClick={header.column.getToggleSortingHandler()}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <div className="flex justify-center items-center">
+                        <div>
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                        </div>
+                        <div>
+                          {{
+                            asc: " 🔼",
+                            desc: " 🔽",
+                          }[header.column.getIsSorted() as string] ?? null}
+                        </div>
                       </div>
-                      <div>
-                        {{
-                          asc: " 🔼",
-                          desc: " 🔽",
-                        }[header.column.getIsSorted() as string] ?? null}
-                      </div>
-                    </div>
-                  )}
-                </TableHead>
-              ))}
+                    )}
+                  </TableHead>
+                ) : null
+              )}
             </TableRow>
           ))}
         </TableHeader>

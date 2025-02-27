@@ -4,7 +4,7 @@ import {
   NUMBER_OF_MATCHES_SEPARATOR,
   SEPARATOR_PLAYER,
 } from "@/utils/dummy-record";
-import { defaultOrderBy } from "@/utils/order";
+import { mainOrderBy } from "@/utils/order";
 
 const getGeneralPlayers = async () => {
   const playersWithMoreGamesThanSeparator = await prisma.playerStats.findMany({
@@ -14,7 +14,7 @@ const getGeneralPlayers = async () => {
         gte: NUMBER_OF_MATCHES_SEPARATOR,
       },
     },
-    orderBy: defaultOrderBy,
+    orderBy: mainOrderBy,
   });
 
   const playersWithLessGamesThanSeparator = await prisma.playerStats.findMany({

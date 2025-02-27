@@ -42,6 +42,7 @@ export const createColumn = <T,>(
       ? renderDecimalPercentageValue(getValue)
       : renderDecimalValue(getValue),
   maxSize: 60,
+  minSize: 30,
   ...options,
 });
 
@@ -59,6 +60,7 @@ export const createStartColumns = <
     },
     maxSize: 20,
     enableSorting: false,
+    enableHiding: false,
   },
   {
     accessorKey: "name",
@@ -68,5 +70,6 @@ export const createStartColumns = <
     ),
     minSize: 200,
     enableSorting: false,
+    enableHiding: false,
   },
 ];

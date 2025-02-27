@@ -1,5 +1,5 @@
 import { MainGrid } from "@/components/grids/main/MainGrid";
-import { defaultOrderBy } from "@/utils/order";
+import { mainOrderBy } from "@/utils/order";
 import { prisma } from "@/lib/prisma";
 
 const getSessionPlayers = async () => {
@@ -7,7 +7,7 @@ const getSessionPlayers = async () => {
     where: {
       isSessionPlayer: true,
     },
-    orderBy: defaultOrderBy,
+    orderBy: mainOrderBy,
   });
 
   return sessionPlayers;

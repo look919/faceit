@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
 
-export const defaultOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
+export const mainOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
     winRatePercentage: "desc",
   },
@@ -9,5 +9,11 @@ export const defaultOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   },
   {
     kda: "desc",
+  },
+];
+
+export const weaponsOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
+  {
+    name: "asc",
   },
 ];

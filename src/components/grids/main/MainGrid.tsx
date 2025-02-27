@@ -18,7 +18,11 @@ export const MainGrid = (props: MainGridProps) => {
   return (
     <div>
       {!props?.isSessionPage && (
-        <span className="text-gray-500 italic text-sm">{`The number of matches you need to play to be default sorted with all of the players is currently: ${NUMBER_OF_MATCHES_SEPARATOR}`}</span>
+        <div className="text-gray-500 italic text-sm text-center mt-2">
+          The number of matches you need to play to be default sorted with all
+          of the players is currently:{" "}
+          <span>{NUMBER_OF_MATCHES_SEPARATOR}</span>
+        </div>
       )}
       <div className="flex items-center space-x-2 mt-4 mb-2 cursor-pointer">
         <Switch
