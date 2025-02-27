@@ -5,18 +5,21 @@ import { simpleColumns, advancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Grid } from "../../ui/Grid";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "../../../utils";
+import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
 
-type StatsTableContainerProps = {
+type MainGridProps = {
   data: PlayerStats[];
+  isSessionPage?: boolean;
 };
 
-export const StatsTableContainer = (props: StatsTableContainerProps) => {
+export const MainGrid = (props: MainGridProps) => {
   const [isChecked, setIsChecked] = React.useState(false);
 
   return (
     <div>
-      <span className="text-gray-500 italic text-sm">{`The number of matches you need to play to be default sorted with all of the players is currently: ${NUMBER_OF_MATCHES_SEPARATOR}`}</span>
+      {!props?.isSessionPage && (
+        <span className="text-gray-500 italic text-sm">{`The number of matches you need to play to be default sorted with all of the players is currently: ${NUMBER_OF_MATCHES_SEPARATOR}`}</span>
+      )}
       <div className="flex items-center space-x-2 mt-4 mb-2 cursor-pointer">
         <Switch
           id="columns-switch"

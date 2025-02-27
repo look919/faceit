@@ -1,6 +1,9 @@
-import { StatsTableContainer } from "@/components/grids/main/StatsTableContainer";
+import { MainGrid } from "@/components/grids/main/MainGrid";
 import { prisma } from "@/lib/prisma";
-import { NUMBER_OF_MATCHES_SEPARATOR, SEPARATOR_PLAYER } from "@/utils";
+import {
+  NUMBER_OF_MATCHES_SEPARATOR,
+  SEPARATOR_PLAYER,
+} from "@/utils/dummy-record";
 import { defaultOrderBy } from "@/utils/order";
 
 const getGeneralPlayers = async () => {
@@ -21,9 +24,7 @@ const getGeneralPlayers = async () => {
         lt: NUMBER_OF_MATCHES_SEPARATOR,
       },
     },
-    include: {
-      weapons: true,
-    },
+
     orderBy: [
       {
         gamesPlayed: "desc",
@@ -49,7 +50,7 @@ export default async function GeneralPage() {
 
   return (
     <div>
-      <StatsTableContainer data={generalPlayers} />
+      <MainGrid data={generalPlayers} />
     </div>
   );
 }

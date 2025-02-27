@@ -1,4 +1,4 @@
-import { PlayerStatsWithWeapons } from "./types";
+import { PlayerStats } from "@prisma/client";
 
 export const NUMBER_OF_MATCHES_SEPARATOR = 8;
 export const SEPARATOR_PLAYER = {
@@ -30,4 +30,4 @@ export const SEPARATOR_PLAYER = {
   knifeKills: null,
   knifeDeaths: null,
   weapons: [],
-} as unknown as PlayerStatsWithWeapons;
+} as unknown as PlayerStats;

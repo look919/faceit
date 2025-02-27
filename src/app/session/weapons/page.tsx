@@ -1,4 +1,4 @@
-import { StatsTableContainer } from "@/components/grids/main/StatsTableContainer";
+import { MainGrid } from "@/components/grids/main/MainGrid";
 import { defaultOrderBy } from "@/utils/order";
 import { prisma } from "@/lib/prisma";
 
@@ -15,7 +15,7 @@ export default async function SessionWeaponsPage() {
 
   return (
     <div>
-      <StatsTableContainer data={sessionWeaponsPlayers} />
+      <MainGrid data={sessionWeaponsPlayers} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { StatsTableContainer } from "@/components/grids/main/StatsTableContainer";
+import { MainGrid } from "@/components/grids/main/MainGrid";
 import { prisma } from "@/lib/prisma";
 import { defaultOrderBy } from "@/utils/order";
 
@@ -15,7 +15,7 @@ export default async function GeneralMapsPage() {
 
   return (
     <div>
-      <StatsTableContainer data={generalMapsPlayers} />
+      <MainGrid data={generalMapsPlayers} />
     </div>
   );
 }

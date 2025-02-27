@@ -1,5 +1,4 @@
 import { ColumnDef, Getter } from "@tanstack/react-table";
-import { StatsTableRecord } from "@/utils/types";
 
 export const renderDecimalValue = (getValue: Getter<number>) => {
   const value = getValue<number | undefined>();
@@ -21,7 +20,34 @@ export const renderDecimalPercentageValue = (getValue: Getter<number>) => {
     : "0%";
 };
 
-export const startColumns: ColumnDef<StatsTableRecord>[] = [
+type CreateColumnOptions<T> = Partial<ColumnDef<T>> & {
+  percentageDisplay?: boolean;
+};
+
+export type AnyGridRecord = {
+  id?: bigint;
+  name?: string;
+  avatar?: string;
+};
+
+export const createColumn = <T,>(
+  accessorKey: keyof T,
+  header: string,
+  options?: CreateColumnOptions<T>
+): ColumnDef<T> => ({
+  accessorKey,
+  header,
+  cell: ({ getValue }) =>
+    options?.percentageDisplay
+      ? renderDecimalPercentageValue(getValue)
+      : renderDecimalValue(getValue),
+  maxSize: 60,
+  ...options,
+});
+
+export const createStartColumns = <
+  T extends AnyGridRecord
+>(): ColumnDef<T>[] => [
   {
     accessorKey: "No.",
     header: "No.",

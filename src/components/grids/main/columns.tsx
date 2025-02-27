@@ -1,107 +1,61 @@
-"use client";
-
 import { ColumnDef } from "@tanstack/react-table";
-import { StatsTableRecord } from "@/utils/types";
-import {
-  renderDecimalPercentageValue,
-  renderDecimalValue,
-  startColumns,
-} from "../columns-utils";
+import { createColumn, createStartColumns } from "../columns-utils";
 
-const generalColumns: ColumnDef<StatsTableRecord>[] = [
-  {
-    accessorKey: "winRatePercentage",
-    header: "Win Rate",
-    cell: ({ getValue }) => renderDecimalPercentageValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "gamesPlayed",
-    header: "Games",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "gamesWon",
-    header: "Wins",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "gamesLost",
-    header: "Losses",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "gamesDrawn",
-    header: "Draws",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "kda",
-    header: "KDA",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "knifeKills",
-    header: "Knife kills",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "knifeDeaths",
-    header: "Knife deaths",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
+export type MainGridRecord = {
+  id: bigint;
+  name: string;
+  avatar: string;
+  winRatePercentage: number;
+  gamesPlayed: number;
+  gamesWon: number;
+  gamesLost: number;
+  gamesDrawn: number;
+  kda: number;
+  kd: number;
+  killsPerGame: number;
+  deathsPerGame: number;
+  assistsPerGame: number;
+  damagePerRound: number;
+  damagePerGame: number;
+  headshotPercentage: number;
+  kills: number;
+  deaths: number;
+  assists: number;
+  headshots: number;
+  roundsWon: number;
+  totalRounds: number;
+  headshotsPerGame: number;
+  roundsWonPerGame: number;
+  totalRoundsPerGame: number;
+  roundsWinPercentage: number;
+  damage: number;
+};
+
+const generalColumns: ColumnDef<MainGridRecord>[] = [
+  createColumn("winRatePercentage", "Win Rate", { percentageDisplay: true }),
+  createColumn("gamesPlayed", "Games"),
+  createColumn("gamesWon", "Wins"),
+  createColumn("gamesLost", "Losses"),
+  createColumn("gamesDrawn", "Draws"),
+  createColumn("kda", "KDA"),
+  createColumn("kd", "K/D"),
 ];
 
-const basicAverageColumns: ColumnDef<StatsTableRecord>[] = [
-  {
-    accessorKey: "killsPerGame",
-    header: "Kills",
-    maxSize: 60,
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-  },
-  {
-    accessorKey: "deathsPerGame",
-    header: "Deaths",
-    maxSize: 60,
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-  },
-  {
-    accessorKey: "assistsPerGame",
-    header: "Assists",
-    maxSize: 60,
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-  },
-  {
-    accessorKey: "damagePerRound",
-    header: "ADR",
-    cell: ({ getValue }) => renderDecimalValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "headshotPercentage",
-    header: "HS %",
-    cell: ({ getValue }) => renderDecimalPercentageValue(getValue),
-    maxSize: 60,
-  },
-  {
-    accessorKey: "roundsWinPercentage",
-    header: "Rounds Win %",
-    maxSize: 60,
-    cell: ({ getValue }) => renderDecimalPercentageValue(getValue),
-  },
+const basicAverageColumns: ColumnDef<MainGridRecord>[] = [
+  createColumn("killsPerGame", "Kills"),
+  createColumn("deathsPerGame", "Deaths"),
+  createColumn("assistsPerGame", "Assists"),
+  createColumn("damagePerRound", "ADR"),
+  createColumn("headshotPercentage", "HS %", { percentageDisplay: true }),
+  createColumn("roundsWinPercentage", "Rounds Win %", {
+    percentageDisplay: true,
+  }),
 ];
 
-export const simpleColumns: ColumnDef<StatsTableRecord>[] = [
-  ...startColumns,
+export const simpleColumns: ColumnDef<MainGridRecord>[] = [
+  ...createStartColumns<MainGridRecord>(),
   {
-    accessorKey: "General",
+    accessorKey: "general",
     header: () => <div className="">General statistics</div>,
     enableSorting: false,
     columns: generalColumns,
@@ -118,8 +72,8 @@ export const simpleColumns: ColumnDef<StatsTableRecord>[] = [
   },
 ];
 
-export const advancedColumns: ColumnDef<StatsTableRecord>[] = [
-  ...startColumns,
+export const advancedColumns: ColumnDef<MainGridRecord>[] = [
+  ...createStartColumns<MainGridRecord>(),
   {
     accessorKey: "advanced General",
     header: () => <div className="">General statistics</div>,
@@ -136,30 +90,10 @@ export const advancedColumns: ColumnDef<StatsTableRecord>[] = [
     enableSorting: false,
     columns: [
       ...basicAverageColumns,
-      {
-        accessorKey: "headshotsPerGame",
-        header: "HSs Per Game",
-        maxSize: 60,
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
-      {
-        accessorKey: "roundsWonPerGame",
-        header: "Rounds win per Game",
-        maxSize: 60,
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
-      {
-        accessorKey: "totalRoundsPerGame",
-        header: "Rounds Per Game",
-        maxSize: 60,
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
-      {
-        accessorKey: "damagePerGame",
-        header: "DMG per game",
-        maxSize: 60,
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-      },
+      createColumn("headshotsPerGame", "HSs Per Game"),
+      createColumn("roundsWonPerGame", "Rounds win per Game"),
+      createColumn("totalRoundsPerGame", "Rounds Per Game"),
+      createColumn("damagePerGame", "DMG per game"),
     ],
   },
   {
@@ -167,50 +101,13 @@ export const advancedColumns: ColumnDef<StatsTableRecord>[] = [
     header: () => <div className="">Total statistics</div>,
     enableSorting: false,
     columns: [
-      {
-        accessorKey: "kills",
-        header: "Kills",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-      {
-        accessorKey: "deaths",
-        header: "Deaths",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-      {
-        accessorKey: "assists",
-        header: "Assists",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-      {
-        accessorKey: "headshots",
-        header: "HS's",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-
-      {
-        accessorKey: "damage",
-        header: "DMG",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-
-      {
-        accessorKey: "roundsWon",
-        header: "Rounds Won",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
-      {
-        accessorKey: "totalRounds",
-        header: "All Rounds",
-        cell: ({ getValue }) => renderDecimalValue(getValue),
-        maxSize: 60,
-      },
+      createColumn("kills", "Kills"),
+      createColumn("deaths", "Deaths"),
+      createColumn("assists", "Assists"),
+      createColumn("headshots", "HS's"),
+      createColumn("damage", "DMG"),
+      createColumn("roundsWon", "Rounds Won"),
+      createColumn("totalRounds", "All Rounds"),
     ],
   },
 ];

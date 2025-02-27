@@ -1,35 +1,5 @@
 import { PlayerStats, WeaponStats } from "@prisma/client";
 
-export type StatsTableRecord = {
-  id: bigint;
-  name: string;
-  winRatePercentage: number;
-  gamesPlayed: number;
-  gamesWon: number;
-  gamesLost: number;
-  gamesDrawn: number;
-  kda: number;
-  killsPerGame: number;
-  deathsPerGame: number;
-  assistsPerGame: number;
-  damagePerRound: number;
-  damagePerGame: number;
-  headshotPercentage: number;
-  kills: number;
-  deaths: number;
-  assists: number;
-  headshots: number;
-  roundsWon: number;
-  totalRounds: number;
-  headshotsPerGame: number;
-  roundsWonPerGame: number;
-  totalRoundsPerGame: number;
-  roundsWinPercentage: number;
-  damage: number;
-
-  weapons?: WeaponStats[];
-};
-
 export type WeaponsTableRecord = {
   id: bigint;
   name: string;
@@ -170,7 +140,6 @@ export type StatsFromJson = {
   clutches_1v4_won: number;
   clutches_1v5_played: number;
   clutches_1v5_won: number;
-  weapons: Record<WeaponName, WeaponFromJson>;
 };
 
 export type PlayerStatsWithWeapons = PlayerStats & {

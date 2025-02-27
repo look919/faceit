@@ -1,9 +1,12 @@
-import { StatsTableContainer } from "@/components/grids/main/StatsTableContainer";
+import { MainGrid } from "@/components/grids/main/MainGrid";
 import { defaultOrderBy } from "@/utils/order";
 import { prisma } from "@/lib/prisma";
 
 const getSessionPlayers = async () => {
-  const sessionPlayers = await prisma.sessionPlayerStats.findMany({
+  const sessionPlayers = await prisma.playerStats.findMany({
+    where: {
+      isSessionPlayer: true,
+    },
     orderBy: defaultOrderBy,
   });
 
@@ -15,7 +18,7 @@ export default async function SessionPage() {
 
   return (
     <div>
-      <StatsTableContainer data={sessionPlayers} />
+      <MainGrid data={sessionPlayers} isSessionPage />
     </div>
   );
 }
