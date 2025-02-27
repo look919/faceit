@@ -141,6 +141,7 @@ export const weaponNames = [
 export type WeaponName = (typeof weaponNames)[number];
 
 export type StatsFromJson = {
+  is_session_player: boolean;
   name: string;
   kills: number;
   deaths: number;

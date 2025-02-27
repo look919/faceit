@@ -8,11 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "loadStats": "node src/scripts/loadStatsToPrisma.js",
-    "revertStats": "node src/scripts/revertLoadingStatsToPrisma.js",
-    "clearSession": "node src/scripts/clearSessionStats.js",
-    "loadStatsForPlayer": "node src/scripts/loadStatsToPrismaForPlayer.js",
-    "revertStatsForPlayer": "node src/scripts/revertLoadingStatsToPrismaForPlayer.js",
+    "loadStats": "node src/scripts/loadStats.js",
+    "loadStatsForPlayer": "node src/scripts/loadStatsForPlayer.js",
+    "revertLoadingStats": "node src/scripts/revertLoadingStats.js",
+    "revertLoadingStatsForPlayer": "node src/scripts/revertLoadingStatsForPlayer.js",
+    "clearSession": "node src/scripts/clearSession.js",
     "deploy": "pnpm run loadStats && git add . && git commit -m \"Script loaded data to db\" && git push origin master"
   },
   "dependencies": {

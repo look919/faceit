@@ -41,8 +41,26 @@ var prisma = new client_1.PrismaClient();
 var clearSessionStats = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, prisma.sessionPlayerStats.deleteMany()];
+            case 0: return [4 /*yield*/, prisma.weaponStats.deleteMany({
+                    where: {
+                        isSessionWeapon: true,
+                    },
+                })];
             case 1:
+                _a.sent();
+                return [4 /*yield*/, prisma.mapStats.deleteMany({
+                        where: {
+                            isSessionMap: true,
+                        },
+                    })];
+            case 2:
+                _a.sent();
+                return [4 /*yield*/, prisma.playerStats.deleteMany({
+                        where: {
+                            isSessionPlayer: true,
+                        },
+                    })];
+            case 3:
                 _a.sent();
                 console.log("Session stats cleared.");
                 return [2 /*return*/];
