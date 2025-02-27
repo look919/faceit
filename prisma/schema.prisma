@@ -10,38 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model LEGACY_PlayerStats {
-  id                 BigInt     @id @default(autoincrement())
-  name               String
-  winRatePercentage  Float
-  gamesPlayed       Int
-  gamesWon         Int
-  gamesLost        Int
-  gamesDrawn       Int
-  kda               Float
-  killsPerGame      Float
-  deathsPerGame     Float
-  assistsPerGame    Float
-  damagePerRound    Float
-  damagePerGame     Float
-  headshotPercentage Float
-  kills             Int
-  deaths            Int
-  assists           Int
-  headshots         Int
-  roundsWon         Int
-  totalRounds       Int
-  headshotsPerGame  Float
-  roundsWonPerGame    Float
-  totalRoundsPerGame Float
-  roundsWinPercentage Float
-  damage            Int
-  knifeKills        Int   @default(0)
-  knifeDeaths       Int   @default(0)
-
-  // weapons           WeaponStats[]
-}
-
 model PlayerStats {
   id                 BigInt     @id @default(autoincrement())
   name               String
@@ -59,6 +27,28 @@ model PlayerStats {
   damage             Int
   roundsWon          Int
   totalRounds        Int
+  aces               Int
+  clutches           Int
+  mvps               Int
+  entryFrags         Int
+
+  killsThroughSmoke  Int 
+  killsThroughFlash  Int 
+  killsThroughWall   Int
+  killsInJump        Int
+
+  clutches1v1Played  Int
+  clutches1v1Won     Int
+  clutches1v2Played  Int
+  clutches1v2Won     Int
+  clutches1v3Played  Int
+  clutches1v3Won     Int
+  clutches1v4Played  Int
+  clutches1v4Won     Int
+  clutches1v5Played  Int
+  clutches1v5Won     Int
+
+  lastFiveMatchesOutcome String
 
   kda                Float
   kd                 Float
@@ -76,16 +66,51 @@ model PlayerStats {
   roundsWonPerGame   Float
   totalRoundsPerGame Float
   damagePerGame      Float
+  mvpsPerGame        Float
+  acesPerGame        Float
+  clutchesPerGame    Float
+  entryFragsPerGame  Float
 
+  killsThroughSmokePerGame Float
+  killsThroughWallPerGame  Float
+  killsOnFlashPerGame      Float
+  killsInJumpPerGame       Float
 
+  clutches1v1WinPercentage Float
+  clutches1v2WinPercentage Float
+  clutches1v3WinPercentage Float
+  clutches1v4WinPercentage Float
+  clutches1v5WinPercentage Float
+
+  weapons           WeaponStats[]
+  maps              MapStats[]
 }
 
+model MapStats {
+  id          Int    @id @default(autoincrement())
+  name        String
+  gamesPlayed Int        @default(0)
+  wins        Int        @default(0)
+  draws       Int        @default(0)
+  losses      Int        @default(0)
+  winRatePercentage Float @default(0)
+  totalGamesLength Float      @default(0)
+  averageGameLength Float      @default(0)
+  roundsPlayed Int        @default(0)
+  roundsWon    Int        @default(0)
+  averageRoundsPerGame Float   @default(0)
+  averageRoundsWonPerGame Float @default(0)
+  playerId    BigInt
+  player      PlayerStats @relation(fields: [playerId], references: [id])
+}
 
-// model WeaponStats {
-//   id          Int    @id @default(autoincrement())
-//   name        String
-//   totalKills       Int
-//   averageKillsPerGame Float
-//   playerId    BigInt
-//   player      PlayerStats @relation(fields: [playerId], references: [id])
-// }
+model WeaponStats {
+  id          Int    @id @default(autoincrement())
+  name        String
+  Kills       Int        @default(0)
+  deaths      Int        @default(0)
+  averageKillsPerGame Float   @default(0)
+  averageDeathsPerGame Float  @default(0)
+  playerId    BigInt
+  player      PlayerStats @relation(fields: [playerId], references: [id])
+}

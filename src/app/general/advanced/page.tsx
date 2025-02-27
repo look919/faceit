@@ -10,7 +10,7 @@ const getGeneralAdvancedPlayers = async () => {
   return generalAdvancedPlayers;
 };
 
-export default async function SessionPage() {
+export default async function GeneralAdvancedPage() {
   const generalAdvancedPlayers = await getGeneralAdvancedPlayers();
 
   return (
