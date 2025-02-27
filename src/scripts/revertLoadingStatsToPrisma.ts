@@ -1,4 +1,4 @@
-import { Stats } from "../utils/types";
+import { StatsFromJson } from "../utils/types";
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
 
@@ -10,7 +10,7 @@ const countKda = (kills: number, deaths: number, assists: number) => {
 
 const main = async () => {
   const rawData = readFileSync("./src/scripts/stats.json", "utf8");
-  const stats = JSON.parse(rawData) as Stats[];
+  const stats = JSON.parse(rawData) as StatsFromJson[];
 
   for (const [steamId, data] of Object.entries(stats)) {
     for (const model of ["playerStats", "sessionPlayerStats"] as const) {

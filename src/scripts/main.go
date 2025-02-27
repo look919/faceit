@@ -22,10 +22,6 @@ type PlayerStats struct {
 	KillsInJump        int               `json:"kills_in_jump"`
 	KillsThroughSmoke  int               `json:"kills_through_smoke"`
 	Headshots          int               `json:"headshots"`
-	KnifeKills         int               `json:"knife_kills"`
-	KnifeDeaths        int               `json:"knife_deaths"`
-	ZeusKills          int               `json:"zeus_kills"`
-	ZeusDeaths         int               `json:"zeus_deaths"`
 	Damage             int               `json:"damage"`
 	RoundsWon          int               `json:"rounds_won"`
 	TotalRounds        int               `json:"total_rounds"`
@@ -446,7 +442,7 @@ func initPlayerStats(p *common.Player) {
 
 // Save stats to JSON file
 func saveStatsToFile(data map[uint64]*PlayerStats) {
-	file, err := os.Create(`stats.json from you computer file path`)
+	file, err := os.Create(`path to stats.json`)
 	checkError(err)
 	defer file.Close()
 

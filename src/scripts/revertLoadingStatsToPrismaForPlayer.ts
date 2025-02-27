@@ -1,4 +1,4 @@
-import { Stats } from "../utils/types";
+import { StatsFromJson } from "../utils/types";
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
 
@@ -15,7 +15,7 @@ const playerName = playerNameArg ? playerNameArg.split("=")[1] : null;
 
 const main = async () => {
   const rawData = readFileSync("./src/scripts/stats.json", "utf8");
-  const stats = JSON.parse(rawData) as Stats[];
+  const stats = JSON.parse(rawData) as StatsFromJson[];
 
   for (const [steamId, data] of Object.entries(stats)) {
     if (playerName && data.name !== playerName) continue; // Skip players that don't match
