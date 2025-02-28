@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-visible min-h-screen min-w-screen `}
       >
-        <div className="flex flex-col w-fit px-4 font-[family-name:var(--font-geist-sans)] mx-auto">
+        <div className="flex flex-col w-fit px-4 font-[family-name:var(--font-geist-sans)] mx-auto min-h-screen">
           <main className="flex flex-col items-center gap-8 row-start-2 p-2 mt-8">
             <Logo />
             <Nav ariaLabel="primary navigation">
