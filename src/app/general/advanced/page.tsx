@@ -16,8 +16,9 @@ const getGeneralAdvancedPlayers = async () => {
   });
 
   const weaponStats = generalAdvancedPlayers.map((player) => {
-    const knife = player.weapons.find((weapon) => weapon.name === "Knife");
-    const zeus = player.weapons.find((weapon) => weapon.name === "Zeus");
+    const knife = player.weapons.find((weapon) => weapon.name === "knife");
+    const zeus = player.weapons.find((weapon) => weapon.name === "zeus");
+
     return {
       id: player.id,
       knife,
@@ -30,6 +31,7 @@ const getGeneralAdvancedPlayers = async () => {
       id: player.id,
       name: player.name,
       avatar: player.avatar,
+      gamesPlayed: player.gamesPlayed,
 
       mvps: player.mvps,
       aces: player.aces,

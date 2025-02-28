@@ -53,40 +53,32 @@ const basicAverageColumns: ColumnDef<MainGridRecord>[] = [
 ];
 
 export const simpleColumns: ColumnDef<MainGridRecord>[] = [
-  ...createStartColumns<MainGridRecord>(),
+  ...createStartColumns<MainGridRecord>({ shouldHideGamesPlayed: true }),
   {
     accessorKey: "general",
-    header: () => <div className="">General statistics</div>,
+    header: "General statistics",
     enableSorting: false,
     columns: generalColumns,
   },
   {
     accessorKey: "average",
-    header: () => (
-      <div className="flex justify-center w-full col-span-full">
-        Average statistics
-      </div>
-    ),
+    header: "Average statistics",
     enableSorting: false,
     columns: basicAverageColumns,
   },
 ];
 
 export const advancedColumns: ColumnDef<MainGridRecord>[] = [
-  ...createStartColumns<MainGridRecord>(),
+  ...createStartColumns<MainGridRecord>({ shouldHideGamesPlayed: true }),
   {
     accessorKey: "advanced General",
-    header: () => <div className="">General statistics</div>,
+    header: "General statistics",
     enableSorting: false,
     columns: generalColumns,
   },
   {
     accessorKey: "advanced average",
-    header: () => (
-      <div className="flex justify-center w-full col-span-full">
-        Average statistics
-      </div>
-    ),
+    header: "Average statistics",
     enableSorting: false,
     columns: [
       ...basicAverageColumns,
@@ -98,7 +90,7 @@ export const advancedColumns: ColumnDef<MainGridRecord>[] = [
   },
   {
     accessorKey: "total",
-    header: () => <div className="">Total statistics</div>,
+    header: "Total statistics",
     enableSorting: false,
     columns: [
       createColumn("kills", "Kills"),

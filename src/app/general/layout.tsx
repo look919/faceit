@@ -13,13 +13,13 @@ export default function CategoryLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="flex flex-col w-screen items-center">
+    <section className="flex flex-col items-center">
       <PageHeader name="General stats" />
       <Nav>
         <NavLink tier="sub" href="/general/main" name="Main" />
         <NavLink tier="sub" href="/general/weapons" name="Weapons" />
-        <NavLink tier="sub" href="/general/maps" name="Maps" />
         <NavLink tier="sub" href="/general/advanced" name="Advanced" />
+        <NavLink tier="sub" href="/general/maps" name="Maps" />
       </Nav>
       {children}
     </section>

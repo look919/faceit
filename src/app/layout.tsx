@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="grid grid-rows-[20px_1fr_20px] px-8 min-h-screen gap-x-16 pb-4 font-[family-name:var(--font-geist-sans)]">
-          <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start p-8">
+          <main className="flex flex-col items-center gap-8 row-start-2 p-8">
             <Logo />
             <Nav ariaLabel="primary navigation">
               <NavLink tier="main" href="/general/main" name="General" />

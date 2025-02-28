@@ -36,6 +36,7 @@ const getSessionWeaponsPlayers = async () => {
       id: player.id,
       name: player.name,
       avatar: player.avatar,
+      gamesPlayed: player.gamesPlayed,
       ...weaponsObject,
     };
   });
