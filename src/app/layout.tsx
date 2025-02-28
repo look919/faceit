@@ -35,8 +35,9 @@ export default function RootLayout({
           <main className="flex flex-col items-center gap-8 row-start-2 p-2 mt-8">
             <Logo />
             <Nav ariaLabel="primary navigation">
-              <NavLink tier="main" href="/general/main" name="General" />
+              <NavLink tier="main" href="/general/main" name="Season 2" />
               <NavLink tier="main" href="/session/main" name="Session" />
+              <NavLink tier="main" href="/all-time/main" name="All-time" />
             </Nav>
             {children}
           </main>

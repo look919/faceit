@@ -14,6 +14,7 @@ model PlayerStats {
   id                 BigInt     @id @default(autoincrement())
   name               String//
   avatar             String
+  playerTable        PlayerTable @default(ALL_TIME)
   isSessionPlayer    Boolean @default(false)
 
   gamesPlayed        Int//
@@ -117,4 +118,10 @@ model WeaponStats {
   deathsPerGame Float  @default(0)
   playerId    BigInt
   player      PlayerStats @relation(fields: [playerId], references: [id])
+}
+
+enum PlayerTable {
+  ALL_TIME
+  SEASON
+  SESSION
 }

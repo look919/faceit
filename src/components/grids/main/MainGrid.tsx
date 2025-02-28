@@ -15,6 +15,8 @@ type MainGridProps = {
 export const MainGrid = (props: MainGridProps) => {
   const [isChecked, setIsChecked] = React.useState(false);
 
+  console.log("data", props.data);
+
   return (
     <div>
       {!props?.isSessionPage && (

@@ -1,4 +1,5 @@
 import { ColumnDef, Getter } from "@tanstack/react-table";
+import Image from "next/image";
 
 export const renderDecimalValue = (getValue: Getter<number>) => {
   const value = getValue<number | undefined>();
@@ -68,7 +69,22 @@ export const createIndexColumn = <T,>(): ColumnDef<T> => ({
 export const createNameColumn = <T,>(): ColumnDef<T> => ({
   accessorKey: "name",
   header: "Name",
-  cell: ({ row }) => <div className="text-left">{row.getValue("name")}</div>,
+  cell: ({ row }) => {
+    const rowData = row.original as { avatar?: string; name: string };
+
+    return (
+      <div className="flex items-center">
+        <Image
+          src={`/avatars/${rowData.avatar || "default.jpg"}`}
+          alt=""
+          width={20}
+          height={20}
+          className="mr-1 rounded-sm"
+        />
+        <span>{row.getValue("name")}</span>
+      </div>
+    );
+  },
   minSize: 200,
   enableSorting: false,
   enableHiding: false,

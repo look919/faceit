@@ -10,7 +10,6 @@ export const Logo = () => {
           Dupeczki
         </span>
       </div>
-      <span className="text-sm mt-2">Season 2</span>
     </div>
   );
 };
