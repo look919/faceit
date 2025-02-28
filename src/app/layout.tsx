@@ -29,10 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-visible min-h-screen min-w-screen `}
       >
-        <div className="grid grid-rows-[20px_1fr_20px] px-8 min-h-screen gap-x-16 pb-4 font-[family-name:var(--font-geist-sans)]">
-          <main className="flex flex-col items-center gap-8 row-start-2 p-8">
+        <div className="flex flex-col w-fit px-4 font-[family-name:var(--font-geist-sans)] mx-auto">
+          <main className="flex flex-col items-center gap-8 row-start-2 p-2 mt-8">
             <Logo />
             <Nav ariaLabel="primary navigation">
               <NavLink tier="main" href="/general/main" name="General" />

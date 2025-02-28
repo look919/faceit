@@ -1,13 +1,16 @@
-export type MapName =
-  | "de_dust2"
-  | "de_inferno"
-  | "de_mirage"
-  | "de_nuke"
-  | "de_overpass"
-  | "de_train"
-  | "de_vertigo"
-  | "de_anubis"
-  | "de_ancient";
+export const mapNames = [
+  "de_dust2",
+  "de_inferno",
+  "de_mirage",
+  "de_nuke",
+  "de_overpass",
+  "de_train",
+  "de_vertigo",
+  "de_anubis",
+  "de_ancient",
+] as const;
+
+export type MapName = (typeof mapNames)[number];
 
 export type WeaponFromJson = {
   kills: number;

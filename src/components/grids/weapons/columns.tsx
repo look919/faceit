@@ -54,13 +54,13 @@ export const createWeaponsRiflesColumns = (
   createWeaponColumn("m4a1s", "M4a1", isAverageChosen),
   createWeaponColumn("m4a4", "M4a4", isAverageChosen),
   createWeaponColumn("awp", "AWP", isAverageChosen),
-  createWeaponColumn("g3sg1", "G3SG1", isAverageChosen),
+  createWeaponColumn("scout", "Scout", isAverageChosen),
   createWeaponColumn("famas", "Famas", isAverageChosen),
   createWeaponColumn("galil", "Galil", isAverageChosen),
   createWeaponColumn("aug", "Aug", isAverageChosen),
   createWeaponColumn("sg553", "SG553", isAverageChosen),
-  createWeaponColumn("scout", "Scout", isAverageChosen),
   createWeaponColumn("scar20", "Scar20", isAverageChosen),
+  createWeaponColumn("g3sg1", "G3SG1", isAverageChosen),
 ];
 
 export const createWeaponsPistolsColumns = (

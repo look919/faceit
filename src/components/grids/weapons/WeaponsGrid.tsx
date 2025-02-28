@@ -24,7 +24,7 @@ export const WeaponsGrid = (props: WeaponsGridProps) => {
   const secondaryColumns = createWeaponsSecondaryColumns(isAverageChosen);
 
   return (
-    <div className="overflow-x-auto">
+    <div className="flex flex-col">
       <div className="flex items-center space-x-2 mt-4 mb-2 cursor-pointer">
         <Label htmlFor="columns-switch" className="text-sm">
           Total
@@ -38,11 +38,11 @@ export const WeaponsGrid = (props: WeaponsGridProps) => {
           AVG
         </Label>
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-2">
         <Grid data={props.data} columns={otherColumns} />
         <Grid data={props.data} columns={riflesColumns} />
       </div>
-      <div className="flex mt-6 gap-8">
+      <div className="flex mt-6 gap-2">
         <Grid data={props.data} columns={pistolColumns} />
         <Grid data={props.data} columns={secondaryColumns} />
       </div>

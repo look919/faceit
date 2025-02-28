@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: #181a1b;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #181a1b;
   color: white;
 }
 
@@ -67,6 +70,17 @@ body {
 @layer base {
   * {
     @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;

@@ -51,33 +51,35 @@ type CreateStartColumnsOptions = {
   shouldHideGamesPlayed?: boolean;
 };
 
+export const createIndexColumn = <T,>(): ColumnDef<T> => ({
+  accessorKey: "No.",
+  header: "No.",
+  cell: ({ row, table }) => {
+    const sortedIndex = table
+      .getSortedRowModel()
+      .flatRows.findIndex((r) => r.id === row.id);
+    return sortedIndex + 1;
+  },
+  maxSize: 20,
+  enableSorting: false,
+  enableHiding: false,
+});
+
+export const createNameColumn = <T,>(): ColumnDef<T> => ({
+  accessorKey: "name",
+  header: "Name",
+  cell: ({ row }) => <div className="text-left">{row.getValue("name")}</div>,
+  minSize: 200,
+  enableSorting: false,
+  enableHiding: false,
+});
+
 export const createStartColumns = <T extends AnyGridRecord>(
   options?: CreateStartColumnsOptions
 ): ColumnDef<T>[] => {
   const startingColumns: ColumnDef<T>[] = [
-    {
-      accessorKey: "No.",
-      header: "No.",
-      cell: ({ row, table }) => {
-        const sortedIndex = table
-          .getSortedRowModel()
-          .flatRows.findIndex((r) => r.id === row.id);
-        return sortedIndex + 1;
-      },
-      maxSize: 20,
-      enableSorting: false,
-      enableHiding: false,
-    },
-    {
-      accessorKey: "name",
-      header: "Name",
-      cell: ({ row }) => (
-        <div className="text-left">{row.getValue<number>("name")}</div>
-      ),
-      minSize: 200,
-      enableSorting: false,
-      enableHiding: false,
-    },
+    createIndexColumn<T>(),
+    createNameColumn<T>(),
     createColumn("gamesPlayed", "Games"),
   ];
 

@@ -23,3 +23,9 @@ export const advancedOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
     name: "asc",
   },
 ];
+
+export const mapsOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
+  {
+    name: "asc",
+  },
+];
