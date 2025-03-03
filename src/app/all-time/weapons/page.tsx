@@ -2,15 +2,15 @@ import { weaponsOrderBy } from "@/utils/order";
 import { prisma } from "@/lib/prisma";
 import { WeaponsGrid } from "@/components/grids/weapons/WeaponsGrid";
 import { WeaponName } from "@/utils/weapons";
-import { WeaponStats } from "@prisma/client";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
+import { PlayerTable, WeaponStats } from "@prisma/client";
+import { ALL_TIME_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 
 const getAllTimeWeaponsPlayers = async () => {
   const allTimeWeaponsPlayers = await prisma.playerStats.findMany({
     where: {
-      isSessionPlayer: false,
+      playerTable: PlayerTable.ALL_TIME,
       gamesPlayed: {
-        gte: NUMBER_OF_MATCHES_SEPARATOR,
+        gte: ALL_TIME_MATCHES_PLAYED_SEPARATOR,
       },
     },
     include: {
@@ -30,7 +30,7 @@ const getAllTimeWeaponsPlayers = async () => {
         killsPerGame: weapon.killsPerGame,
         deaths: weapon.deaths,
         deathsPerGame: weapon.deathsPerGame,
-        isSessionWeapon: false,
+        playerTable: PlayerTable.ALL_TIME,
         playerId: weapon.playerId,
       };
       return acc;

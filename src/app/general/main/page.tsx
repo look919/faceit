@@ -1,14 +1,15 @@
 import { MainGrid } from "@/components/grids/main/MainGrid";
 import { prisma } from "@/lib/prisma";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
+import { MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 import { mainOrderBy } from "@/utils/order";
+import { PlayerTable } from "@prisma/client";
 
 const getGeneralPlayersWithMoreGamesThanSeparator = async () => {
   const playersWithMoreGamesThanSeparator = await prisma.playerStats.findMany({
     where: {
-      isSessionPlayer: false,
+      playerTable: PlayerTable.SEASON,
       gamesPlayed: {
-        gte: NUMBER_OF_MATCHES_SEPARATOR,
+        gte: MATCHES_PLAYED_SEPARATOR,
       },
     },
     orderBy: mainOrderBy,
@@ -20,9 +21,9 @@ const getGeneralPlayersWithMoreGamesThanSeparator = async () => {
 const getGeneralPlayersWithLessGamesThanSeparator = async () => {
   const playersWithLessGamesThanSeparator = await prisma.playerStats.findMany({
     where: {
-      isSessionPlayer: false,
+      playerTable: PlayerTable.SEASON,
       gamesPlayed: {
-        lt: NUMBER_OF_MATCHES_SEPARATOR,
+        lt: MATCHES_PLAYED_SEPARATOR,
       },
     },
 
@@ -53,6 +54,7 @@ export default async function GeneralPage() {
       <MainGrid
         primaryData={playersWithMoreGamesThanSeparator}
         secondaryData={playersWithLessGamesThanSeparator}
+        separator={MATCHES_PLAYED_SEPARATOR}
       />
     </div>
   );

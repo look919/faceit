@@ -1,16 +1,17 @@
 import { AdvancedGrid } from "@/components/grids/advanced/AdvancedGrid";
 import { prisma } from "@/lib/prisma";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
+import { ALL_TIME_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 import { advancedOrderBy } from "@/utils/order";
+import { PlayerTable } from "@prisma/client";
 
 const getAllTimeAdvancedPlayers = async () => {
   const allTimeAdvancedPlayers = await prisma.playerStats.findMany({
     orderBy: advancedOrderBy,
     include: { weapons: true },
     where: {
-      isSessionPlayer: false,
+      playerTable: PlayerTable.ALL_TIME,
       gamesPlayed: {
-        gte: NUMBER_OF_MATCHES_SEPARATOR,
+        gte: ALL_TIME_MATCHES_PLAYED_SEPARATOR,
       },
     },
   });
@@ -36,6 +37,7 @@ const getAllTimeAdvancedPlayers = async () => {
       mvps: player.mvps,
       aces: player.aces,
       entryFrags: player.entryFrags,
+      entryDeaths: player.entryDeaths,
       killsTroughSmoke: player.killsThroughSmoke,
       killsOnFlash: player.killsOnFlash,
       killsTroughWall: player.killsThroughWall,
@@ -44,6 +46,8 @@ const getAllTimeAdvancedPlayers = async () => {
       acesPerGame: player.acesPerGame,
       mvpsPerGame: player.mvpsPerGame,
       entryFragsPerGame: player.entryFragsPerGame,
+      entryKillRating: player.entryKillRating,
+      impactFactor: player.impactFactor,
       killsInJumpPerGame: player.killsInJumpPerGame,
       killsTroughWallPerGame: player.killsThroughSmokePerGame,
       killsOnFlashPerGame: player.killsOnFlashPerGame,

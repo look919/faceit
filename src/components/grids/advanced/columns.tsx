@@ -22,6 +22,7 @@ export type AdvancedGridRecord = {
   acesPerGame: number;
   mvpsPerGame: number;
   entryFragsPerGame: number;
+  entryKillRating: number;
   killsInJumpPerGame: number;
   killsTroughWallPerGame: number;
   killsOnFlashPerGame: number;
@@ -68,10 +69,12 @@ export const createAdvancedColumns = (
         createColumn("mvpsPerGame", "MVPs"),
         createColumn("acesPerGame", "Aces"),
         createColumn("entryFragsPerGame", "Entry Frags"),
+        createColumn("entryKillRating", "Entry K/D"),
         createColumn("killsOnFlashPerGame", "Kills on Flashes"),
         createColumn("killsTroughWallPerGame", "Kills through Wall"),
         createColumn("killsTroughSmokePerGame", "Kills through Smoke"),
         createColumn("killsInJumpPerGame", "Kills in Jump"),
+        createColumn("impactFactor", "Impact Factor"),
       ],
     },
     {
@@ -104,6 +107,7 @@ export const createAdvancedColumns = (
         createColumn("mvps", "MVPs"),
         createColumn("aces", "Aces"),
         createColumn("entryFrags", "Entry Frags"),
+        createColumn("entryDeaths", "Entry Deaths"),
         createColumn("killsOnFlash", "Kills on flash"),
         createColumn("killsTroughWall", "Kills trough wall"),
         createColumn("killsTroughSmoke", "Kills trough smoke"),

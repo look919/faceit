@@ -1,16 +1,16 @@
 import { MapsGrid } from "@/components/grids/maps/MapsGrid";
 import { prisma } from "@/lib/prisma";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
+import { ALL_TIME_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 import { mapsOrderBy } from "@/utils/order";
 import { MapName } from "@/utils/weapons";
-import { MapStats } from "@prisma/client";
+import { MapStats, PlayerTable } from "@prisma/client";
 
 const getAllTimeMapsPlayers = async () => {
   const allTimeMapsPlayers = await prisma.playerStats.findMany({
     where: {
-      isSessionPlayer: false,
+      playerTable: PlayerTable.ALL_TIME,
       gamesPlayed: {
-        gte: NUMBER_OF_MATCHES_SEPARATOR,
+        gte: ALL_TIME_MATCHES_PLAYED_SEPARATOR,
       },
     },
     include: {
@@ -38,7 +38,7 @@ const getAllTimeMapsPlayers = async () => {
         roundsPerGame: map.roundsPerGame,
         roundsWonPerGame: map.roundsWonPerGame,
         roundsWinPercentage: map.roundsWinPercentage,
-        isSessionMap: false,
+        playerTable: PlayerTable.ALL_TIME,
         playerId: map.playerId,
       };
       return acc;

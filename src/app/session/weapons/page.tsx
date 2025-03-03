@@ -1,13 +1,13 @@
 import { weaponsOrderBy } from "@/utils/order";
 import { prisma } from "@/lib/prisma";
 import { WeaponName } from "@/utils/weapons";
-import { WeaponStats } from "@prisma/client";
+import { PlayerTable, WeaponStats } from "@prisma/client";
 import { WeaponsGrid } from "@/components/grids/weapons/WeaponsGrid";
 
 const getSessionWeaponsPlayers = async () => {
   const sessionWeaponsPlayers = await prisma.playerStats.findMany({
     where: {
-      isSessionPlayer: true,
+      playerTable: PlayerTable.SESSION,
     },
     include: {
       weapons: true,
@@ -26,7 +26,7 @@ const getSessionWeaponsPlayers = async () => {
         killsPerGame: weapon.killsPerGame,
         deaths: weapon.deaths,
         deathsPerGame: weapon.deathsPerGame,
-        isSessionWeapon: false,
+        playerTable: PlayerTable.SESSION,
         playerId: weapon.playerId,
       };
       return acc;

@@ -32,6 +32,7 @@ model PlayerStats {
   aces               Int
   mvps               Int
   entryFrags         Int
+  entryDeaths        Int
 
   killsThroughSmoke  Int 
   killsOnFlash       Int 
@@ -70,6 +71,8 @@ model PlayerStats {
   mvpsPerGame        Float
   acesPerGame        Float
   entryFragsPerGame  Float
+  entryKillRating    Float
+  impactFactor       Float
 
   killsThroughSmokePerGame Float
   killsThroughWallPerGame  Float

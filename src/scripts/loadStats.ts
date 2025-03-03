@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
-import { StatsFromJson } from "../utils/types";
+import { playerAvatarsMap, StatsFromJson } from "../utils/player";
 import { countClutchesWinPercentage, countKd, countKda } from "./utils";
 
 const prisma = new PrismaClient();
@@ -8,20 +8,23 @@ const prisma = new PrismaClient();
 const main = async () => {
   const rawData = readFileSync("./src/scripts/stats.json", "utf8");
   const stats = JSON.parse(rawData) as StatsFromJson[];
+  let mapPlayed = "";
 
   for (const [steamId, data] of Object.entries(stats)) {
     const existingPlayer = await prisma.playerStats.findUnique({
       where: { id: Number(steamId) },
       include: { weapons: true, maps: true },
     });
-
+    mapPlayed = data.map_played;
     const lastFiveMatchesOutcome = existingPlayer?.lastFiveMatchesOutcome || "";
 
     const collectableStats = {
       gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
       name: data.name,
-      isSessionPlayer: data.is_session_player,
-      avatar: "", // TODO: think bout it later
+      playerTable: data.players_table,
+      avatar:
+        playerAvatarsMap[data.name as keyof typeof playerAvatarsMap] ||
+        "default.jpg",
       kills: existingPlayer ? existingPlayer.kills + data.kills : data.kills,
       deaths: existingPlayer
         ? existingPlayer.deaths + data.deaths
@@ -56,6 +59,9 @@ const main = async () => {
       entryFrags: existingPlayer
         ? existingPlayer.entryFrags + data.entry_frags
         : data.entry_frags,
+      entryDeaths: existingPlayer
+        ? existingPlayer.entryDeaths + data.entry_deaths
+        : data.entry_deaths,
       aces: existingPlayer ? existingPlayer.aces + data.aces : data.aces,
       mvps: existingPlayer ? existingPlayer.mvps + data.mvp : data.mvp,
       clutches1v1Played: existingPlayer
@@ -95,7 +101,7 @@ const main = async () => {
           ? "L"
           : "D"
       }`,
-    };
+    } as const;
 
     const resultDeterminedStats = existingPlayer
       ? {
@@ -117,6 +123,17 @@ const main = async () => {
           gamesLost: data.match_outcome === "Loss" ? 1 : 0,
           gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
         };
+
+    const impactFactor =
+      collectableStats.entryFrags -
+      collectableStats.entryDeaths +
+      2 * collectableStats.mvps +
+      ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
+        (collectableStats.clutches1v1Won / 100 +
+          collectableStats.clutches1v2Won / 100 +
+          collectableStats.clutches1v3Won / 100 +
+          collectableStats.clutches1v4Won / 100 +
+          collectableStats.clutches1v5Won / 100);
 
     const countableStats = {
       kda: countKda(
@@ -154,6 +171,9 @@ const main = async () => {
       entryFragsPerGame:
         collectableStats.entryFrags / collectableStats.gamesPlayed,
       acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
+      entryKillRating:
+        collectableStats.entryFrags / Math.max(1, collectableStats.entryDeaths),
+      impactFactor,
       clutches1v1WinPercentage: countClutchesWinPercentage(
         collectableStats.clutches1v1Played,
         collectableStats.clutches1v1Won
@@ -217,7 +237,7 @@ const main = async () => {
           // Create new weapon if it doesn't exist
           return prisma.weaponStats.create({
             data: {
-              isSessionWeapon: data.is_session_player,
+              playerTable: data.players_table,
               name: weaponName,
               kills: weaponStats.kills,
               killsPerGame: weaponStats.kills / collectableStats.gamesPlayed,
@@ -283,7 +303,7 @@ const main = async () => {
     } else {
       await prisma.mapStats.create({
         data: {
-          isSessionMap: data.is_session_player,
+          playerTable: data.players_table,
           name: data.map_played,
           gamesPlayed: 1,
           gamesWon: data.match_outcome === "Win" ? 1 : 0,
@@ -303,7 +323,7 @@ const main = async () => {
     }
   }
 
-  console.log("Stats updated in the database.");
+  console.log(`Loaded stats from map: ${mapPlayed}.`);
 };
 
 main()

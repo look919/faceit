@@ -13,6 +13,7 @@
     "revertLoadingStats": "node src/scripts/revertLoadingStats.js",
     "revertLoadingStatsForPlayer": "node src/scripts/revertLoadingStatsForPlayer.js",
     "clearSession": "node src/scripts/clearSession.js",
+    "clearSeason": "node src/scripts/clearSeason.js",
     "deploy": "pnpm run loadStats && git add . && git commit -m \"Script loaded data to db\" && git push origin master"
   },
   "dependencies": {

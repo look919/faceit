@@ -5,12 +5,11 @@ import { simpleColumns, advancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Grid } from "../../Grid";
-import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
 
 type MainGridProps = {
   primaryData: PlayerStats[];
   secondaryData?: PlayerStats[];
-  isSessionPage?: boolean;
+  separator?: number;
 };
 
 export const MainGrid = (props: MainGridProps) => {
@@ -18,11 +17,10 @@ export const MainGrid = (props: MainGridProps) => {
 
   return (
     <div>
-      {!props?.isSessionPage && (
+      {Boolean(props.separator) && (
         <div className="text-gray-500 italic text-sm text-center mt-2">
           The number of matches you need to play to be default sorted with all
-          of the players is currently:{" "}
-          <span>{NUMBER_OF_MATCHES_SEPARATOR}</span>
+          of the players is currently: <span>{props.separator}</span>
         </div>
       )}
       <div className="flex items-center space-x-2 mt-4 mb-2 cursor-pointer">
@@ -41,14 +39,14 @@ export const MainGrid = (props: MainGridProps) => {
         columns={isChecked ? advancedColumns : simpleColumns}
       />
 
-      {props.secondaryData && (
+      {/* {props.secondaryData && (
         <div className="mt-4">
           <Grid
             data={props.secondaryData}
             columns={isChecked ? advancedColumns : simpleColumns}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

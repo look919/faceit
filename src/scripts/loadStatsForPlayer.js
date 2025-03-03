@@ -47,6 +47,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var player_1 = require("../utils/player");
 var client_1 = require("@prisma/client");
 var fs_1 = require("fs");
 var utils_1 = require("./utils");
@@ -63,7 +64,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 rawData = (0, fs_1.readFileSync)("./src/scripts/stats.json", "utf8");
                 stats = JSON.parse(rawData);
                 _loop_1 = function (steamId, data) {
-                    var existingPlayer, lastFiveMatchesOutcome, collectableStats, resultDeterminedStats, countableStats, weaponStats, existingMapForPlayer, mapCollectableStats, mapCountableStats;
+                    var existingPlayer, lastFiveMatchesOutcome, collectableStats, resultDeterminedStats, impactFactor, countableStats, weaponStats, existingMapForPlayer, mapCollectableStats, mapCountableStats;
                     return __generator(this, function (_d) {
                         switch (_d.label) {
                             case 0:
@@ -83,8 +84,9 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                 collectableStats = {
                                     gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
                                     name: data.name,
-                                    isSessionPlayer: data.is_session_player,
-                                    avatar: "",
+                                    playerTable: data.players_table,
+                                    avatar: player_1.playerAvatarsMap[data.name] ||
+                                        "default.jpg",
                                     kills: existingPlayer ? existingPlayer.kills + data.kills : data.kills,
                                     deaths: existingPlayer
                                         ? existingPlayer.deaths + data.deaths
@@ -119,6 +121,9 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     entryFrags: existingPlayer
                                         ? existingPlayer.entryFrags + data.entry_frags
                                         : data.entry_frags,
+                                    entryDeaths: existingPlayer
+                                        ? existingPlayer.entryDeaths + data.entry_deaths
+                                        : data.entry_deaths,
                                     aces: existingPlayer ? existingPlayer.aces + data.aces : data.aces,
                                     mvps: existingPlayer ? existingPlayer.mvps + data.mvp : data.mvp,
                                     clutches1v1Played: existingPlayer
@@ -174,6 +179,15 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                         gamesLost: data.match_outcome === "Loss" ? 1 : 0,
                                         gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
                                     };
+                                impactFactor = collectableStats.entryFrags -
+                                    collectableStats.entryDeaths +
+                                    2 * collectableStats.mvps +
+                                    ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
+                                        (collectableStats.clutches1v1Won / 100 +
+                                            collectableStats.clutches1v2Won / 100 +
+                                            collectableStats.clutches1v3Won / 100 +
+                                            collectableStats.clutches1v4Won / 100 +
+                                            collectableStats.clutches1v5Won / 100);
                                 countableStats = {
                                     kda: (0, utils_1.countKda)(collectableStats.kills, collectableStats.deaths, collectableStats.assists),
                                     kd: (0, utils_1.countKd)(collectableStats.kills, collectableStats.deaths),
@@ -194,6 +208,8 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     roundsWinPercentage: (collectableStats.roundsWon / collectableStats.totalRounds) * 100,
                                     mvpsPerGame: collectableStats.mvps / collectableStats.gamesPlayed,
                                     entryFragsPerGame: collectableStats.entryFrags / collectableStats.gamesPlayed,
+                                    entryKillRating: collectableStats.entryFrags / collectableStats.entryDeaths,
+                                    impactFactor: impactFactor,
                                     acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
                                     clutches1v1WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v1Played, collectableStats.clutches1v1Won),
                                     clutches1v2WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v2Played, collectableStats.clutches1v2Won),
@@ -229,7 +245,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                         // Create new weapon if it doesn't exist
                                         return prisma.weaponStats.create({
                                             data: {
-                                                isSessionWeapon: data.is_session_player,
+                                                playerTable: data.players_table,
                                                 name: weaponName,
                                                 kills: weaponStats.kills,
                                                 killsPerGame: weaponStats.kills / collectableStats.gamesPlayed,
@@ -279,7 +295,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                 return [3 /*break*/, 7];
                             case 5: return [4 /*yield*/, prisma.mapStats.create({
                                     data: {
-                                        isSessionMap: data.is_session_player,
+                                        playerTable: data.players_table,
                                         name: data.map_played,
                                         gamesPlayed: 1,
                                         gamesWon: data.match_outcome === "Win" ? 1 : 0,
@@ -316,9 +332,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 _i++;
                 return [3 /*break*/, 1];
             case 4:
-                console.log(playerName
-                    ? "Stats updated for ".concat(playerName, ".")
-                    : "Stats updated for all players.");
+                console.log("Stats updated for ".concat(playerName, "."));
                 return [2 /*return*/];
         }
     });

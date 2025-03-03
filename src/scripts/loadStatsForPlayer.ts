@@ -1,4 +1,4 @@
-import { StatsFromJson } from "../utils/types";
+import { playerAvatarsMap, StatsFromJson } from "../utils/player";
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
 import { countClutchesWinPercentage, countKd, countKda } from "./utils";
@@ -32,8 +32,10 @@ const main = async () => {
     const collectableStats = {
       gamesPlayed: existingPlayer ? existingPlayer.gamesPlayed + 1 : 1,
       name: data.name,
-      isSessionPlayer: data.is_session_player,
-      avatar: "", // TODO: think bout it later
+      playerTable: data.players_table,
+      avatar:
+        playerAvatarsMap[data.name as keyof typeof playerAvatarsMap] ||
+        "default.jpg",
       kills: existingPlayer ? existingPlayer.kills + data.kills : data.kills,
       deaths: existingPlayer
         ? existingPlayer.deaths + data.deaths
@@ -68,6 +70,9 @@ const main = async () => {
       entryFrags: existingPlayer
         ? existingPlayer.entryFrags + data.entry_frags
         : data.entry_frags,
+      entryDeaths: existingPlayer
+        ? existingPlayer.entryDeaths + data.entry_deaths
+        : data.entry_deaths,
       aces: existingPlayer ? existingPlayer.aces + data.aces : data.aces,
       mvps: existingPlayer ? existingPlayer.mvps + data.mvp : data.mvp,
       clutches1v1Played: existingPlayer
@@ -130,6 +135,17 @@ const main = async () => {
           gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
         };
 
+    const impactFactor =
+      collectableStats.entryFrags -
+      collectableStats.entryDeaths +
+      2 * collectableStats.mvps +
+      ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
+        (collectableStats.clutches1v1Won / 100 +
+          collectableStats.clutches1v2Won / 100 +
+          collectableStats.clutches1v3Won / 100 +
+          collectableStats.clutches1v4Won / 100 +
+          collectableStats.clutches1v5Won / 100);
+
     const countableStats = {
       kda: countKda(
         collectableStats.kills,
@@ -165,6 +181,9 @@ const main = async () => {
       mvpsPerGame: collectableStats.mvps / collectableStats.gamesPlayed,
       entryFragsPerGame:
         collectableStats.entryFrags / collectableStats.gamesPlayed,
+      entryKillRating:
+        collectableStats.entryFrags / collectableStats.entryDeaths,
+      impactFactor,
       acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
       clutches1v1WinPercentage: countClutchesWinPercentage(
         collectableStats.clutches1v1Played,
@@ -229,7 +248,7 @@ const main = async () => {
           // Create new weapon if it doesn't exist
           return prisma.weaponStats.create({
             data: {
-              isSessionWeapon: data.is_session_player,
+              playerTable: data.players_table,
               name: weaponName,
               kills: weaponStats.kills,
               killsPerGame: weaponStats.kills / collectableStats.gamesPlayed,
@@ -295,7 +314,7 @@ const main = async () => {
     } else {
       await prisma.mapStats.create({
         data: {
-          isSessionMap: data.is_session_player,
+          playerTable: data.players_table,
           name: data.map_played,
           gamesPlayed: 1,
           gamesWon: data.match_outcome === "Win" ? 1 : 0,
@@ -315,11 +334,7 @@ const main = async () => {
     }
   }
 
-  console.log(
-    playerName
-      ? `Stats updated for ${playerName}.`
-      : "Stats updated for all players."
-  );
+  console.log(`Stats updated for ${playerName}.`);
 };
 
 main()

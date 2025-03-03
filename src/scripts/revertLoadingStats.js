@@ -59,7 +59,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 rawData = (0, fs_1.readFileSync)("./src/scripts/stats.json", "utf8");
                 stats = JSON.parse(rawData);
                 _loop_1 = function (steamId, data) {
-                    var existingPlayer, lastFiveMatchesOutcome, collectableStats, resultDeterminedStats, countableStats, _loop_2, _d, _e, _f, weaponName, weaponStats, existingMap;
+                    var existingPlayer, lastFiveMatchesOutcome, collectableStats, resultDeterminedStats, impactFactor, countableStats, _loop_2, _d, _e, _f, weaponName, weaponStats, existingMap;
                     return __generator(this, function (_g) {
                         switch (_g.label) {
                             case 0: return [4 /*yield*/, prisma.playerStats.findUnique({
@@ -82,7 +82,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                 collectableStats = {
                                     gamesPlayed: existingPlayer.gamesPlayed - 1,
                                     name: existingPlayer.name,
-                                    isSessionPlayer: existingPlayer.isSessionPlayer,
+                                    playerTable: data.players_table,
                                     avatar: existingPlayer.avatar,
                                     kills: existingPlayer.kills - data.kills,
                                     deaths: existingPlayer.deaths - data.deaths,
@@ -96,6 +96,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     totalRounds: existingPlayer.totalRounds - data.total_rounds,
                                     roundsWon: existingPlayer.roundsWon - data.rounds_won,
                                     entryFrags: existingPlayer.entryFrags - data.entry_frags,
+                                    entryDeaths: existingPlayer.entryDeaths - data.entry_deaths,
                                     aces: existingPlayer.aces - data.aces,
                                     mvps: existingPlayer.mvps - data.mvp,
                                     clutches1v1Played: existingPlayer.clutches1v1Played - data.clutches_1v1_played,
@@ -121,6 +122,15 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                         ? existingPlayer.gamesDrawn - 1
                                         : existingPlayer.gamesDrawn,
                                 };
+                                impactFactor = collectableStats.entryFrags -
+                                    collectableStats.entryDeaths +
+                                    2 * collectableStats.mvps +
+                                    ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
+                                        (collectableStats.clutches1v1Won / 100 +
+                                            collectableStats.clutches1v2Won / 100 +
+                                            collectableStats.clutches1v3Won / 100 +
+                                            collectableStats.clutches1v4Won / 100 +
+                                            collectableStats.clutches1v5Won / 100);
                                 countableStats = {
                                     kda: (0, utils_1.countKda)(collectableStats.kills, collectableStats.deaths, collectableStats.assists),
                                     kd: (0, utils_1.countKd)(collectableStats.kills, collectableStats.deaths),
@@ -141,6 +151,8 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     roundsWinPercentage: (collectableStats.roundsWon / collectableStats.totalRounds) * 100,
                                     mvpsPerGame: collectableStats.mvps / collectableStats.gamesPlayed,
                                     entryFragsPerGame: collectableStats.entryFrags / collectableStats.gamesPlayed,
+                                    entryKillRating: collectableStats.entryFrags / collectableStats.entryDeaths,
+                                    impactFactor: impactFactor,
                                     acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
                                     clutches1v1WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v1Played, collectableStats.clutches1v1Won),
                                     clutches1v2WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v2Played, collectableStats.clutches1v2Won),

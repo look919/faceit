@@ -1,13 +1,14 @@
 import { AdvancedGrid } from "@/components/grids/advanced/AdvancedGrid";
 import { prisma } from "@/lib/prisma";
 import { advancedOrderBy } from "@/utils/order";
+import { PlayerTable } from "@prisma/client";
 
 const getSessionAdvancedPlayers = async () => {
   const sessionAdvancedPlayers = await prisma.playerStats.findMany({
     orderBy: advancedOrderBy,
     include: { weapons: true },
     where: {
-      isSessionPlayer: true,
+      playerTable: PlayerTable.SESSION,
     },
   });
 
@@ -32,6 +33,7 @@ const getSessionAdvancedPlayers = async () => {
       mvps: player.mvps,
       aces: player.aces,
       entryFrags: player.entryFrags,
+      entryDeaths: player.entryDeaths,
       killsTroughSmoke: player.killsThroughSmoke,
       killsOnFlash: player.killsOnFlash,
       killsTroughWall: player.killsThroughWall,
@@ -40,6 +42,8 @@ const getSessionAdvancedPlayers = async () => {
       acesPerGame: player.acesPerGame,
       mvpsPerGame: player.mvpsPerGame,
       entryFragsPerGame: player.entryFragsPerGame,
+      entryKillRating: player.entryKillRating,
+      impactFactor: player.impactFactor,
       killsInJumpPerGame: player.killsInJumpPerGame,
       killsTroughWallPerGame: player.killsThroughSmokePerGame,
       killsOnFlashPerGame: player.killsOnFlashPerGame,

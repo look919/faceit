@@ -38,35 +38,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var client_1 = require("@prisma/client");
 var prisma = new client_1.PrismaClient();
-var clearSessionStats = function () { return __awaiter(void 0, void 0, void 0, function () {
+var clearSeasonStats = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, prisma.weaponStats.deleteMany({
                     where: {
-                        playerTable: client_1.PlayerTable.SESSION,
+                        playerTable: client_1.PlayerTable.SEASON,
                     },
                 })];
             case 1:
                 _a.sent();
                 return [4 /*yield*/, prisma.mapStats.deleteMany({
                         where: {
-                            playerTable: client_1.PlayerTable.SESSION,
+                            playerTable: client_1.PlayerTable.SEASON,
                         },
                     })];
             case 2:
                 _a.sent();
                 return [4 /*yield*/, prisma.playerStats.deleteMany({
                         where: {
-                            playerTable: client_1.PlayerTable.SESSION,
+                            playerTable: client_1.PlayerTable.SEASON,
                         },
                     })];
             case 3:
                 _a.sent();
-                console.log("Session stats cleared.");
+                console.log("Seasons stats cleared.");
                 return [2 /*return*/];
         }
     });
 }); };
-clearSessionStats()
+clearSeasonStats()
     .catch(function (e) { return console.error(e); })
     .finally(function () { return prisma.$disconnect(); });

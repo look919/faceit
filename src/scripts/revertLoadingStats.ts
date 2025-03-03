@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { PlayerTable, PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
-import { StatsFromJson } from "../utils/types";
+import { StatsFromJson } from "../utils/player";
 import { countClutchesWinPercentage, countKd, countKda } from "./utils";
 
 const prisma = new PrismaClient();
@@ -29,7 +29,7 @@ const main = async () => {
     const collectableStats = {
       gamesPlayed: existingPlayer.gamesPlayed - 1,
       name: existingPlayer.name, // Keep the name unchanged
-      isSessionPlayer: existingPlayer.isSessionPlayer, // Keep the session player flag unchanged
+      playerTable: data.players_table,
       avatar: existingPlayer.avatar, // Keep the avatar unchanged
       kills: existingPlayer.kills - data.kills,
       deaths: existingPlayer.deaths - data.deaths,
@@ -45,6 +45,7 @@ const main = async () => {
       totalRounds: existingPlayer.totalRounds - data.total_rounds,
       roundsWon: existingPlayer.roundsWon - data.rounds_won,
       entryFrags: existingPlayer.entryFrags - data.entry_frags,
+      entryDeaths: existingPlayer.entryDeaths - data.entry_deaths,
       aces: existingPlayer.aces - data.aces,
       mvps: existingPlayer.mvps - data.mvp,
       clutches1v1Played:
@@ -80,6 +81,17 @@ const main = async () => {
           ? existingPlayer.gamesDrawn - 1
           : existingPlayer.gamesDrawn,
     };
+
+    const impactFactor =
+      collectableStats.entryFrags -
+      collectableStats.entryDeaths +
+      2 * collectableStats.mvps +
+      ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
+        (collectableStats.clutches1v1Won / 100 +
+          collectableStats.clutches1v2Won / 100 +
+          collectableStats.clutches1v3Won / 100 +
+          collectableStats.clutches1v4Won / 100 +
+          collectableStats.clutches1v5Won / 100);
 
     // Recalculate countable stats
     const countableStats = {
@@ -117,6 +129,9 @@ const main = async () => {
       mvpsPerGame: collectableStats.mvps / collectableStats.gamesPlayed,
       entryFragsPerGame:
         collectableStats.entryFrags / collectableStats.gamesPlayed,
+      entryKillRating:
+        collectableStats.entryFrags / collectableStats.entryDeaths,
+      impactFactor,
       acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
       clutches1v1WinPercentage: countClutchesWinPercentage(
         collectableStats.clutches1v1Played,
