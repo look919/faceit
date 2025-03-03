@@ -12,33 +12,33 @@ datasource db {
 
 model PlayerStats {
   id                 BigInt     @id @default(autoincrement())
-  name               String//
+  name               String
   avatar             String
-  playerTable        PlayerTable @default(ALL_TIME)
+  playerTable        PlayerTable
   isSessionPlayer    Boolean @default(false)
 
-  gamesPlayed        Int//
-  gamesWon           Int//
-  gamesLost          Int//
-  gamesDrawn         Int//
+  gamesPlayed        Int
+  gamesWon           Int
+  gamesLost          Int
+  gamesDrawn         Int
 
-  kills              Int//
-  deaths             Int//
-  assists            Int//
-  headshots          Int//
-  damage             Int//
-  roundsWon          Int//
-  totalRounds        Int//
-  aces               Int//
-  mvps               Int//
-  entryFrags         Int//
+  kills              Int
+  deaths             Int
+  assists            Int
+  headshots          Int
+  damage             Int
+  roundsWon          Int
+  totalRounds        Int
+  aces               Int
+  mvps               Int
+  entryFrags         Int
 
-  killsThroughSmoke  Int //
-  killsOnFlash       Int //
-  killsThroughWall   Int//
-  killsInJump        Int//
+  killsThroughSmoke  Int 
+  killsOnFlash       Int 
+  killsThroughWall   Int
+  killsInJump        Int
 
-  clutches1v1Played  Int//
+  clutches1v1Played  Int
   clutches1v1Won     Int
   clutches1v2Played  Int
   clutches1v2Won     Int
@@ -47,12 +47,12 @@ model PlayerStats {
   clutches1v4Played  Int
   clutches1v4Won     Int
   clutches1v5Played  Int
-  clutches1v5Won     Int//
+  clutches1v5Won     Int
 
-  lastFiveMatchesOutcome String//
+  lastFiveMatchesOutcome String
 
-  kda                Float//
-  kd                 Float//
+  kda                Float
+  kd                 Float
 
   winRatePercentage  Float
   headshotPercentage Float
@@ -89,7 +89,7 @@ model PlayerStats {
 model MapStats {
   id          Int    @id @default(autoincrement())
   name        String
-  isSessionMap Boolean @default(false)
+  playerTable PlayerTable
   
   gamesPlayed Int        @default(0)
   gamesWon        Int        @default(0)
@@ -110,7 +110,7 @@ model MapStats {
 model WeaponStats {
   id          Int    @id @default(autoincrement())
   name        String
-  isSessionWeapon Boolean @default(false)
+  playerTable PlayerTable
 
   kills       Int        @default(0)
   deaths      Int        @default(0)

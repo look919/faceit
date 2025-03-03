@@ -8,14 +8,13 @@ import { Grid } from "../../Grid";
 import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
 
 type MainGridProps = {
-  data: PlayerStats[];
+  primaryData: PlayerStats[];
+  secondaryData?: PlayerStats[];
   isSessionPage?: boolean;
 };
 
 export const MainGrid = (props: MainGridProps) => {
   const [isChecked, setIsChecked] = React.useState(false);
-
-  console.log("data", props.data);
 
   return (
     <div>
@@ -38,9 +37,18 @@ export const MainGrid = (props: MainGridProps) => {
       </div>
 
       <Grid
-        data={props.data}
+        data={props.primaryData}
         columns={isChecked ? advancedColumns : simpleColumns}
       />
+
+      {props.secondaryData && (
+        <div className="mt-4">
+          <Grid
+            data={props.secondaryData}
+            columns={isChecked ? advancedColumns : simpleColumns}
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -22,7 +22,7 @@ export default async function AllTimePage() {
 
   return (
     <div>
-      <MainGrid data={allTimePlayers} />
+      <MainGrid primaryData={allTimePlayers} />
     </div>
   );
 }

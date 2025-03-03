@@ -57,7 +57,7 @@ export function Grid<TData, TValue>({
   }
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-md border border-slate-600">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (

@@ -251,7 +251,7 @@ export const season1Achievements: Achievement[] = [
     title: "Pistoletówka",
     subtitle: "Glock + USP",
     description:
-      "W sumie można zabijać tymi broniami poza pistoletówką, takżę trochę oszukaliśmy.",
+      "W sumie można zabijać tymi broniami poza pistoletówką, także trochę oszukaliśmy.",
     performers: [
       {
         name: "☢K0di☢",

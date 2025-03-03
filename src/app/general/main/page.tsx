@@ -1,12 +1,9 @@
 import { MainGrid } from "@/components/grids/main/MainGrid";
 import { prisma } from "@/lib/prisma";
-import {
-  NUMBER_OF_MATCHES_SEPARATOR,
-  SEPARATOR_PLAYER,
-} from "@/utils/dummy-record";
+import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
 import { mainOrderBy } from "@/utils/order";
 
-const getGeneralPlayers = async () => {
+const getGeneralPlayersWithMoreGamesThanSeparator = async () => {
   const playersWithMoreGamesThanSeparator = await prisma.playerStats.findMany({
     where: {
       isSessionPlayer: false,
@@ -17,6 +14,10 @@ const getGeneralPlayers = async () => {
     orderBy: mainOrderBy,
   });
 
+  return playersWithMoreGamesThanSeparator;
+};
+
+const getGeneralPlayersWithLessGamesThanSeparator = async () => {
   const playersWithLessGamesThanSeparator = await prisma.playerStats.findMany({
     where: {
       isSessionPlayer: false,
@@ -38,19 +39,21 @@ const getGeneralPlayers = async () => {
     ],
   });
 
-  return [
-    ...playersWithMoreGamesThanSeparator,
-    SEPARATOR_PLAYER,
-    ...playersWithLessGamesThanSeparator,
-  ];
+  return playersWithLessGamesThanSeparator;
 };
 
 export default async function GeneralPage() {
-  const generalPlayers = await getGeneralPlayers();
+  const playersWithMoreGamesThanSeparator =
+    await getGeneralPlayersWithMoreGamesThanSeparator();
+  const playersWithLessGamesThanSeparator =
+    await getGeneralPlayersWithLessGamesThanSeparator();
 
   return (
     <div>
-      <MainGrid data={generalPlayers} />
+      <MainGrid
+        primaryData={playersWithMoreGamesThanSeparator}
+        secondaryData={playersWithLessGamesThanSeparator}
+      />
     </div>
   );
 }

@@ -18,7 +18,7 @@ export default async function SessionPage() {
 
   return (
     <div>
-      <MainGrid data={sessionPlayers} isSessionPage />
+      <MainGrid primaryData={sessionPlayers} isSessionPage />
     </div>
   );
 }
