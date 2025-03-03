@@ -64,7 +64,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 rawData = (0, fs_1.readFileSync)("./src/scripts/stats.json", "utf8");
                 stats = JSON.parse(rawData);
                 _loop_1 = function (steamId, data) {
-                    var existingPlayer, lastFiveMatchesOutcome, collectableStats, resultDeterminedStats, impactFactor, countableStats, weaponStats, existingMapForPlayer, mapCollectableStats, mapCountableStats;
+                    var existingPlayer, lastFiveMatchesOutcome, collectableStats, resultDeterminedStats, countableStats, impactFactor, weaponStats, existingMapForPlayer, mapCollectableStats, mapCountableStats;
                     return __generator(this, function (_d) {
                         switch (_d.label) {
                             case 0:
@@ -179,15 +179,6 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                         gamesLost: data.match_outcome === "Loss" ? 1 : 0,
                                         gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
                                     };
-                                impactFactor = collectableStats.entryFrags -
-                                    collectableStats.entryDeaths +
-                                    2 * collectableStats.mvps +
-                                    ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
-                                        (collectableStats.clutches1v1Won / 100 +
-                                            collectableStats.clutches1v2Won / 100 +
-                                            collectableStats.clutches1v3Won / 100 +
-                                            collectableStats.clutches1v4Won / 100 +
-                                            collectableStats.clutches1v5Won / 100);
                                 countableStats = {
                                     kda: (0, utils_1.countKda)(collectableStats.kills, collectableStats.deaths, collectableStats.assists),
                                     kd: (0, utils_1.countKd)(collectableStats.kills, collectableStats.deaths),
@@ -209,7 +200,6 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     mvpsPerGame: collectableStats.mvps / collectableStats.gamesPlayed,
                                     entryFragsPerGame: collectableStats.entryFrags / collectableStats.gamesPlayed,
                                     entryKillRating: collectableStats.entryFrags / collectableStats.entryDeaths,
-                                    impactFactor: impactFactor,
                                     acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
                                     clutches1v1WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v1Played, collectableStats.clutches1v1Won),
                                     clutches1v2WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v2Played, collectableStats.clutches1v2Won),
@@ -217,10 +207,19 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     clutches1v4WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v4Played, collectableStats.clutches1v4Won),
                                     clutches1v5WinPercentage: (0, utils_1.countClutchesWinPercentage)(collectableStats.clutches1v5Played, collectableStats.clutches1v5Won),
                                 };
+                                impactFactor = countableStats.entryKillRating +
+                                    1.25 * countableStats.mvpsPerGame +
+                                    5 * countableStats.acesPerGame +
+                                    (countableStats.clutches1v1WinPercentage +
+                                        countableStats.clutches1v2WinPercentage +
+                                        countableStats.clutches1v3WinPercentage +
+                                        countableStats.clutches1v4WinPercentage +
+                                        countableStats.clutches1v5WinPercentage) /
+                                        100;
                                 return [4 /*yield*/, prisma.playerStats.upsert({
                                         where: { id: Number(steamId) },
-                                        create: __assign(__assign(__assign({ id: Number(steamId) }, collectableStats), resultDeterminedStats), countableStats),
-                                        update: __assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats),
+                                        create: __assign(__assign(__assign(__assign({ id: Number(steamId) }, collectableStats), resultDeterminedStats), countableStats), { impactFactor: impactFactor }),
+                                        update: __assign(__assign(__assign(__assign({}, collectableStats), resultDeterminedStats), countableStats), { impactFactor: impactFactor }),
                                     })];
                             case 2:
                                 _d.sent();

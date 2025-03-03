@@ -8,7 +8,7 @@ import { MapStats, PlayerTable } from "@prisma/client";
 const getGeneralMapsPlayers = async () => {
   const generalMapsPlayers = await prisma.playerStats.findMany({
     where: {
-      isSessionPlayer: false,
+      playerTable: PlayerTable.SEASON,
       gamesPlayed: {
         gte: MATCHES_PLAYED_SEPARATOR,
       },

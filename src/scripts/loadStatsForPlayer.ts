@@ -135,17 +135,6 @@ const main = async () => {
           gamesDrawn: data.match_outcome === "Draw" ? 1 : 0,
         };
 
-    const impactFactor =
-      collectableStats.entryFrags -
-      collectableStats.entryDeaths +
-      2 * collectableStats.mvps +
-      ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
-        (collectableStats.clutches1v1Won / 100 +
-          collectableStats.clutches1v2Won / 100 +
-          collectableStats.clutches1v3Won / 100 +
-          collectableStats.clutches1v4Won / 100 +
-          collectableStats.clutches1v5Won / 100);
-
     const countableStats = {
       kda: countKda(
         collectableStats.kills,
@@ -183,7 +172,6 @@ const main = async () => {
         collectableStats.entryFrags / collectableStats.gamesPlayed,
       entryKillRating:
         collectableStats.entryFrags / collectableStats.entryDeaths,
-      impactFactor,
       acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
       clutches1v1WinPercentage: countClutchesWinPercentage(
         collectableStats.clutches1v1Played,
@@ -207,6 +195,17 @@ const main = async () => {
       ),
     };
 
+    const impactFactor =
+      countableStats.entryKillRating +
+      1.25 * countableStats.mvpsPerGame +
+      5 * countableStats.acesPerGame +
+      (countableStats.clutches1v1WinPercentage +
+        countableStats.clutches1v2WinPercentage +
+        countableStats.clutches1v3WinPercentage +
+        countableStats.clutches1v4WinPercentage +
+        countableStats.clutches1v5WinPercentage) /
+        100;
+
     await prisma.playerStats.upsert({
       where: { id: Number(steamId) },
       create: {
@@ -214,11 +213,13 @@ const main = async () => {
         ...collectableStats,
         ...resultDeterminedStats,
         ...countableStats,
+        impactFactor,
       },
       update: {
         ...collectableStats,
         ...resultDeterminedStats,
         ...countableStats,
+        impactFactor,
       },
     });
 

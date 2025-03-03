@@ -15,7 +15,6 @@ model PlayerStats {
   name               String
   avatar             String
   playerTable        PlayerTable
-  isSessionPlayer    Boolean @default(false)
 
   gamesPlayed        Int
   gamesWon           Int

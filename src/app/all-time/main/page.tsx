@@ -21,8 +21,6 @@ const getAllTimePlayers = async () => {
 export default async function AllTimePage() {
   const allTimePlayers = await getAllTimePlayers();
 
-  console.log("allTimePlayers", allTimePlayers);
-
   return (
     <div>
       <MainGrid
