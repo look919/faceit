@@ -428,7 +428,8 @@ export const season1Achievements: Achievement[] = [
   {
     title: "Najgorsza broń w grze",
     subtitle: "Scout",
-    description: "Dobry snajper to podstawa. Na szczęście tu takich nie ma.",
+    description:
+      "Niby można zajebać ładną banie, ale przy dobrych wiatrach to jeden 70 mniej na rushu",
     performers: [
       {
         name: "VEGETAble",
