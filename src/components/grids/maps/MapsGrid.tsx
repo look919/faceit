@@ -8,7 +8,7 @@ import {
   createMapsPullTwoColumns,
   MapsTableRecord,
 } from "./columns";
-import { Grid } from "../../ui/Grid";
+import { Grid } from "../../Grid";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import {

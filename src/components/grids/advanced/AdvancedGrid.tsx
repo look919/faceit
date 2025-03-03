@@ -3,7 +3,7 @@ import React from "react";
 import { AdvancedGridRecord, createAdvancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Grid } from "../../ui/Grid";
+import { Grid } from "../../Grid";
 
 type WeaponsGridProps = {
   data: AdvancedGridRecord[];

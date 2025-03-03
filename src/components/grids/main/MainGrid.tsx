@@ -4,7 +4,7 @@ import React from "react";
 import { simpleColumns, advancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Grid } from "../../ui/Grid";
+import { Grid } from "../../Grid";
 import { NUMBER_OF_MATCHES_SEPARATOR } from "@/utils/dummy-record";
 
 type MainGridProps = {
