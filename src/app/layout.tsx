@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Logo } from "@/components/layout/Logo";
+import { Nav } from "@/components/layout/Nav";
+import { NavLink } from "@/components/layout/NavLink";
+import { Footer } from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tomeczki",
-  description: "Gracze Ji, ale nie tylko, bo jest też np. Michał",
+  description: "Gracze Ji - SEZON 2!",
 };
 
 export default function RootLayout({
@@ -25,9 +29,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased overflow-visible min-h-screen min-w-screen`}
       >
-        {children}
+        <div className="absolute min-h-screen inset-10 top-20 bg-[url('/background.png')] bg-no-repeat bg-center opacity-15 z-0" />
+        <div className="relative z-10 flex flex-col w-fit px-4 font-[family-name:var(--font-geist-sans)] mx-auto min-h-screen">
+          <main className="flex flex-col items-center gap-8 row-start-2 p-2 mt-8">
+            <Logo />
+            <Nav ariaLabel="primary navigation">
+              <NavLink tier="main" href="/general/main" name="Season 2" />
+              <NavLink tier="main" href="/session/main" name="Session" />
+              <NavLink tier="main" href="/all-time/main" name="All-time" />
+              <NavLink tier="main" href="/history/season1" name="History" />
+            </Nav>
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

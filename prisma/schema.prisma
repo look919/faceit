@@ -13,70 +13,117 @@ datasource db {
 model PlayerStats {
   id                 BigInt     @id @default(autoincrement())
   name               String
-  winRatePercentage  Float
-  gamesPlayed       Int
-  gamesWon         Int
-  gamesLost        Int
-  gamesDrawn       Int
-  kda               Float
-  killsPerGame      Float
-  deathsPerGame     Float
-  assistsPerGame    Float
-  damagePerRound    Float
-  damagePerGame     Float
-  headshotPercentage Float
-  kills             Int
-  deaths            Int
-  assists           Int
-  headshots         Int
-  roundsWon         Int
-  totalRounds       Int
-  headshotsPerGame  Float
-  roundsWonPerGame    Float
-  totalRoundsPerGame Float
-  roundsWinPercentage Float
-  damage            Int
-  knifeKills        Int   @default(0)
-  knifeDeaths       Int   @default(0)
+  avatar             String
+  playerTable        PlayerTable
 
-  weapons           WeaponStats[]
-}
-
-model SessionPlayerStats {
-  id                 BigInt     @id @default(autoincrement())
-  name               String
-  winRatePercentage  Float
   gamesPlayed        Int
   gamesWon           Int
   gamesLost          Int
   gamesDrawn         Int
-  kda               Float
-  killsPerGame      Float
-  deathsPerGame     Float
-  assistsPerGame    Float
-  damagePerRound    Float
-  damagePerGame     Float
+
+  kills              Int
+  deaths             Int
+  assists            Int
+  headshots          Int
+  damage             Int
+  roundsWon          Int
+  totalRounds        Int
+  aces               Int
+  mvps               Int
+  entryFrags         Int
+  entryDeaths        Int
+
+  killsThroughSmoke  Int 
+  killsOnFlash       Int 
+  killsThroughWall   Int
+  killsInJump        Int
+
+  clutches1v1Played  Int
+  clutches1v1Won     Int
+  clutches1v2Played  Int
+  clutches1v2Won     Int
+  clutches1v3Played  Int
+  clutches1v3Won     Int
+  clutches1v4Played  Int
+  clutches1v4Won     Int
+  clutches1v5Played  Int
+  clutches1v5Won     Int
+
+  lastFiveMatchesOutcome String
+
+  kda                Float
+  kd                 Float
+
+  winRatePercentage  Float
   headshotPercentage Float
-  kills             Int
-  deaths            Int
-  assists           Int
-  headshots         Int
-  roundsWon         Int
-  totalRounds       Int
-  headshotsPerGame  Float
-  roundsWonPerGame  Float
-  totalRoundsPerGame Float
   roundsWinPercentage Float
-  damage            Int
-  knifeKills        Int   @default(0)
-  knifeDeaths       Int   @default(0)
+
+  damagePerRound     Float
+
+  killsPerGame       Float
+  deathsPerGame      Float
+  assistsPerGame     Float
+  headshotsPerGame   Float
+  roundsWonPerGame   Float
+  totalRoundsPerGame Float
+  damagePerGame      Float
+  mvpsPerGame        Float
+  acesPerGame        Float
+  entryFragsPerGame  Float
+  entryKillRating    Float
+  impactFactor       Float
+
+  killsThroughSmokePerGame Float
+  killsThroughWallPerGame  Float
+  killsOnFlashPerGame      Float
+  killsInJumpPerGame       Float
+
+  clutches1v1WinPercentage Float
+  clutches1v2WinPercentage Float
+  clutches1v3WinPercentage Float
+  clutches1v4WinPercentage Float
+  clutches1v5WinPercentage Float
+
+  weapons           WeaponStats[]
+  maps              MapStats[]
+}
+
+model MapStats {
+  id          Int    @id @default(autoincrement())
+  name        String
+  playerTable PlayerTable
+  
+  gamesPlayed Int        @default(0)
+  gamesWon        Int        @default(0)
+  gamesDrawn      Int        @default(0)
+  gamesLost      Int        @default(0)
+  winRatePercentage Float @default(0)
+  totalGamesLength Float      @default(0)
+  averageGameLength Float      @default(0)
+  totalRounds Int        @default(0)
+  roundsWon    Int        @default(0)
+  roundsPerGame Float   @default(0)
+  roundsWonPerGame Float @default(0)
+  roundsWinPercentage Float @default(0)
+  playerId    BigInt
+  player      PlayerStats @relation(fields: [playerId], references: [id])
 }
 
 model WeaponStats {
   id          Int    @id @default(autoincrement())
   name        String
-  totalKills       Int
-  averageKillsPerGame Float
+  playerTable PlayerTable
+
+  kills       Int        @default(0)
+  deaths      Int        @default(0)
+  killsPerGame Float   @default(0)
+  deathsPerGame Float  @default(0)
   playerId    BigInt
   player      PlayerStats @relation(fields: [playerId], references: [id])
+}
+
+enum PlayerTable {
+  ALL_TIME
+  SEASON
+  SESSION
 }
