@@ -12,7 +12,17 @@ import (
 	events "github.com/markus-wa/demoinfocs-golang/v4/pkg/demoinfocs/events"
 )
 
+type PlayersTable string
+
+const (
+	PlayersTableSeason   PlayersTable = "SEASON"
+	PlayersTableSession  PlayersTable = "SESSION"
+	PlayersTableAllTime  PlayersTable = "ALL_TIME"
+)
+
 type PlayerStats struct {
+	PlayersTable       PlayersTable      `json:"players_table"`
+	IsSessionPlayer 	bool 			 `json:"is_session_player"`
 	Name               string            `json:"name"`
 	Kills              int               `json:"kills"`
 	Deaths             int               `json:"deaths"`
@@ -29,6 +39,7 @@ type PlayerStats struct {
 	MapPlayed          string            `json:"map_played"`          // Map played (single string)
 	MapDurationSeconds float64           `json:"map_duration_seconds"` // Duration of the map in seconds
 	EntryFrags         int               `json:"entry_frags"`         // Entry frags counter
+	EntryDeaths        int               `json:"entry_deaths"`        // Entry deaths counter
 	Aces               int               `json:"aces"`               // Aces counter
 	MVP                int               `json:"mvp"`                // MVP counter
 	Clutches1v1Played  int               `json:"clutches_1v1_played"`  // Clutches 1v1 played
@@ -99,21 +110,21 @@ p.RegisterEventHandler(func(e events.RoundStart) {
 	}
 })
 
-	// Track player damage
-	p.RegisterEventHandler(func(e events.PlayerHurt) {
-		if !roundInProgress || e.Attacker == nil || e.Player == nil || e.Weapon == nil || e.Attacker.SteamID64 == e.Player.SteamID64 {
-			return
-		}
+// Track player damage
+p.RegisterEventHandler(func(e events.PlayerHurt) {
+	if !roundInProgress || e.Attacker == nil || e.Player == nil || e.Weapon == nil || e.Attacker.SteamID64 == e.Player.SteamID64 {
+		return
+	}
 
-		initPlayerStats(e.Attacker)
+	initPlayerStats(e.Attacker)
 
-		if e.HealthDamage > e.Player.Health() {
-			playerStats[e.Attacker.SteamID64].Damage += e.Player.Health()
-			playerStats[e.Attacker.SteamID64].CurrentRoundDamage += e.Player.Health()
-		} else {
-			playerStats[e.Attacker.SteamID64].Damage += e.HealthDamage
-		}
-	})
+	if e.HealthDamage > e.Player.Health() {
+		playerStats[e.Attacker.SteamID64].Damage += e.Player.Health()
+		playerStats[e.Attacker.SteamID64].CurrentRoundDamage += e.Player.Health()
+	} else {
+		playerStats[e.Attacker.SteamID64].Damage += e.HealthDamage
+	}
+})
 
 // Track kills
 p.RegisterEventHandler(func(e events.Kill) {
@@ -160,12 +171,12 @@ p.RegisterEventHandler(func(e events.Kill) {
 	}
 
 	// Track kills on flash
-	if(e.AttackerBlind){
+	if e.AttackerBlind {
 		playerStats[killerID].KillsOnFlash++
 	}
 
 	// Track kills through smoke
-	if(e.ThroughSmoke      ){
+	if e.ThroughSmoke {
 		playerStats[killerID].KillsThroughSmoke++
 	}
 
@@ -173,11 +184,17 @@ p.RegisterEventHandler(func(e events.Kill) {
 	if firstKillInRound {
 		playerStats[killerID].EntryFrags++
 		playerStats[killerID].CurrentRoundEntryFrags++
+		playerStats[victimID].EntryDeaths++
 		firstKillInRound = false // Mark that the first kill has occurred
 	}
 
 	// Track kills in the current round
 	roundKills[killerID]++
+
+	// Check for Aces (5 kills in a round)
+	if roundKills[killerID] == 5 {
+		playerStats[killerID].Aces++
+	}
 
 	// Update alive players count
 	alivePlayers[e.Victim.Team]--
@@ -200,43 +217,6 @@ p.RegisterEventHandler(func(e events.Kill) {
 					// Determine the number of victimOpponentTeam
 					aliveOpponents := alivePlayers[victimOpponentTeam]
 
-					// Record the clutch situation
-					playerStats[playerID].ClutchSituation = aliveOpponents
-
-					// Determine the clutch situation based on the initial number of opponents
-					switch aliveOpponents {
-					case 1:
-						playerStats[playerID].Clutches1v1Played++
-					case 2:
-						playerStats[playerID].Clutches1v2Played++
-					case 3:
-						playerStats[playerID].Clutches1v3Played++
-					case 4:
-						playerStats[playerID].Clutches1v4Played++
-					case 5:
-						playerStats[playerID].Clutches1v5Played++
-					}
-				}
-			}
-		}
-	}
-
-	killerOpponentTeam := common.TeamTerrorists
-	if e.Killer.Team == common.TeamTerrorists {
-		killerOpponentTeam = common.TeamCounterTerrorists
-	}
-
-	// Check for clutch situations on the killer's team
-	if alivePlayers[e.Killer.Team] == 1 {
-		for _, player := range p.GameState().Participants().Playing() {
-			if player.Team == e.Killer.Team && player.IsAlive() {
-				playerID := player.SteamID64
-				initPlayerStats(player)
-
-				// Check if this is the first time the player is in a clutch situation
-				if playerStats[playerID].ClutchSituation == -1 {
-					// Determine the number of opponents
-					aliveOpponents := alivePlayers[killerOpponentTeam]
 					// Record the clutch situation
 					playerStats[playerID].ClutchSituation = aliveOpponents
 
@@ -379,6 +359,9 @@ p.RegisterEventHandler(func(e events.RoundEnd) {
 		playerStats[playerID].Clutches1v5WonCurrentRound = 0
 		playerStats[playerID].ClutchSituation = -1
 	}
+
+	// Reset round kills tracker
+	roundKills = make(map[uint64]int)
 })
 
 	// Parse demo
@@ -440,15 +423,38 @@ func initPlayerStats(p *common.Player) {
 	}
 }
 
-// Save stats to JSON file
 func saveStatsToFile(data map[uint64]*PlayerStats) {
-	file, err := os.Create(`path to stats.json`)
+	// Create a new map to hold the original and duplicated player stats
+	extendedData := make(map[uint64]*PlayerStats)
+
+	// Define a large offset to ensure no overlap with existing Steam IDs
+	const offset uint64 = 1000000000000 // 1 trillion
+
+	for steamID, stats := range data {
+		// Create three copies of the player's stats
+		// 1. SEASON (original)
+		seasonStats := *stats
+		seasonStats.PlayersTable = PlayersTableSeason
+		extendedData[steamID] = &seasonStats
+
+		// 2. SESSION (first copy)
+		sessionStats := *stats
+		sessionStats.PlayersTable = PlayersTableSession
+		extendedData[steamID + offset] = &sessionStats
+
+		// 3. ALL_TIME (second copy)
+		allTimeStats := *stats
+		allTimeStats.PlayersTable = PlayersTableAllTime
+		extendedData[steamID + 2 * offset] = &allTimeStats
+	}
+
+	file, err := os.Create(`your local path to src/scripts/stats.json`)
 	checkError(err)
 	defer file.Close()
 
 	encoder := json.NewEncoder(file)
 	encoder.SetIndent("", "  ")
-	err = encoder.Encode(data)
+	err = encoder.Encode(extendedData)
 	checkError(err)
 
 	fmt.Println("Saved player stats to stats.json")
