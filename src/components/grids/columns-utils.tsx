@@ -85,7 +85,7 @@ export const createNameColumn = <T,>(): ColumnDef<T> => ({
       </div>
     );
   },
-  minSize: 200,
+  minSize: 300,
   enableSorting: false,
   enableHiding: false,
 });
@@ -96,7 +96,7 @@ export const createStartColumns = <T extends AnyGridRecord>(
   const startingColumns: ColumnDef<T>[] = [
     createIndexColumn<T>(),
     createNameColumn<T>(),
-    createColumn("gamesPlayed", "Games"),
+    createColumn("gamesPlayed", "G"),
   ];
 
   return options?.shouldHideGamesPlayed

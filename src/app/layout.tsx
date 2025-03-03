@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  antialiased overflow-visible min-h-screen min-w-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-visible min-h-screen min-w-screen`}
       >
-        <div className="absolute min-h-screen inset-10 top-20 bg-[url('/background.png')] bg-no-repeat bg-center opacity-15 z-0" />
+        <div className="absolute min-h-screen inset-10 top-20 bg-[url('/background.png')] hidden md:block bg-no-repeat bg-center opacity-15 z-0" />
         <div className="relative z-10 flex flex-col w-fit px-4 font-[family-name:var(--font-geist-sans)] mx-auto min-h-screen">
           <main className="flex flex-col items-center gap-8 row-start-2 p-2 mt-8">
             <Logo />
