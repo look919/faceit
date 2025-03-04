@@ -29,3 +29,10 @@ export const mapsOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
     name: "asc",
   },
 ];
+
+export const randomizePageOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] =
+  [
+    {
+      gamesPlayed: "desc",
+    },
+  ];

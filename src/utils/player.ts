@@ -44,7 +44,7 @@ export const playerAvatarsMap = {
   "♣†Blady▲Miś†♣": "blady_mis.jpg",
   Cashotto: "cashotto.jpg",
   "Cpt. Chicken": "chicken.gif",
-  "gang type shi": "czarek.jpg",
+  mushoryemushoryemushorye: "czarek.jpg",
   DeiDaRa: "deidara.jpg",
   EMUNIA: "emunia.jpg",
   jajsko: "jajsko.jpg",

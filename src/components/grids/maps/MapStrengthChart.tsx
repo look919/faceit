@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import { MapsTableRecord } from "./columns";
+import { MapStats } from "@prisma/client";
 
 type ChartData = {
   map: string;
@@ -17,7 +17,12 @@ type ChartData = {
 };
 
 type MapStrengthChartProps = {
-  data: MapsTableRecord[];
+  data: {
+    id: bigint;
+    name: string;
+    avatar: string;
+    maps: MapStats[];
+  }[];
 };
 
 export const MapStrengthChart = (props: MapStrengthChartProps) => {
@@ -29,15 +34,17 @@ export const MapStrengthChart = (props: MapStrengthChartProps) => {
 
     // Add win rate for each player
     props.data.forEach((player) => {
-      mapData[player.name] = player.maps[index].winRatePercentage;
+      if (player.maps[index]) {
+        mapData[player.name] = player.maps[index].winRatePercentage;
+      }
     });
 
     return mapData;
   });
 
   return (
-    <div style={{ width: "100%", height: "400px" }}>
-      <ResponsiveContainer>
+    <div className="w-full h-96 overflow-visible">
+      <ResponsiveContainer style={{ overflow: "visible" }}>
         <RadarChart outerRadius="80%" data={chartData}>
           <PolarGrid />
           <PolarAngleAxis dataKey="map" />
