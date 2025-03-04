@@ -48,6 +48,7 @@ const getAllTimeMapsPlayers = async () => {
       id: player.id,
       name: player.name,
       avatar: player.avatar,
+      color: player.color,
       ...mapsObject,
       maps,
     };

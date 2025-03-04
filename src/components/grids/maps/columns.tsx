@@ -12,6 +12,7 @@ export type MapsTableRecord = {
   id: bigint;
   name: string;
   avatar: string;
+  color: string;
   maps: MapStats[];
 } & {
   [K in MapName]: MapStats;
