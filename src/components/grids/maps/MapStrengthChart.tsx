@@ -21,6 +21,7 @@ type MapStrengthChartProps = {
     id: bigint;
     name: string;
     avatar: string;
+    color: string;
     maps: MapStats[];
   }[];
 };
@@ -51,13 +52,13 @@ export const MapStrengthChart = (props: MapStrengthChartProps) => {
           <PolarRadiusAxis angle={30} domain={[0, 100]} />
           <Tooltip />
           <Legend />
-          {props.data.map((player, index) => (
+          {props.data.map((player) => (
             <Radar
               key={player.id}
               name={player.name}
               dataKey={player.name}
-              stroke={`hsl(${index * 60}, 70%, 50%)`} // Use a unique color for each player
-              fill={`hsl(${index * 60}, 70%, 50%)`}
+              stroke={player.color}
+              fill={player.color}
               fillOpacity={0.6}
             />
           ))}
