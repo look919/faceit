@@ -5,6 +5,7 @@ import { simpleColumns, advancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Grid } from "../../Grid";
+import { SEASON_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 
 type MainGridProps = {
   primaryData: PlayerStats[];
@@ -14,6 +15,8 @@ type MainGridProps = {
 
 export const MainGrid = (props: MainGridProps) => {
   const [isChecked, setIsChecked] = React.useState(false);
+
+  console.info("tx", SEASON_MATCHES_PLAYED_SEPARATOR);
 
   return (
     <div>
