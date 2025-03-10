@@ -39,14 +39,14 @@ export const MainGrid = (props: MainGridProps) => {
         columns={isChecked ? advancedColumns : simpleColumns}
       />
 
-      {/* {props.secondaryData && (
+      {props.secondaryData && (
         <div className="mt-4">
           <Grid
             data={props.secondaryData}
             columns={isChecked ? advancedColumns : simpleColumns}
           />
         </div>
-      )} */}
+      )}
     </div>
   );
 };

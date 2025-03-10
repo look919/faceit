@@ -3,14 +3,14 @@ import { prisma } from "@/lib/prisma";
 import { WeaponsGrid } from "@/components/grids/weapons/WeaponsGrid";
 import { WeaponName } from "@/utils/weapons";
 import { PlayerTable, WeaponStats } from "@prisma/client";
-import { MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
+import { SEASON_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 
 const getGeneralWeaponsPlayers = async () => {
   const generalWeaponsPlayers = await prisma.playerStats.findMany({
     where: {
       playerTable: PlayerTable.SEASON,
       gamesPlayed: {
-        gte: MATCHES_PLAYED_SEPARATOR,
+        gte: SEASON_MATCHES_PLAYED_SEPARATOR,
       },
     },
     include: {

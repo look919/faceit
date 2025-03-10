@@ -1,6 +1,6 @@
 import { AdvancedGrid } from "@/components/grids/advanced/AdvancedGrid";
 import { prisma } from "@/lib/prisma";
-import { MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
+import { SEASON_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 import { advancedOrderBy } from "@/utils/order";
 import { PlayerTable } from "@prisma/client";
 
@@ -11,7 +11,7 @@ const getGeneralAdvancedPlayers = async () => {
     where: {
       playerTable: PlayerTable.SEASON,
       gamesPlayed: {
-        gte: MATCHES_PLAYED_SEPARATOR,
+        gte: SEASON_MATCHES_PLAYED_SEPARATOR,
       },
     },
   });
