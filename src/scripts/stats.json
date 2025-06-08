@@ -3,46 +3,46 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "Blezeoon",
-    "kills": 21,
-    "deaths": 15,
-    "assists": 4,
+    "kills": 18,
+    "deaths": 11,
+    "assists": 5,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 1,
-    "headshots": 15,
-    "damage": 2313,
+    "kills_through_smoke": 0,
+    "headshots": 8,
+    "damage": 1928,
     "rounds_won": 13,
-    "total_rounds": 22,
+    "total_rounds": 19,
     "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
-    "entry_deaths": 3,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
+    "entry_deaths": 2,
     "aces": 0,
-    "mvp": 1,
+    "mvp": 3,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 1,
+    "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 7,
-        "deaths": 4
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 1,
-        "deaths": 3
+        "kills": 0,
+        "deaths": 0
       },
       "bizon": {
         "kills": 0,
@@ -66,14 +66,14 @@
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 2
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
         "deaths": 0
       },
       "galil": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "glock": {
@@ -85,7 +85,7 @@
         "deaths": 0
       },
       "knife": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "m249": {
@@ -93,15 +93,15 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 3,
-        "deaths": 1
+        "kills": 8,
+        "deaths": 0
       },
       "m4a4": {
         "kills": 0,
         "deaths": 0
       },
       "mac10": {
-        "kills": 3,
+        "kills": 2,
         "deaths": 1
       },
       "mag7": {
@@ -110,7 +110,7 @@
       },
       "molotov": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mp5": {
         "kills": 0,
@@ -122,7 +122,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -149,8 +149,8 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -166,23 +166,23 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 4
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 2
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 2,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -198,45 +198,45 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "Cashotto",
-    "kills": 13,
+    "kills": 8,
     "deaths": 18,
-    "assists": 4,
+    "assists": 2,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
-    "kills_in_jump": 1,
+    "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 4,
-    "damage": 1493,
-    "rounds_won": 9,
-    "total_rounds": 22,
+    "headshots": 2,
+    "damage": 920,
+    "rounds_won": 6,
+    "total_rounds": 19,
     "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 0,
-    "entry_deaths": 1,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
+    "entry_deaths": 4,
     "aces": 0,
-    "mvp": 1,
+    "mvp": 2,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 0,
+    "clutches_1v4_played": 1,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
-        "deaths": 5
+        "kills": 1,
+        "deaths": 6
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 3
       },
       "bizon": {
@@ -245,7 +245,7 @@
       },
       "cz75": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "deagle": {
         "kills": 0,
@@ -260,7 +260,7 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -272,8 +272,8 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "heGrenade": {
         "kills": 0,
@@ -288,23 +288,23 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 5,
-        "deaths": 4
+        "kills": 0,
+        "deaths": 3
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 1,
-        "deaths": 2
+        "kills": 0,
+        "deaths": 1
       },
       "mag7": {
         "kills": 0,
         "deaths": 0
       },
       "molotov": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "mp5": {
@@ -317,7 +317,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -368,7 +368,7 @@
         "deaths": 0
       },
       "tec9": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "ump": {
@@ -376,12 +376,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
+        "kills": 2,
         "deaths": 1
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "zeus": {
         "kills": 0,
@@ -393,26 +393,26 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "Arturek",
-    "kills": 13,
-    "deaths": 14,
-    "assists": 3,
+    "kills": 11,
+    "deaths": 11,
+    "assists": 6,
     "kills_on_flash": 0,
-    "kills_through_wall": 2,
+    "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 1,
-    "headshots": 2,
-    "damage": 1558,
+    "kills_through_smoke": 0,
+    "headshots": 4,
+    "damage": 1231,
     "rounds_won": 13,
-    "total_rounds": 22,
+    "total_rounds": 19,
     "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
     "entry_deaths": 0,
     "aces": 0,
-    "mvp": 4,
-    "clutches_1v1_played": 2,
-    "clutches_1v1_won": 1,
+    "mvp": 1,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
     "clutches_1v2_played": 1,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 1,
@@ -423,23 +423,23 @@
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
-        "deaths": 4
+        "kills": 1,
+        "deaths": 3
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 6,
-        "deaths": 3
+        "kills": 8,
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
         "deaths": 0
       },
       "cz75": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "deagle": {
@@ -451,12 +451,12 @@
         "deaths": 0
       },
       "famas": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -467,12 +467,12 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 1,
-        "deaths": 0
+        "kills": 0,
+        "deaths": 1
       },
       "heGrenade": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "knife": {
         "kills": 0,
@@ -488,7 +488,7 @@
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "mac10": {
         "kills": 0,
@@ -512,7 +512,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 2
       },
       "negev": {
         "kills": 0,
@@ -540,7 +540,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -555,8 +555,8 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "sg553": {
         "kills": 0,
@@ -571,8 +571,8 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -588,38 +588,38 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "Cpt. Chicken",
-    "kills": 17,
-    "deaths": 15,
-    "assists": 2,
+    "kills": 15,
+    "deaths": 11,
+    "assists": 4,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 0,
+    "kills_through_smoke": 1,
     "headshots": 5,
-    "damage": 2011,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "damage": 1585,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 2,
-    "entry_deaths": 3,
+    "entry_deaths": 0,
     "aces": 0,
-    "mvp": 2,
-    "clutches_1v1_played": 1,
-    "clutches_1v1_won": 1,
-    "clutches_1v2_played": 1,
+    "mvp": 3,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
+    "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 2,
+    "clutches_1v3_played": 1,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 1,
-        "deaths": 5
+        "kills": 3,
+        "deaths": 1
       },
       "aug": {
         "kills": 0,
@@ -627,7 +627,7 @@
       },
       "awp": {
         "kills": 6,
-        "deaths": 0
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
@@ -638,8 +638,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -647,10 +647,10 @@
       },
       "famas": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "fiveSeven": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -667,7 +667,7 @@
       },
       "heGrenade": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "knife": {
         "kills": 0,
@@ -679,18 +679,18 @@
       },
       "m4a1s": {
         "kills": 0,
-        "deaths": 3
+        "deaths": 0
       },
       "m4a4": {
-        "kills": 1,
+        "kills": 3,
         "deaths": 0
       },
       "mac10": {
-        "kills": 3,
+        "kills": 1,
         "deaths": 1
       },
       "mag7": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "molotov": {
@@ -707,7 +707,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "negev": {
         "kills": 0,
@@ -735,7 +735,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -751,15 +751,15 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 2
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
@@ -784,45 +784,45 @@
     "is_session_player": false,
     "name": "VEGETAble",
     "kills": 16,
-    "deaths": 19,
+    "deaths": 10,
     "assists": 5,
     "kills_on_flash": 0,
-    "kills_through_wall": 0,
-    "kills_in_jump": 1,
-    "kills_through_smoke": 0,
-    "headshots": 8,
-    "damage": 1870,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
-    "entry_deaths": 3,
+    "kills_through_wall": 1,
+    "kills_in_jump": 0,
+    "kills_through_smoke": 2,
+    "headshots": 7,
+    "damage": 1803,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 5,
+    "entry_deaths": 4,
     "aces": 0,
     "mvp": 3,
-    "clutches_1v1_played": 0,
-    "clutches_1v1_won": 0,
-    "clutches_1v2_played": 1,
-    "clutches_1v2_won": 1,
+    "clutches_1v1_played": 1,
+    "clutches_1v1_won": 1,
+    "clutches_1v2_played": 0,
+    "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
     "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 1,
+    "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 4,
-        "deaths": 7
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
-        "deaths": 2
+        "kills": 8,
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
@@ -834,15 +834,15 @@
       },
       "deagle": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "dualBerettas": {
         "kills": 0,
         "deaths": 0
       },
       "famas": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
@@ -861,20 +861,20 @@
         "deaths": 1
       },
       "heGrenade": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "knife": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "m249": {
         "kills": 0,
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 2,
-        "deaths": 3
+        "kills": 0,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
@@ -882,7 +882,7 @@
       },
       "mac10": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "mag7": {
         "kills": 0,
@@ -901,12 +901,12 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 1,
-        "deaths": 0
+        "kills": 0,
+        "deaths": 1
       },
       "negev": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "nova": {
         "kills": 0,
@@ -929,8 +929,8 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -945,23 +945,23 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 3,
-        "deaths": 1
+        "kills": 2,
+        "deaths": 0
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "xm1014": {
@@ -978,38 +978,38 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "Tomi",
-    "kills": 21,
-    "deaths": 15,
-    "assists": 7,
-    "kills_on_flash": 0,
+    "kills": 9,
+    "deaths": 13,
+    "assists": 2,
+    "kills_on_flash": 1,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 14,
-    "damage": 2226,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 3,
-    "entry_deaths": 0,
-    "aces": 1,
-    "mvp": 4,
+    "headshots": 6,
+    "damage": 812,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 0,
+    "entry_deaths": 1,
+    "aces": 0,
+    "mvp": 0,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
-    "clutches_1v2_played": 0,
+    "clutches_1v2_played": 1,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 9,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 4
       },
       "aug": {
         "kills": 0,
@@ -1017,7 +1017,7 @@
       },
       "awp": {
         "kills": 1,
-        "deaths": 2
+        "deaths": 3
       },
       "bizon": {
         "kills": 0,
@@ -1029,7 +1029,7 @@
       },
       "deagle": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -1037,11 +1037,11 @@
       },
       "famas": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -1061,27 +1061,27 @@
       },
       "knife": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "m249": {
         "kills": 0,
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 8,
+        "kills": 2,
         "deaths": 3
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "mag7": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "molotov": {
         "kills": 0,
@@ -1096,7 +1096,7 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 1,
+        "kills": 2,
         "deaths": 0
       },
       "negev": {
@@ -1156,12 +1156,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "zeus": {
         "kills": 0,
@@ -1173,37 +1173,37 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "fy_pool_day enjoyer",
-    "kills": 15,
+    "kills": 12,
     "deaths": 16,
-    "assists": 5,
+    "assists": 4,
     "kills_on_flash": 0,
     "kills_through_wall": 1,
     "kills_in_jump": 0,
-    "kills_through_smoke": 0,
-    "headshots": 8,
-    "damage": 1567,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 7,
-    "entry_deaths": 3,
+    "kills_through_smoke": 2,
+    "headshots": 10,
+    "damage": 1354,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 3,
+    "entry_deaths": 5,
     "aces": 0,
-    "mvp": 2,
+    "mvp": 1,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 1,
+    "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 3,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
+        "kills": 2,
         "deaths": 3
       },
       "aug": {
@@ -1211,8 +1211,8 @@
         "deaths": 0
       },
       "awp": {
-        "kills": 3,
-        "deaths": 2
+        "kills": 0,
+        "deaths": 8
       },
       "bizon": {
         "kills": 0,
@@ -1223,8 +1223,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -1235,8 +1235,8 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -1247,11 +1247,11 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "heGrenade": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "knife": {
@@ -1263,15 +1263,15 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 2,
-        "deaths": 5
+        "kills": 0,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "mag7": {
@@ -1291,8 +1291,8 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -1335,15 +1335,15 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 4,
+        "deaths": 1
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 2,
+        "kills": 1,
         "deaths": 0
       },
       "ump": {
@@ -1351,12 +1351,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 2,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "zeus": {
         "kills": 0,
@@ -1368,24 +1368,24 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "DeiDaRa",
-    "kills": 13,
-    "deaths": 19,
-    "assists": 4,
-    "kills_on_flash": 0,
+    "kills": 17,
+    "deaths": 9,
+    "assists": 6,
+    "kills_on_flash": 1,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 3,
-    "headshots": 6,
-    "damage": 1507,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "kills_through_smoke": 1,
+    "headshots": 12,
+    "damage": 1650,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 4,
-    "entry_deaths": 2,
+    "entry_deaths": 0,
     "aces": 0,
-    "mvp": 2,
+    "mvp": 3,
     "clutches_1v1_played": 1,
     "clutches_1v1_won": 1,
     "clutches_1v2_played": 0,
@@ -1398,15 +1398,15 @@
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 2,
-        "deaths": 8
+        "kills": 10,
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 1
       },
       "bizon": {
@@ -1418,8 +1418,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -1430,8 +1430,8 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -1439,11 +1439,11 @@
       },
       "galil": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "glock": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "heGrenade": {
         "kills": 0,
@@ -1459,14 +1459,14 @@
       },
       "m4a1s": {
         "kills": 4,
-        "deaths": 3
+        "deaths": 2
       },
       "m4a4": {
         "kills": 0,
         "deaths": 0
       },
       "mac10": {
-        "kills": 0,
+        "kills": 2,
         "deaths": 0
       },
       "mag7": {
@@ -1486,8 +1486,8 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -1515,7 +1515,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -1531,7 +1531,7 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 2
       },
       "sg553": {
         "kills": 0,
@@ -1539,14 +1539,14 @@
       },
       "tec9": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "xm1014": {
@@ -1563,45 +1563,45 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "EMUNIA",
-    "kills": 13,
-    "deaths": 17,
-    "assists": 4,
+    "kills": 7,
+    "deaths": 15,
+    "assists": 3,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 3,
-    "damage": 1418,
-    "rounds_won": 9,
-    "total_rounds": 22,
+    "headshots": 5,
+    "damage": 807,
+    "rounds_won": 6,
+    "total_rounds": 19,
     "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 0,
-    "entry_deaths": 5,
+    "entry_deaths": 3,
     "aces": 0,
     "mvp": 1,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
-    "clutches_1v2_played": 1,
+    "clutches_1v2_played": 2,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 2,
+    "clutches_1v3_played": 1,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 2,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 5,
-        "deaths": 3
+        "kills": 1,
+        "deaths": 4
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 5
       },
       "bizon": {
@@ -1625,7 +1625,7 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -1653,7 +1653,7 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 4,
+        "kills": 0,
         "deaths": 4
       },
       "m4a4": {
@@ -1685,7 +1685,7 @@
         "deaths": 0
       },
       "negev": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "nova": {
@@ -1710,7 +1710,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -1725,7 +1725,7 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
+        "kills": 3,
         "deaths": 0
       },
       "sg553": {
@@ -1733,8 +1733,8 @@
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 2
+        "kills": 2,
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
@@ -1742,10 +1742,10 @@
       },
       "usp": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "xm1014": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "zeus": {
@@ -1758,46 +1758,46 @@
     "players_table": "SEASON",
     "is_session_player": false,
     "name": "777jajsko",
-    "kills": 18,
-    "deaths": 12,
-    "assists": 2,
+    "kills": 16,
+    "deaths": 15,
+    "assists": 4,
     "kills_on_flash": 0,
-    "kills_through_wall": 0,
+    "kills_through_wall": 1,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 11,
-    "damage": 1698,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 0,
-    "entry_deaths": 2,
+    "headshots": 9,
+    "damage": 1802,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 2,
+    "entry_deaths": 0,
     "aces": 0,
     "mvp": 2,
-    "clutches_1v1_played": 1,
-    "clutches_1v1_won": 1,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
     "clutches_1v4_played": 1,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 3,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 6,
-        "deaths": 3
+        "deaths": 8
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 0,
-        "deaths": 2
+        "kills": 2,
+        "deaths": 3
       },
       "bizon": {
         "kills": 0,
@@ -1808,7 +1808,7 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "dualBerettas": {
@@ -1848,8 +1848,8 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 4,
-        "deaths": 4
+        "kills": 3,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
@@ -1861,7 +1861,7 @@
       },
       "mag7": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "molotov": {
         "kills": 0,
@@ -1904,7 +1904,7 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "revolver": {
@@ -1920,7 +1920,7 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "sg553": {
@@ -1936,8 +1936,8 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 4,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -1953,46 +1953,46 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "Blezeoon",
-    "kills": 21,
-    "deaths": 15,
-    "assists": 4,
+    "kills": 18,
+    "deaths": 11,
+    "assists": 5,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 1,
-    "headshots": 15,
-    "damage": 2313,
+    "kills_through_smoke": 0,
+    "headshots": 8,
+    "damage": 1928,
     "rounds_won": 13,
-    "total_rounds": 22,
+    "total_rounds": 19,
     "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
-    "entry_deaths": 3,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
+    "entry_deaths": 2,
     "aces": 0,
-    "mvp": 1,
+    "mvp": 3,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 1,
+    "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 7,
-        "deaths": 4
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 1,
-        "deaths": 3
+        "kills": 0,
+        "deaths": 0
       },
       "bizon": {
         "kills": 0,
@@ -2016,14 +2016,14 @@
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 2
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
         "deaths": 0
       },
       "galil": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "glock": {
@@ -2035,7 +2035,7 @@
         "deaths": 0
       },
       "knife": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "m249": {
@@ -2043,15 +2043,15 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 3,
-        "deaths": 1
+        "kills": 8,
+        "deaths": 0
       },
       "m4a4": {
         "kills": 0,
         "deaths": 0
       },
       "mac10": {
-        "kills": 3,
+        "kills": 2,
         "deaths": 1
       },
       "mag7": {
@@ -2060,7 +2060,7 @@
       },
       "molotov": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mp5": {
         "kills": 0,
@@ -2072,7 +2072,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -2099,8 +2099,8 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -2116,23 +2116,23 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 4
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 2
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 2,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -2148,45 +2148,45 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "Cashotto",
-    "kills": 13,
+    "kills": 8,
     "deaths": 18,
-    "assists": 4,
+    "assists": 2,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
-    "kills_in_jump": 1,
+    "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 4,
-    "damage": 1493,
-    "rounds_won": 9,
-    "total_rounds": 22,
+    "headshots": 2,
+    "damage": 920,
+    "rounds_won": 6,
+    "total_rounds": 19,
     "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 0,
-    "entry_deaths": 1,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
+    "entry_deaths": 4,
     "aces": 0,
-    "mvp": 1,
+    "mvp": 2,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 0,
+    "clutches_1v4_played": 1,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
-        "deaths": 5
+        "kills": 1,
+        "deaths": 6
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 3
       },
       "bizon": {
@@ -2195,7 +2195,7 @@
       },
       "cz75": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "deagle": {
         "kills": 0,
@@ -2210,7 +2210,7 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -2222,8 +2222,8 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "heGrenade": {
         "kills": 0,
@@ -2238,23 +2238,23 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 5,
-        "deaths": 4
+        "kills": 0,
+        "deaths": 3
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 1,
-        "deaths": 2
+        "kills": 0,
+        "deaths": 1
       },
       "mag7": {
         "kills": 0,
         "deaths": 0
       },
       "molotov": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "mp5": {
@@ -2267,7 +2267,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -2318,7 +2318,7 @@
         "deaths": 0
       },
       "tec9": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "ump": {
@@ -2326,12 +2326,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
+        "kills": 2,
         "deaths": 1
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "zeus": {
         "kills": 0,
@@ -2343,26 +2343,26 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "Arturek",
-    "kills": 13,
-    "deaths": 14,
-    "assists": 3,
+    "kills": 11,
+    "deaths": 11,
+    "assists": 6,
     "kills_on_flash": 0,
-    "kills_through_wall": 2,
+    "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 1,
-    "headshots": 2,
-    "damage": 1558,
+    "kills_through_smoke": 0,
+    "headshots": 4,
+    "damage": 1231,
     "rounds_won": 13,
-    "total_rounds": 22,
+    "total_rounds": 19,
     "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
     "entry_deaths": 0,
     "aces": 0,
-    "mvp": 4,
-    "clutches_1v1_played": 2,
-    "clutches_1v1_won": 1,
+    "mvp": 1,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
     "clutches_1v2_played": 1,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 1,
@@ -2373,23 +2373,23 @@
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
-        "deaths": 4
+        "kills": 1,
+        "deaths": 3
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 6,
-        "deaths": 3
+        "kills": 8,
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
         "deaths": 0
       },
       "cz75": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "deagle": {
@@ -2401,12 +2401,12 @@
         "deaths": 0
       },
       "famas": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -2417,12 +2417,12 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 1,
-        "deaths": 0
+        "kills": 0,
+        "deaths": 1
       },
       "heGrenade": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "knife": {
         "kills": 0,
@@ -2438,7 +2438,7 @@
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "mac10": {
         "kills": 0,
@@ -2462,7 +2462,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 2
       },
       "negev": {
         "kills": 0,
@@ -2490,7 +2490,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -2505,8 +2505,8 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "sg553": {
         "kills": 0,
@@ -2521,8 +2521,8 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -2538,38 +2538,38 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "Cpt. Chicken",
-    "kills": 17,
-    "deaths": 15,
-    "assists": 2,
+    "kills": 15,
+    "deaths": 11,
+    "assists": 4,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 0,
+    "kills_through_smoke": 1,
     "headshots": 5,
-    "damage": 2011,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "damage": 1585,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 2,
-    "entry_deaths": 3,
+    "entry_deaths": 0,
     "aces": 0,
-    "mvp": 2,
-    "clutches_1v1_played": 1,
-    "clutches_1v1_won": 1,
-    "clutches_1v2_played": 1,
+    "mvp": 3,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
+    "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 2,
+    "clutches_1v3_played": 1,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 1,
-        "deaths": 5
+        "kills": 3,
+        "deaths": 1
       },
       "aug": {
         "kills": 0,
@@ -2577,7 +2577,7 @@
       },
       "awp": {
         "kills": 6,
-        "deaths": 0
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
@@ -2588,8 +2588,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -2597,10 +2597,10 @@
       },
       "famas": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "fiveSeven": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -2617,7 +2617,7 @@
       },
       "heGrenade": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "knife": {
         "kills": 0,
@@ -2629,18 +2629,18 @@
       },
       "m4a1s": {
         "kills": 0,
-        "deaths": 3
+        "deaths": 0
       },
       "m4a4": {
-        "kills": 1,
+        "kills": 3,
         "deaths": 0
       },
       "mac10": {
-        "kills": 3,
+        "kills": 1,
         "deaths": 1
       },
       "mag7": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "molotov": {
@@ -2657,7 +2657,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "negev": {
         "kills": 0,
@@ -2685,7 +2685,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -2701,15 +2701,15 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 2
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
@@ -2734,45 +2734,45 @@
     "is_session_player": false,
     "name": "VEGETAble",
     "kills": 16,
-    "deaths": 19,
+    "deaths": 10,
     "assists": 5,
     "kills_on_flash": 0,
-    "kills_through_wall": 0,
-    "kills_in_jump": 1,
-    "kills_through_smoke": 0,
-    "headshots": 8,
-    "damage": 1870,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
-    "entry_deaths": 3,
+    "kills_through_wall": 1,
+    "kills_in_jump": 0,
+    "kills_through_smoke": 2,
+    "headshots": 7,
+    "damage": 1803,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 5,
+    "entry_deaths": 4,
     "aces": 0,
     "mvp": 3,
-    "clutches_1v1_played": 0,
-    "clutches_1v1_won": 0,
-    "clutches_1v2_played": 1,
-    "clutches_1v2_won": 1,
+    "clutches_1v1_played": 1,
+    "clutches_1v1_won": 1,
+    "clutches_1v2_played": 0,
+    "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
     "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 1,
+    "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 4,
-        "deaths": 7
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
-        "deaths": 2
+        "kills": 8,
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
@@ -2784,15 +2784,15 @@
       },
       "deagle": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "dualBerettas": {
         "kills": 0,
         "deaths": 0
       },
       "famas": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
@@ -2811,20 +2811,20 @@
         "deaths": 1
       },
       "heGrenade": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "knife": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "m249": {
         "kills": 0,
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 2,
-        "deaths": 3
+        "kills": 0,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
@@ -2832,7 +2832,7 @@
       },
       "mac10": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "mag7": {
         "kills": 0,
@@ -2851,12 +2851,12 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 1,
-        "deaths": 0
+        "kills": 0,
+        "deaths": 1
       },
       "negev": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "nova": {
         "kills": 0,
@@ -2879,8 +2879,8 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -2895,23 +2895,23 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 3,
-        "deaths": 1
+        "kills": 2,
+        "deaths": 0
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "xm1014": {
@@ -2928,38 +2928,38 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "Tomi",
-    "kills": 21,
-    "deaths": 15,
-    "assists": 7,
-    "kills_on_flash": 0,
+    "kills": 9,
+    "deaths": 13,
+    "assists": 2,
+    "kills_on_flash": 1,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 14,
-    "damage": 2226,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 3,
-    "entry_deaths": 0,
-    "aces": 1,
-    "mvp": 4,
+    "headshots": 6,
+    "damage": 812,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 0,
+    "entry_deaths": 1,
+    "aces": 0,
+    "mvp": 0,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
-    "clutches_1v2_played": 0,
+    "clutches_1v2_played": 1,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 9,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 4
       },
       "aug": {
         "kills": 0,
@@ -2967,7 +2967,7 @@
       },
       "awp": {
         "kills": 1,
-        "deaths": 2
+        "deaths": 3
       },
       "bizon": {
         "kills": 0,
@@ -2979,7 +2979,7 @@
       },
       "deagle": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -2987,11 +2987,11 @@
       },
       "famas": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -3011,27 +3011,27 @@
       },
       "knife": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "m249": {
         "kills": 0,
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 8,
+        "kills": 2,
         "deaths": 3
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "mag7": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "molotov": {
         "kills": 0,
@@ -3046,7 +3046,7 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 1,
+        "kills": 2,
         "deaths": 0
       },
       "negev": {
@@ -3106,12 +3106,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "zeus": {
         "kills": 0,
@@ -3123,37 +3123,37 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "fy_pool_day enjoyer",
-    "kills": 15,
+    "kills": 12,
     "deaths": 16,
-    "assists": 5,
+    "assists": 4,
     "kills_on_flash": 0,
     "kills_through_wall": 1,
     "kills_in_jump": 0,
-    "kills_through_smoke": 0,
-    "headshots": 8,
-    "damage": 1567,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 7,
-    "entry_deaths": 3,
+    "kills_through_smoke": 2,
+    "headshots": 10,
+    "damage": 1354,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 3,
+    "entry_deaths": 5,
     "aces": 0,
-    "mvp": 2,
+    "mvp": 1,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 1,
+    "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 3,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
+        "kills": 2,
         "deaths": 3
       },
       "aug": {
@@ -3161,8 +3161,8 @@
         "deaths": 0
       },
       "awp": {
-        "kills": 3,
-        "deaths": 2
+        "kills": 0,
+        "deaths": 8
       },
       "bizon": {
         "kills": 0,
@@ -3173,8 +3173,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -3185,8 +3185,8 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -3197,11 +3197,11 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "heGrenade": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "knife": {
@@ -3213,15 +3213,15 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 2,
-        "deaths": 5
+        "kills": 0,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "mag7": {
@@ -3241,8 +3241,8 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -3285,15 +3285,15 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 4,
+        "deaths": 1
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 2,
+        "kills": 1,
         "deaths": 0
       },
       "ump": {
@@ -3301,12 +3301,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 2,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "zeus": {
         "kills": 0,
@@ -3318,24 +3318,24 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "DeiDaRa",
-    "kills": 13,
-    "deaths": 19,
-    "assists": 4,
-    "kills_on_flash": 0,
+    "kills": 17,
+    "deaths": 9,
+    "assists": 6,
+    "kills_on_flash": 1,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 3,
-    "headshots": 6,
-    "damage": 1507,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "kills_through_smoke": 1,
+    "headshots": 12,
+    "damage": 1650,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 4,
-    "entry_deaths": 2,
+    "entry_deaths": 0,
     "aces": 0,
-    "mvp": 2,
+    "mvp": 3,
     "clutches_1v1_played": 1,
     "clutches_1v1_won": 1,
     "clutches_1v2_played": 0,
@@ -3348,15 +3348,15 @@
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 2,
-        "deaths": 8
+        "kills": 10,
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 1
       },
       "bizon": {
@@ -3368,8 +3368,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -3380,8 +3380,8 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -3389,11 +3389,11 @@
       },
       "galil": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "glock": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "heGrenade": {
         "kills": 0,
@@ -3409,14 +3409,14 @@
       },
       "m4a1s": {
         "kills": 4,
-        "deaths": 3
+        "deaths": 2
       },
       "m4a4": {
         "kills": 0,
         "deaths": 0
       },
       "mac10": {
-        "kills": 0,
+        "kills": 2,
         "deaths": 0
       },
       "mag7": {
@@ -3436,8 +3436,8 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -3465,7 +3465,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -3481,7 +3481,7 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 2
       },
       "sg553": {
         "kills": 0,
@@ -3489,14 +3489,14 @@
       },
       "tec9": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "xm1014": {
@@ -3513,45 +3513,45 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "EMUNIA",
-    "kills": 13,
-    "deaths": 17,
-    "assists": 4,
+    "kills": 7,
+    "deaths": 15,
+    "assists": 3,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 3,
-    "damage": 1418,
-    "rounds_won": 9,
-    "total_rounds": 22,
+    "headshots": 5,
+    "damage": 807,
+    "rounds_won": 6,
+    "total_rounds": 19,
     "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 0,
-    "entry_deaths": 5,
+    "entry_deaths": 3,
     "aces": 0,
     "mvp": 1,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
-    "clutches_1v2_played": 1,
+    "clutches_1v2_played": 2,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 2,
+    "clutches_1v3_played": 1,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 2,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 5,
-        "deaths": 3
+        "kills": 1,
+        "deaths": 4
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 5
       },
       "bizon": {
@@ -3575,7 +3575,7 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -3603,7 +3603,7 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 4,
+        "kills": 0,
         "deaths": 4
       },
       "m4a4": {
@@ -3635,7 +3635,7 @@
         "deaths": 0
       },
       "negev": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "nova": {
@@ -3660,7 +3660,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -3675,7 +3675,7 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
+        "kills": 3,
         "deaths": 0
       },
       "sg553": {
@@ -3683,8 +3683,8 @@
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 2
+        "kills": 2,
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
@@ -3692,10 +3692,10 @@
       },
       "usp": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "xm1014": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "zeus": {
@@ -3708,46 +3708,46 @@
     "players_table": "SESSION",
     "is_session_player": false,
     "name": "777jajsko",
-    "kills": 18,
-    "deaths": 12,
-    "assists": 2,
+    "kills": 16,
+    "deaths": 15,
+    "assists": 4,
     "kills_on_flash": 0,
-    "kills_through_wall": 0,
+    "kills_through_wall": 1,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 11,
-    "damage": 1698,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 0,
-    "entry_deaths": 2,
+    "headshots": 9,
+    "damage": 1802,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 2,
+    "entry_deaths": 0,
     "aces": 0,
     "mvp": 2,
-    "clutches_1v1_played": 1,
-    "clutches_1v1_won": 1,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
     "clutches_1v4_played": 1,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 3,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 6,
-        "deaths": 3
+        "deaths": 8
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 0,
-        "deaths": 2
+        "kills": 2,
+        "deaths": 3
       },
       "bizon": {
         "kills": 0,
@@ -3758,7 +3758,7 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "dualBerettas": {
@@ -3798,8 +3798,8 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 4,
-        "deaths": 4
+        "kills": 3,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
@@ -3811,7 +3811,7 @@
       },
       "mag7": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "molotov": {
         "kills": 0,
@@ -3854,7 +3854,7 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "revolver": {
@@ -3870,7 +3870,7 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "sg553": {
@@ -3886,8 +3886,8 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 4,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -3903,46 +3903,46 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "Blezeoon",
-    "kills": 21,
-    "deaths": 15,
-    "assists": 4,
+    "kills": 18,
+    "deaths": 11,
+    "assists": 5,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 1,
-    "headshots": 15,
-    "damage": 2313,
+    "kills_through_smoke": 0,
+    "headshots": 8,
+    "damage": 1928,
     "rounds_won": 13,
-    "total_rounds": 22,
+    "total_rounds": 19,
     "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
-    "entry_deaths": 3,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
+    "entry_deaths": 2,
     "aces": 0,
-    "mvp": 1,
+    "mvp": 3,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 1,
+    "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 7,
-        "deaths": 4
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 1,
-        "deaths": 3
+        "kills": 0,
+        "deaths": 0
       },
       "bizon": {
         "kills": 0,
@@ -3966,14 +3966,14 @@
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 2
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
         "deaths": 0
       },
       "galil": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "glock": {
@@ -3985,7 +3985,7 @@
         "deaths": 0
       },
       "knife": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "m249": {
@@ -3993,15 +3993,15 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 3,
-        "deaths": 1
+        "kills": 8,
+        "deaths": 0
       },
       "m4a4": {
         "kills": 0,
         "deaths": 0
       },
       "mac10": {
-        "kills": 3,
+        "kills": 2,
         "deaths": 1
       },
       "mag7": {
@@ -4010,7 +4010,7 @@
       },
       "molotov": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mp5": {
         "kills": 0,
@@ -4022,7 +4022,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -4049,8 +4049,8 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -4066,23 +4066,23 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 4
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 2
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 2,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -4098,45 +4098,45 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "Cashotto",
-    "kills": 13,
+    "kills": 8,
     "deaths": 18,
-    "assists": 4,
+    "assists": 2,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
-    "kills_in_jump": 1,
+    "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 4,
-    "damage": 1493,
-    "rounds_won": 9,
-    "total_rounds": 22,
+    "headshots": 2,
+    "damage": 920,
+    "rounds_won": 6,
+    "total_rounds": 19,
     "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 0,
-    "entry_deaths": 1,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
+    "entry_deaths": 4,
     "aces": 0,
-    "mvp": 1,
+    "mvp": 2,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 0,
+    "clutches_1v4_played": 1,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
-        "deaths": 5
+        "kills": 1,
+        "deaths": 6
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 3
       },
       "bizon": {
@@ -4145,7 +4145,7 @@
       },
       "cz75": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "deagle": {
         "kills": 0,
@@ -4160,7 +4160,7 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -4172,8 +4172,8 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "heGrenade": {
         "kills": 0,
@@ -4188,23 +4188,23 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 5,
-        "deaths": 4
+        "kills": 0,
+        "deaths": 3
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 1,
-        "deaths": 2
+        "kills": 0,
+        "deaths": 1
       },
       "mag7": {
         "kills": 0,
         "deaths": 0
       },
       "molotov": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "mp5": {
@@ -4217,7 +4217,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -4268,7 +4268,7 @@
         "deaths": 0
       },
       "tec9": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "ump": {
@@ -4276,12 +4276,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
+        "kills": 2,
         "deaths": 1
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "zeus": {
         "kills": 0,
@@ -4293,26 +4293,26 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "Arturek",
-    "kills": 13,
-    "deaths": 14,
-    "assists": 3,
+    "kills": 11,
+    "deaths": 11,
+    "assists": 6,
     "kills_on_flash": 0,
-    "kills_through_wall": 2,
+    "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 1,
-    "headshots": 2,
-    "damage": 1558,
+    "kills_through_smoke": 0,
+    "headshots": 4,
+    "damage": 1231,
     "rounds_won": 13,
-    "total_rounds": 22,
+    "total_rounds": 19,
     "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 1,
     "entry_deaths": 0,
     "aces": 0,
-    "mvp": 4,
-    "clutches_1v1_played": 2,
-    "clutches_1v1_won": 1,
+    "mvp": 1,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
     "clutches_1v2_played": 1,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 1,
@@ -4323,23 +4323,23 @@
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
-        "deaths": 4
+        "kills": 1,
+        "deaths": 3
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 6,
-        "deaths": 3
+        "kills": 8,
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
         "deaths": 0
       },
       "cz75": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "deagle": {
@@ -4351,12 +4351,12 @@
         "deaths": 0
       },
       "famas": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -4367,12 +4367,12 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 1,
-        "deaths": 0
+        "kills": 0,
+        "deaths": 1
       },
       "heGrenade": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "knife": {
         "kills": 0,
@@ -4388,7 +4388,7 @@
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "mac10": {
         "kills": 0,
@@ -4412,7 +4412,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 2
       },
       "negev": {
         "kills": 0,
@@ -4440,7 +4440,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -4455,8 +4455,8 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "sg553": {
         "kills": 0,
@@ -4471,8 +4471,8 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
@@ -4488,38 +4488,38 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "Cpt. Chicken",
-    "kills": 17,
-    "deaths": 15,
-    "assists": 2,
+    "kills": 15,
+    "deaths": 11,
+    "assists": 4,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 0,
+    "kills_through_smoke": 1,
     "headshots": 5,
-    "damage": 2011,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "damage": 1585,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 2,
-    "entry_deaths": 3,
+    "entry_deaths": 0,
     "aces": 0,
-    "mvp": 2,
-    "clutches_1v1_played": 1,
-    "clutches_1v1_won": 1,
-    "clutches_1v2_played": 1,
+    "mvp": 3,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
+    "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 2,
+    "clutches_1v3_played": 1,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 1,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 1,
-        "deaths": 5
+        "kills": 3,
+        "deaths": 1
       },
       "aug": {
         "kills": 0,
@@ -4527,7 +4527,7 @@
       },
       "awp": {
         "kills": 6,
-        "deaths": 0
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
@@ -4538,8 +4538,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -4547,10 +4547,10 @@
       },
       "famas": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "fiveSeven": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -4567,7 +4567,7 @@
       },
       "heGrenade": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "knife": {
         "kills": 0,
@@ -4579,18 +4579,18 @@
       },
       "m4a1s": {
         "kills": 0,
-        "deaths": 3
+        "deaths": 0
       },
       "m4a4": {
-        "kills": 1,
+        "kills": 3,
         "deaths": 0
       },
       "mac10": {
-        "kills": 3,
+        "kills": 1,
         "deaths": 1
       },
       "mag7": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "molotov": {
@@ -4607,7 +4607,7 @@
       },
       "mp9": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "negev": {
         "kills": 0,
@@ -4635,7 +4635,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -4651,15 +4651,15 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 2
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
@@ -4684,45 +4684,45 @@
     "is_session_player": false,
     "name": "VEGETAble",
     "kills": 16,
-    "deaths": 19,
+    "deaths": 10,
     "assists": 5,
     "kills_on_flash": 0,
-    "kills_through_wall": 0,
-    "kills_in_jump": 1,
-    "kills_through_smoke": 0,
-    "headshots": 8,
-    "damage": 1870,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 2,
-    "entry_deaths": 3,
+    "kills_through_wall": 1,
+    "kills_in_jump": 0,
+    "kills_through_smoke": 2,
+    "headshots": 7,
+    "damage": 1803,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 5,
+    "entry_deaths": 4,
     "aces": 0,
     "mvp": 3,
-    "clutches_1v1_played": 0,
-    "clutches_1v1_won": 0,
-    "clutches_1v2_played": 1,
-    "clutches_1v2_won": 1,
+    "clutches_1v1_played": 1,
+    "clutches_1v1_won": 1,
+    "clutches_1v2_played": 0,
+    "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
     "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 1,
+    "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 4,
-        "deaths": 7
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
-        "deaths": 2
+        "kills": 8,
+        "deaths": 1
       },
       "bizon": {
         "kills": 0,
@@ -4734,15 +4734,15 @@
       },
       "deagle": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "dualBerettas": {
         "kills": 0,
         "deaths": 0
       },
       "famas": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
@@ -4761,20 +4761,20 @@
         "deaths": 1
       },
       "heGrenade": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "knife": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "m249": {
         "kills": 0,
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 2,
-        "deaths": 3
+        "kills": 0,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
@@ -4782,7 +4782,7 @@
       },
       "mac10": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "mag7": {
         "kills": 0,
@@ -4801,12 +4801,12 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 1,
-        "deaths": 0
+        "kills": 0,
+        "deaths": 1
       },
       "negev": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "nova": {
         "kills": 0,
@@ -4829,8 +4829,8 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "revolver": {
         "kills": 0,
@@ -4845,23 +4845,23 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 3,
-        "deaths": 1
+        "kills": 2,
+        "deaths": 0
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "xm1014": {
@@ -4878,38 +4878,38 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "Tomi",
-    "kills": 21,
-    "deaths": 15,
-    "assists": 7,
-    "kills_on_flash": 0,
+    "kills": 9,
+    "deaths": 13,
+    "assists": 2,
+    "kills_on_flash": 1,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 14,
-    "damage": 2226,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 3,
-    "entry_deaths": 0,
-    "aces": 1,
-    "mvp": 4,
+    "headshots": 6,
+    "damage": 812,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 0,
+    "entry_deaths": 1,
+    "aces": 0,
+    "mvp": 0,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
-    "clutches_1v2_played": 0,
+    "clutches_1v2_played": 1,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 9,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 4
       },
       "aug": {
         "kills": 0,
@@ -4917,7 +4917,7 @@
       },
       "awp": {
         "kills": 1,
-        "deaths": 2
+        "deaths": 3
       },
       "bizon": {
         "kills": 0,
@@ -4929,7 +4929,7 @@
       },
       "deagle": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -4937,11 +4937,11 @@
       },
       "famas": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "fiveSeven": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -4961,27 +4961,27 @@
       },
       "knife": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "m249": {
         "kills": 0,
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 8,
+        "kills": 2,
         "deaths": 3
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "mag7": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "molotov": {
         "kills": 0,
@@ -4996,7 +4996,7 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 1,
+        "kills": 2,
         "deaths": 0
       },
       "negev": {
@@ -5056,12 +5056,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "zeus": {
         "kills": 0,
@@ -5073,37 +5073,37 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "fy_pool_day enjoyer",
-    "kills": 15,
+    "kills": 12,
     "deaths": 16,
-    "assists": 5,
+    "assists": 4,
     "kills_on_flash": 0,
     "kills_through_wall": 1,
     "kills_in_jump": 0,
-    "kills_through_smoke": 0,
-    "headshots": 8,
-    "damage": 1567,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 7,
-    "entry_deaths": 3,
+    "kills_through_smoke": 2,
+    "headshots": 10,
+    "damage": 1354,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 3,
+    "entry_deaths": 5,
     "aces": 0,
-    "mvp": 2,
+    "mvp": 1,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 1,
+    "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 1,
+    "clutches_1v4_played": 3,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 3,
+        "kills": 2,
         "deaths": 3
       },
       "aug": {
@@ -5111,8 +5111,8 @@
         "deaths": 0
       },
       "awp": {
-        "kills": 3,
-        "deaths": 2
+        "kills": 0,
+        "deaths": 8
       },
       "bizon": {
         "kills": 0,
@@ -5123,8 +5123,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -5135,8 +5135,8 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -5147,11 +5147,11 @@
         "deaths": 0
       },
       "glock": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "heGrenade": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "knife": {
@@ -5163,15 +5163,15 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 2,
-        "deaths": 5
+        "kills": 0,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "mac10": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 1
       },
       "mag7": {
@@ -5191,8 +5191,8 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 0,
-        "deaths": 1
+        "kills": 1,
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -5235,15 +5235,15 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 4,
+        "deaths": 1
       },
       "sg553": {
         "kills": 0,
         "deaths": 0
       },
       "tec9": {
-        "kills": 2,
+        "kills": 1,
         "deaths": 0
       },
       "ump": {
@@ -5251,12 +5251,12 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
-        "deaths": 0
+        "kills": 2,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "zeus": {
         "kills": 0,
@@ -5268,24 +5268,24 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "DeiDaRa",
-    "kills": 13,
-    "deaths": 19,
-    "assists": 4,
-    "kills_on_flash": 0,
+    "kills": 17,
+    "deaths": 9,
+    "assists": 6,
+    "kills_on_flash": 1,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
-    "kills_through_smoke": 3,
-    "headshots": 6,
-    "damage": 1507,
-    "rounds_won": 9,
-    "total_rounds": 22,
-    "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "kills_through_smoke": 1,
+    "headshots": 12,
+    "damage": 1650,
+    "rounds_won": 13,
+    "total_rounds": 19,
+    "match_outcome": "Win",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 4,
-    "entry_deaths": 2,
+    "entry_deaths": 0,
     "aces": 0,
-    "mvp": 2,
+    "mvp": 3,
     "clutches_1v1_played": 1,
     "clutches_1v1_won": 1,
     "clutches_1v2_played": 0,
@@ -5298,15 +5298,15 @@
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 2,
-        "deaths": 8
+        "kills": 10,
+        "deaths": 2
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 1
       },
       "bizon": {
@@ -5318,8 +5318,8 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "dualBerettas": {
         "kills": 0,
@@ -5330,8 +5330,8 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "g3sg1": {
         "kills": 0,
@@ -5339,11 +5339,11 @@
       },
       "galil": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "glock": {
-        "kills": 1,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "heGrenade": {
         "kills": 0,
@@ -5359,14 +5359,14 @@
       },
       "m4a1s": {
         "kills": 4,
-        "deaths": 3
+        "deaths": 2
       },
       "m4a4": {
         "kills": 0,
         "deaths": 0
       },
       "mac10": {
-        "kills": 0,
+        "kills": 2,
         "deaths": 0
       },
       "mag7": {
@@ -5386,8 +5386,8 @@
         "deaths": 0
       },
       "mp9": {
-        "kills": 2,
-        "deaths": 1
+        "kills": 0,
+        "deaths": 0
       },
       "negev": {
         "kills": 0,
@@ -5415,7 +5415,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -5431,7 +5431,7 @@
       },
       "scout": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 2
       },
       "sg553": {
         "kills": 0,
@@ -5439,14 +5439,14 @@
       },
       "tec9": {
         "kills": 0,
-        "deaths": 0
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
         "deaths": 0
       },
       "usp": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "xm1014": {
@@ -5463,45 +5463,45 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "EMUNIA",
-    "kills": 13,
-    "deaths": 17,
-    "assists": 4,
+    "kills": 7,
+    "deaths": 15,
+    "assists": 3,
     "kills_on_flash": 0,
     "kills_through_wall": 0,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 3,
-    "damage": 1418,
-    "rounds_won": 9,
-    "total_rounds": 22,
+    "headshots": 5,
+    "damage": 807,
+    "rounds_won": 6,
+    "total_rounds": 19,
     "match_outcome": "Loss",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
     "entry_frags": 0,
-    "entry_deaths": 5,
+    "entry_deaths": 3,
     "aces": 0,
     "mvp": 1,
     "clutches_1v1_played": 0,
     "clutches_1v1_won": 0,
-    "clutches_1v2_played": 1,
+    "clutches_1v2_played": 2,
     "clutches_1v2_won": 0,
-    "clutches_1v3_played": 2,
+    "clutches_1v3_played": 1,
     "clutches_1v3_won": 0,
-    "clutches_1v4_played": 2,
+    "clutches_1v4_played": 0,
     "clutches_1v4_won": 0,
     "clutches_1v5_played": 0,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
-        "kills": 5,
-        "deaths": 3
+        "kills": 1,
+        "deaths": 4
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 5
       },
       "bizon": {
@@ -5525,7 +5525,7 @@
         "deaths": 0
       },
       "fiveSeven": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "g3sg1": {
@@ -5553,7 +5553,7 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 4,
+        "kills": 0,
         "deaths": 4
       },
       "m4a4": {
@@ -5585,7 +5585,7 @@
         "deaths": 0
       },
       "negev": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "nova": {
@@ -5610,7 +5610,7 @@
       },
       "p90": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "revolver": {
         "kills": 0,
@@ -5625,7 +5625,7 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
+        "kills": 3,
         "deaths": 0
       },
       "sg553": {
@@ -5633,8 +5633,8 @@
         "deaths": 0
       },
       "tec9": {
-        "kills": 0,
-        "deaths": 2
+        "kills": 2,
+        "deaths": 1
       },
       "ump": {
         "kills": 0,
@@ -5642,10 +5642,10 @@
       },
       "usp": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "xm1014": {
-        "kills": 1,
+        "kills": 0,
         "deaths": 0
       },
       "zeus": {
@@ -5658,46 +5658,46 @@
     "players_table": "ALL_TIME",
     "is_session_player": false,
     "name": "777jajsko",
-    "kills": 18,
-    "deaths": 12,
-    "assists": 2,
+    "kills": 16,
+    "deaths": 15,
+    "assists": 4,
     "kills_on_flash": 0,
-    "kills_through_wall": 0,
+    "kills_through_wall": 1,
     "kills_in_jump": 0,
     "kills_through_smoke": 0,
-    "headshots": 11,
-    "damage": 1698,
-    "rounds_won": 13,
-    "total_rounds": 22,
-    "match_outcome": "Win",
-    "map_played": "de_nuke",
-    "map_duration_seconds": 2012.4375,
-    "entry_frags": 0,
-    "entry_deaths": 2,
+    "headshots": 9,
+    "damage": 1802,
+    "rounds_won": 6,
+    "total_rounds": 19,
+    "match_outcome": "Loss",
+    "map_played": "de_dust2",
+    "map_duration_seconds": 1588.484375,
+    "entry_frags": 2,
+    "entry_deaths": 0,
     "aces": 0,
     "mvp": 2,
-    "clutches_1v1_played": 1,
-    "clutches_1v1_won": 1,
+    "clutches_1v1_played": 0,
+    "clutches_1v1_won": 0,
     "clutches_1v2_played": 0,
     "clutches_1v2_won": 0,
     "clutches_1v3_played": 0,
     "clutches_1v3_won": 0,
     "clutches_1v4_played": 1,
     "clutches_1v4_won": 0,
-    "clutches_1v5_played": 0,
+    "clutches_1v5_played": 3,
     "clutches_1v5_won": 0,
     "weapons": {
       "ak47": {
         "kills": 6,
-        "deaths": 3
+        "deaths": 8
       },
       "aug": {
         "kills": 0,
         "deaths": 0
       },
       "awp": {
-        "kills": 0,
-        "deaths": 2
+        "kills": 2,
+        "deaths": 3
       },
       "bizon": {
         "kills": 0,
@@ -5708,7 +5708,7 @@
         "deaths": 0
       },
       "deagle": {
-        "kills": 2,
+        "kills": 0,
         "deaths": 0
       },
       "dualBerettas": {
@@ -5748,8 +5748,8 @@
         "deaths": 0
       },
       "m4a1s": {
-        "kills": 4,
-        "deaths": 4
+        "kills": 3,
+        "deaths": 1
       },
       "m4a4": {
         "kills": 0,
@@ -5761,7 +5761,7 @@
       },
       "mag7": {
         "kills": 0,
-        "deaths": 1
+        "deaths": 0
       },
       "molotov": {
         "kills": 0,
@@ -5804,7 +5804,7 @@
         "deaths": 0
       },
       "p90": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 0
       },
       "revolver": {
@@ -5820,7 +5820,7 @@
         "deaths": 0
       },
       "scout": {
-        "kills": 0,
+        "kills": 1,
         "deaths": 1
       },
       "sg553": {
@@ -5836,8 +5836,8 @@
         "deaths": 0
       },
       "usp": {
-        "kills": 4,
-        "deaths": 0
+        "kills": 1,
+        "deaths": 1
       },
       "xm1014": {
         "kills": 0,
