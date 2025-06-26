@@ -1,4 +1,4 @@
-import { PlayerTable, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
 import { StatsFromJson } from "../utils/player";
 import { countClutchesWinPercentage, countKd, countKda } from "./utils";
@@ -16,7 +16,35 @@ const main = async () => {
     });
 
     if (!existingPlayer) {
-      // If the player doesn't exist, skip (or delete if it was newly added)
+      console.log(`Player with ID ${steamId} not found in database. Skipping.`);
+      continue;
+    }
+
+    if (existingPlayer.gamesPlayed <= 1) {
+      // Delete all associated weapon stats first
+      if (existingPlayer.weapons && existingPlayer.weapons.length > 0) {
+        console.log(
+          `Deleting ${existingPlayer.weapons.length} weapon stats for player ${existingPlayer.name}`
+        );
+        await prisma.weaponStats.deleteMany({
+          where: { playerId: Number(steamId) },
+        });
+      }
+
+      // Delete all associated map stats
+      if (existingPlayer.maps && existingPlayer.maps.length > 0) {
+        console.log(
+          `Deleting ${existingPlayer.maps.length} map stats for player ${existingPlayer.name}`
+        );
+        await prisma.mapStats.deleteMany({
+          where: { playerId: Number(steamId) },
+        });
+      }
+
+      // Now delete the player
+      console.log(
+        `Removing player ${existingPlayer.name} as this was their only game.`
+      );
       await prisma.playerStats.delete({
         where: { id: Number(steamId) },
       });
@@ -130,7 +158,9 @@ const main = async () => {
       entryFragsPerGame:
         collectableStats.entryFrags / collectableStats.gamesPlayed,
       entryKillRating:
-        collectableStats.entryFrags / collectableStats.entryDeaths,
+        collectableStats.entryDeaths > 0
+          ? collectableStats.entryFrags / collectableStats.entryDeaths
+          : 0,
       impactFactor,
       acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
       clutches1v1WinPercentage: countClutchesWinPercentage(
