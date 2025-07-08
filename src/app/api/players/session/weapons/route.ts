@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { WeaponName } from "@/utils/weapons";
 import { PlayerTable, WeaponStats } from "@prisma/client";
 import { NextResponse } from "next/server";
+import superjson from "superjson";
 
 export async function GET() {
   try {
@@ -42,7 +43,12 @@ export async function GET() {
       };
     });
 
-    return NextResponse.json(transformedData);
+    const serialized = superjson.stringify(transformedData);
+    return new NextResponse(serialized, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     console.error("Error fetching session weapons players:", error);
     return NextResponse.json(

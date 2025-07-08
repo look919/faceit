@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { mainOrderBy } from "@/utils/order";
 import { PlayerTable } from "@prisma/client";
 import { NextResponse } from "next/server";
+import superjson from "superjson";
 
 export async function GET() {
   try {
@@ -12,7 +13,12 @@ export async function GET() {
       orderBy: mainOrderBy,
     });
 
-    return NextResponse.json(sessionPlayers);
+    const serialized = superjson.stringify(sessionPlayers);
+    return new NextResponse(serialized, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     console.error("Error fetching session players:", error);
     return NextResponse.json(

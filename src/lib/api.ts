@@ -1,4 +1,4 @@
-import "@/lib/bigint-serializer";
+import superjson from "superjson";
 
 export const apiGET = async <T>(url: string): Promise<T> => {
   try {
@@ -13,7 +13,8 @@ export const apiGET = async <T>(url: string): Promise<T> => {
       throw new Error(`Failed to fetch data: ${response.status}`);
     }
 
-    return await response.json();
+    const text = await response.text();
+    return superjson.parse<T>(text);
   } catch (error) {
     console.error("Error fetching data:", error);
     throw error; // Re-throw the error for handling in the calling function

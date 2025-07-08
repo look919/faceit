@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { MapStats, PlayerTable } from "@prisma/client";
 import { randomizePageOrderBy } from "@/utils/order";
 import { NextResponse } from "next/server";
+import superjson from "superjson";
 
 export interface RandomizeTeamsPlayer {
   id: bigint;
@@ -33,7 +34,14 @@ export async function GET() {
       };
     });
 
-    return NextResponse.json(transformedData as RandomizeTeamsPlayer[]);
+    const serialized = superjson.stringify(
+      transformedData as RandomizeTeamsPlayer[]
+    );
+    return new NextResponse(serialized, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     console.error("Error fetching players for randomize teams:", error);
     return NextResponse.json(

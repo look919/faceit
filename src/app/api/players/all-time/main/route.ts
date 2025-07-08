@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { ALL_TIME_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 import { PlayerTable } from "@prisma/client";
 import { NextResponse } from "next/server";
+import superjson from "superjson";
 
 export async function GET() {
   try {
@@ -16,7 +17,12 @@ export async function GET() {
       orderBy: mainOrderBy,
     });
 
-    return NextResponse.json(players);
+    const serialized = superjson.stringify(players);
+    return new NextResponse(serialized, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   } catch (error) {
     console.error("Error fetching all-time players:", error);
     return NextResponse.json(
