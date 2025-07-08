@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "@/lib/bigint-serializer"; // Import BigInt serializer for JSON support
 import { Logo } from "@/components/layout/Logo";
 import { Nav } from "@/components/layout/Nav";
 import { NavLink } from "@/components/layout/NavLink";

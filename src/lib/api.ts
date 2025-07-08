@@ -1,3 +1,5 @@
+import "@/lib/bigint-serializer";
+
 export const apiGET = async <T>(url: string): Promise<T> => {
   try {
     const response = await fetch(
