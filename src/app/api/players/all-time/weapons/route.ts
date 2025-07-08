@@ -2,7 +2,7 @@ import { weaponsOrderBy } from "@/utils/order";
 import { prisma } from "@/lib/prisma";
 import { ALL_TIME_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
 import { WeaponName } from "@/utils/weapons";
-import { PlayerTable } from "@prisma/client";
+import { PlayerTable, WeaponStats } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -35,7 +35,7 @@ export async function GET() {
           playerId: weapon.playerId,
         };
         return acc;
-      }, {} as Record<WeaponName, unknown>);
+      }, {} as Record<WeaponName, WeaponStats>);
 
       return {
         id: player.id,
