@@ -1,10 +1,10 @@
 "use client";
-import { PlayerStats } from "@prisma/client";
 import React from "react";
 import { simpleColumns, advancedColumns } from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Grid } from "../../Grid";
+import { PlayerStats } from "@prisma/client";
 
 type MainGridProps = {
   primaryData: PlayerStats[];

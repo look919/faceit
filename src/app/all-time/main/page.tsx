@@ -1,25 +1,10 @@
 import { MainGrid } from "@/components/grids/main/MainGrid";
-import { prisma } from "@/lib/prisma";
 import { ALL_TIME_MATCHES_PLAYED_SEPARATOR } from "@/utils/player";
-import { mainOrderBy } from "@/utils/order";
-import { PlayerTable } from "@prisma/client";
-
-const getAllTimePlayers = async () => {
-  const players = await prisma.playerStats.findMany({
-    where: {
-      playerTable: PlayerTable.ALL_TIME,
-      gamesPlayed: {
-        gte: ALL_TIME_MATCHES_PLAYED_SEPARATOR,
-      },
-    },
-    orderBy: mainOrderBy,
-  });
-
-  return players;
-};
+import { apiGET } from "@/lib/api";
+import { PlayerStats } from "@prisma/client";
 
 export default async function AllTimePage() {
-  const allTimePlayers = await getAllTimePlayers();
+  const allTimePlayers = await apiGET<PlayerStats[]>("/players/all-time/main");
 
   return (
     <div>

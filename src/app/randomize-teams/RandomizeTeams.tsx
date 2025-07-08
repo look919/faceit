@@ -28,7 +28,7 @@ function randomizeIndexes(): [number[], number[]] {
   return [randomizedArray, remainingArray];
 }
 
-type RandomizePlayer = {
+export type RandomizePlayer = {
   id: bigint;
   name: string;
   avatar: string;

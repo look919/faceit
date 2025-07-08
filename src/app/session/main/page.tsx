@@ -1,21 +1,9 @@
 import { MainGrid } from "@/components/grids/main/MainGrid";
-import { mainOrderBy } from "@/utils/order";
-import { prisma } from "@/lib/prisma";
-import { PlayerTable } from "@prisma/client";
-
-const getSessionPlayers = async () => {
-  const sessionPlayers = await prisma.playerStats.findMany({
-    where: {
-      playerTable: PlayerTable.SESSION,
-    },
-    orderBy: mainOrderBy,
-  });
-
-  return sessionPlayers;
-};
+import { apiGET } from "@/lib/api";
+import { PlayerStats } from "@prisma/client";
 
 export default async function SessionPage() {
-  const sessionPlayers = await getSessionPlayers();
+  const sessionPlayers = await apiGET<PlayerStats[]>("/players/session/main");
 
   return (
     <div>
