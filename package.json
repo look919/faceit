@@ -14,6 +14,9 @@
     "clearSeasonOfficial": "ts-node --project src/scripts/tsconfig.json src/scripts/clearSeason.ts",
     "import-data": "ts-node --project src/scripts/tsconfig.json src/scripts/importData.ts"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@prisma/client": "^6.3.0",
     "@radix-ui/react-label": "^2.1.2",

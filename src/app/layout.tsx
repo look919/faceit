@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-visible min-h-screen min-w-screen`}
       >
-        <div className="absolute min-h-screen inset-0 top-60 bg-[url('/background.png')] hidden xl:block bg-no-repeat bg-center opacity-15 z-0" />
+        <div className="absolute min-h-screen inset-0 top-56 bg-[url('/background2.png')] hidden xl:block bg-repeat-y bg-cover opacity-10 z-0" />
         <div className="relative z-10 flex flex-col w-fit px-4 font-[family-name:var(--font-geist-sans)] mx-auto min-h-screen">
           <main className="flex flex-col items-center gap-8 row-start-2 p-2 mt-8">
             <Logo />
