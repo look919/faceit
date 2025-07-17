@@ -1,4 +1,5 @@
 import { PlayerTable, PrismaClient } from "@prisma/client";
+import { revalidateAllData } from "../utils/revalidate";
 
 const prisma = new PrismaClient();
 
@@ -20,6 +21,9 @@ const clearSessionStats = async () => {
   });
 
   console.log("Session stats cleared.");
+
+  // Send revalidation request to ensure fresh data is fetched
+  await revalidateAllData();
 };
 
 clearSessionStats()

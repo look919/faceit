@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
 import { StatsFromJson } from "../utils/player";
+import { revalidateAllData } from "../utils/revalidate";
 import { countClutchesWinPercentage, countKd, countKda } from "./utils";
 
 const prisma = new PrismaClient();
@@ -343,6 +344,9 @@ const main = async () => {
   }
 
   console.log(`Loaded stats from map: ${mapPlayed}.`);
+
+  // Send revalidation request to ensure fresh data is fetched
+  await revalidateAllData();
 };
 
 main()
