@@ -38,18 +38,3 @@ export type StatsFromJson = {
 
   weapons: Record<WeaponName, WeaponFromJson>;
 };
-
-export const playerAvatarsMap = {
-  Arturek: "artur.jpg",
-  "♣†Blady▲Miś†♣": "blady_mis.jpg",
-  Cashotto: "cashotto.jpg",
-  "Cpt. Chicken": "chicken.gif",
-  mushoryemushoryemushorye: "czarek.jpg",
-  DeiDaRa: "deidara.jpg",
-  EMUNIA: "emunia.jpg",
-  jajsko: "jajsko.jpg",
-  "☢K0di☢": "kodi.jpg",
-  "Spectral.": "spectral.jpg",
-  Tomi: "tomi.jpg",
-  VEGETAble: "vegetable.jpg",
-} as const;

@@ -1,9 +1,26 @@
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
-import { playerAvatarsMap, StatsFromJson } from "../utils/player";
+import { StatsFromJson } from "../utils/player";
 import { countClutchesWinPercentage, countKd, countKda } from "./utils";
 
 const prisma = new PrismaClient();
+
+const playerAvatarsMap = {
+  Arturek: "artur.jpg",
+  "♣†Blady▲Miś†♣": "blady_mis.jpg",
+  Cashotto: "cashotto.jpg",
+  "Cpt. Chicken": "chicken.gif",
+  "fy_pool_day enjoyer": "czarek.jpg",
+  DeiDaRa: "deidara.jpg",
+  EMUNIA: "emunia.jpg",
+  "777jajsko": "jajsko.jpg",
+  "☢K0di☢": "kodi.jpg",
+  Blazeoon: "spectral.jpg",
+  Tomi: "tomi.jpg",
+  VEGETAble: "vegetable.jpg",
+  vinicjusz: "vinicjusz.jpg",
+  Hitari: "hitari.jpg",
+} as const;
 
 const main = async () => {
   const rawData = readFileSync("./src/scripts/stats.json", "utf8");
