@@ -1,8 +1,8 @@
 import { PlayerTable } from "@prisma/client";
 import { MapName, WeaponFromJson, WeaponName } from "./weapons";
 
-export const SEASON_MATCHES_PLAYED_SEPARATOR = 8;
-export const ALL_TIME_MATCHES_PLAYED_SEPARATOR = 9;
+export const SEASON_MATCHES_PLAYED_SEPARATOR = 10;
+export const ALL_TIME_MATCHES_PLAYED_SEPARATOR = 12;
 
 export type StatsFromJson = {
   players_table: PlayerTable;
