@@ -153,7 +153,7 @@ export const RandomizeTeams = ({ players }: RandomizeTeamsProps) => {
       </Button>
 
       {randomizedTeams[0].length ? (
-        <div className="flex w-[1000px] justify-between">
+        <div className="flex w-[1000px] justify-between mt-2">
           <div className="flex flex-col gap-2 min-w-80 items-center">
             <span className="text-lg text-sky-500">Team ZXC</span>
             {randomizedTeams[0].map((randomizedTeamPlayer) => (

@@ -44,7 +44,7 @@ export const MapStrengthChart = (props: MapStrengthChartProps) => {
   });
 
   return (
-    <div className="w-full h-96 overflow-visible">
+    <div className="w-full h-96 mt-8 overflow-visible">
       <ResponsiveContainer style={{ overflow: "visible" }}>
         <RadarChart outerRadius="80%" data={chartData}>
           <PolarGrid />
