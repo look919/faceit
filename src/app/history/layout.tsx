@@ -17,6 +17,7 @@ export default function CategoryLayout({
       <PageHeader name="History" />
       <Nav>
         <NavLink tier="sub" href="/history/season1" name="Season 1" />
+        <NavLink tier="sub" href="/history/season2" name="Season 2" />
       </Nav>
       {children}
     </section>

@@ -11,8 +11,8 @@ export const Podium = ({ achievement }: PodiumProps) => {
 
   return (
     <div className="flex flex-col items-center p-6 rounded-lg shadow-md w-[420px] min-h-[420px]">
-      <h2 className="text-2xl font-bold">{title}</h2>
-      <h3 className="text-sm text-gray-500 mb-6">{subtitle}</h3>
+      <h2 className="text-2xl text-center font-bold">{title}</h2>
+      <h3 className="text-sm text-center text-gray-500 mb-6">{subtitle}</h3>
 
       <div className="flex items-end space-x-4">
         <div className="flex flex-col items-center">

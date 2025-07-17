@@ -39,7 +39,7 @@ export default function RootLayout({
               <NavLink tier="main" href="/general/main" name="Season 2" />
               <NavLink tier="main" href="/session/main" name="Session" />
               <NavLink tier="main" href="/all-time/main" name="All-time" />
-              <NavLink tier="main" href="/history/season1" name="History" />
+              <NavLink tier="main" href="/history/season2" name="History" />
               <NavLink tier="main" href="/randomize-teams" name="Draw Teams" />
             </Nav>
             {children}
