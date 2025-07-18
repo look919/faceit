@@ -3,18 +3,18 @@ import { Podium } from "@/components/Podium";
 import { season1Achievements } from "./achievements";
 
 const season1Images = [
-  "/seasons/season1_general.png",
-  "/seasons/season1_kda.png",
-  "/seasons/season1_adr.png",
-  "/seasons/season1_hs.png",
-  "/seasons/season1_knife.png",
-  "/seasons/season1_zeus.png",
-  "/seasons/season1_ak47.png",
-  "/seasons/season1_m4.png",
-  "/seasons/season1_awp.png",
-  "/seasons/season1_mac10.png",
-  "/seasons/season1_mp9.png",
-  "/seasons/season1_pistols.png",
+  "/seasons/season1/general.png",
+  "/seasons/season1/kda.png",
+  "/seasons/season1/adr.png",
+  "/seasons/season1/hs.png",
+  "/seasons/season1/knife.png",
+  "/seasons/season1/zeus.png",
+  "/seasons/season1/ak47.png",
+  "/seasons/season1/m4.png",
+  "/seasons/season1/awp.png",
+  "/seasons/season1/mac10.png",
+  "/seasons/season1/mp9.png",
+  "/seasons/season1/pistols.png",
 ];
 export default async function HistorySeason1Page() {
   return (
