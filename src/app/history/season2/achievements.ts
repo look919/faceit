@@ -1,27 +1,17 @@
 import { Achievement } from "@/utils/achievement";
+import { getAchievementPlayer } from "@/utils/player";
+import { get } from "http";
 
 export const season1Achievements: Achievement[] = [
   {
     title: "Najlepszy gracz s2",
     subtitle: "Winrate %",
     description:
-      "Do ostatniej chwili nie wiedziałem komu przyznać, bo umówmy się 15 gieriek to i ja mógłbym rozjebać, prawda?",
+      "Do ostatniej chwili nie wiedziałem komu przyznać, bo umówmy się 14 gieriek to i ja mógłbym rozjebać, prawda? No właśnie nie, dlatego gratulacje dla nowego mistrza",
     performers: [
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "65.22%",
-      },
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "54.55%",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "52.63%",
-      },
+      getAchievementPlayer("Hitari", "71,43%"),
+      getAchievementPlayer("DeiDaRa", "66,67%"),
+      getAchievementPlayer("Blazeoon", "65,38%"),
     ],
   },
   {
@@ -29,44 +19,19 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najlepsze KDA",
     description: "Kampcie sobie dalej",
     performers: [
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "1.38",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.36",
-      },
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "1.35",
-      },
+      getAchievementPlayer("Hitari", "1.51"),
+      getAchievementPlayer("Blazeoon", "1.38"),
+      getAchievementPlayer("DeiDaRa", "1.35"),
     ],
   },
   {
     title: "ADR na maksa",
     subtitle: "Najlepszy ADR",
-    description:
-      "W sumie nawet nwm czy dobrze się zlicza, więc w dupe se wsadźcie takie osiągnięcie",
+    description: "Piotrek to pechowiec sezonu, trzeba to sobie powiedzieć",
     performers: [
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "91.4",
-      },
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "89.88",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "89.73",
-      },
+      getAchievementPlayer("Cpt. Chicken", "89.91"),
+      getAchievementPlayer("Hitari", "89.5"),
+      getAchievementPlayer("Blazeoon", "88.68"),
     ],
   },
   {
@@ -74,43 +39,20 @@ export const season1Achievements: Achievement[] = [
     subtitle: "HS %",
     description: "Precyzyjni są panowie",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "54.52%",
-      },
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "51.93%",
-      },
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "47.12%",
-      },
+      getAchievementPlayer("fy_pool_day enjoyer", "52.03%"),
+      getAchievementPlayer("vinicjusz", "50.56%"),
+      getAchievementPlayer("DeiDaRa", "49.55%"),
     ],
   },
   {
     title: "Przestępca",
-    subtitle: "Najwięcej killi",
-    description: "Hip hip hura",
+    subtitle: "Najwięcej killi na mecz",
+    description:
+      "Hip hip hura. Kurwancka już za bardzo nwm co napisać, a jeszcze z 40 tych pucharków przede mną",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "20.37",
-      },
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "18.91",
-      },
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "18.88",
-      },
+      getAchievementPlayer("Hitari", "18.79"),
+      getAchievementPlayer("DeiDaRa", "18.58"),
+      getAchievementPlayer("Cpt. Chicken", "17.89"),
     ],
   },
   {
@@ -119,44 +61,20 @@ export const season1Achievements: Achievement[] = [
     description:
       "Wyjebać się to nie jest wstyd, ważne by później wstać i znowu się wyjebać",
     performers: [
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "17.35",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "16.84",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "16.68",
-      },
+      getAchievementPlayer("vinicjusz", "16.3"),
+      getAchievementPlayer("VEGETAble", "16.26"),
+      getAchievementPlayer("EMUNIA", "16.1"),
     ],
   },
   {
     title: "Luka Modric",
     subtitle: "Najwięcej asyst",
     description:
-      "Wolałem system asyst z CS:GO, ten niesmak przy 40'stce i łagodnie uśmiechnięta, bo 41 się udało, coś wyjątkowego",
+      "Wolałem system asyst z CS:GO, ten niesmak przy 40'stce i łagodnie uśmiechnięta, bo 41 w 2 z emeczki się udało, coś wyjątkowego",
     performers: [
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "5.87",
-      },
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "5.63",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "5.38",
-      },
+      getAchievementPlayer("EMUNIA", "5.73"),
+      getAchievementPlayer("fy_pool_day enjoyer", "5.66"),
+      getAchievementPlayer("vinicjusz", "5.4"),
     ],
   },
   {
@@ -165,44 +83,20 @@ export const season1Achievements: Achievement[] = [
     description:
       "Wejście smoka, przyszedł i rozjebał, uważaj bo cię więcej nie zaprosimy",
     performers: [
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "5.87",
-      },
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "5.63",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "5.38",
-      },
+      getAchievementPlayer("Hitari", "14gier"),
+      getAchievementPlayer("Limek", "5gier"),
+      getAchievementPlayer("Po Prostu Piotrek ;)", "4gry"),
     ],
   },
   {
     title: "Ćwiczenie czyni mistrza",
-    subtitle: "Największy progres",
+    subtitle: "Największy progres w stosunku do poprzedniego sezonu",
     description:
-      "Bardzo mi miło, że na moich oczach doświadczasz postępu, szkoda że w gówno jebanej rozjebanej gierce",
+      "Bardzo mi miło, że na moich oczach doświadczacie postępu, szkoda że w gówno jebanej rozjebanej gierce",
     performers: [
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "5.87",
-      },
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "5.63",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "5.38",
-      },
+      getAchievementPlayer("EMUNIA", "Winrate: +18pp"),
+      getAchievementPlayer("Blazeoon", "Winrate: +15pp"),
+      getAchievementPlayer("Cashotto", "Winrate: +10pp"),
     ],
   },
   {
@@ -211,21 +105,9 @@ export const season1Achievements: Achievement[] = [
     description:
       "Nie przejmuj się, jutro też jest dzień, może nawet będzie lepszy",
     performers: [
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "5.87",
-      },
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "5.63",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "5.38",
-      },
+      getAchievementPlayer("☢K0di☢", "Bo nie gra"),
+      getAchievementPlayer("♣†Blady▲Miś†♣", "To samo ale mniej"),
+      getAchievementPlayer("fy_pool_day enjoyer", "Bo nie obronił tytułu"),
     ],
   },
 
@@ -234,21 +116,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Największa zmiana",
     description: "Zamienię cieeeee na lepszy moodel",
     performers: [
-      {
-        name: "Arturek",
-        avatar: "artur.jpg",
-        score: "10",
-      },
-      {
-        name: "Cpt. Chicken",
-        avatar: "chicken.gif",
-        score: "4",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "3",
-      },
+      getAchievementPlayer("Blazeoon", "Z grubej do chudej"),
+      getAchievementPlayer("Arturek", "Znalazł babę"),
+      getAchievementPlayer("Tomi", "Przefrabowałem włoski"),
     ],
   },
   {
@@ -257,21 +127,9 @@ export const season1Achievements: Achievement[] = [
     description:
       "Informuję, że w następnym sezonie Wiśniewski będzie miał hattricka",
     performers: [
-      {
-        name: "Arturek",
-        avatar: "artur.jpg",
-        score: "10",
-      },
-      {
-        name: "Cpt. Chicken",
-        avatar: "chicken.gif",
-        score: "4",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "3",
-      },
+      getAchievementPlayer("Arturek", "5"),
+      getAchievementPlayer("Cpt. Chicken", "4"),
+      getAchievementPlayer("Hitari", "3"),
     ],
   },
   {
@@ -279,65 +137,29 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najwięcej kos - otrzymanych",
     description: "Jestem kurcze dumny z nazwy tego osiągnięcia",
     performers: [
-      {
-        name: "Spectral",
-        avatar: "spectral.jpg",
-        score: "4",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "4",
-      },
-      {
-        name: "Tomi",
-        avatar: "tomi.jpg",
-        score: "3",
-      },
+      getAchievementPlayer("fy_pool_day enjoyer", "4"),
+      getAchievementPlayer("VEGETAble", "3"),
+      getAchievementPlayer("Tomi", "3"),
     ],
   },
   {
-    title: "Elektryk",
+    title: "Ja pierdole w Józka szczelił pierun",
     subtitle: "Najwięcej zeusów",
-    description: "Ja pierdole w Józka szczelił pierun",
+    description: "Słabo, słabo w tym sezonie panowie",
     performers: [
-      {
-        name: "Arturek",
-        avatar: "artur.jpg",
-        score: "3",
-      },
-      {
-        name: "EMUNIA",
-        avatar: "emunia.jpg",
-        score: "2",
-      },
-      {
-        name: "Cpt. Chicken",
-        avatar: "chicken.gif",
-        score: "1",
-      },
+      getAchievementPlayer("Cashotto", "1"),
+      getAchievementPlayer("Arturek", "1"),
+      getAchievementPlayer("?", "0"),
     ],
   },
   {
     title: "Holy Granade",
     subtitle: "Najwięcej killi z HE/Molotovów",
-    description: "",
+    description: "A tu se przerwę zrobię i chuja napiszę",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("Hitari", "9"),
+      getAchievementPlayer("Cashotto", "8"),
+      getAchievementPlayer("fy_pool_day enjoyer", "6"),
     ],
   },
   {
@@ -345,21 +167,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najwięcej ugranych clutchy 1v1 & 1v2",
     description: "Jaja ze stali",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("DeiDaRa", "11/14 + 4/12"),
+      getAchievementPlayer("Cpt. Chicken", "12/17 + 5/30"),
+      getAchievementPlayer("Cashotto", "7/10 + 4/10"),
     ],
   },
   {
@@ -367,178 +177,82 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najwięcej ugranych clutchy 1v3 & 1v4 & 1v5",
     description: "Runda w prezencie od przeciwnika, ale coś trzebało poklikać",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("DeiDaRa", "4/24 + 0/18 + 0/7"),
+      getAchievementPlayer("Tomi", "2/21 + 1/25 + 0/15"),
+      getAchievementPlayer("Cpt. Chicken", "2/30 + 0/34 + 0/13"),
     ],
   },
   {
     title: "Lee Sin",
-    subtitle: "Najwięcej killi na flashu",
+    subtitle: "Najwięcej killi na flashu na mecz",
     description: "Czasami trzeba przyfarcić",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("777jajsko", "0.12"),
+      getAchievementPlayer("Tomi", "0.08"),
+      getAchievementPlayer("EMUNIA", "0.07"),
     ],
   },
   {
     title: "Skaner",
-    subtitle: "Najwięcej killi przez ścianę",
-    description: "Nie lubię was.",
+    subtitle: "Najwięcej killi przez ścianę na mecz",
+    description: "Nie lubię takiego zachowania.",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("Hitari", "0.57"),
+      getAchievementPlayer("fy_pool_day enjoyer", "0.54"),
+      getAchievementPlayer("vinicjusz", "0.5"),
     ],
   },
   {
     title: "Papierosek",
-    subtitle: "Najwięcej killi przez smoke'a",
+    subtitle: "Najwięcej killi przez smoke'a na mecz",
     description:
       "To co trigger, wallhack, radar czy aimbot? Przyznajcie się panowie",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("Hitari", "1.71"),
+      getAchievementPlayer("fy_pool_day enjoyer", "1"),
+      getAchievementPlayer("Blazeoon", "0.92"),
     ],
   },
   {
     title: "Adam Małysz",
-    subtitle: "Najwięcej killi w skoku",
+    subtitle: "Najwięcej killi w skoku na mecz",
     description:
       "Nwm jakim chujem czarek nie wygrał, mam wrażenie, że 2 razy na mecz mnie z powietrza napierdala",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("Cashotto", "0.19"),
+      getAchievementPlayer("Arturek", "0.13"),
+      getAchievementPlayer("VEGETAble", "0.1"),
     ],
   },
   {
     title: "Najważniejsze zadanie",
-    subtitle: "Najwięcej entry fragów",
+    subtitle: "Najwięcej entry fragów na mecz",
     description: "No tutaj pozostaje mi pogratulować, zazdroszczę łobuzy",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("vinicjusz", "3.5"),
+      getAchievementPlayer("DeiDaRa", "3.13"),
+      getAchievementPlayer("fy_pool_day enjoyer", "3.03"),
     ],
   },
   {
     title: "Najlepszy gracz",
     subtitle: "Najlepsze entry K/D",
     description:
-      "Serio kurwa, to powinna być metryka oceniania pro graczy, a nie jakieś losowe KD",
+      "Serio kurwa, to powinna być metryka oceniania pro graczy, a nie jakieś losowe K/D",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("Cpt. Chicken", "1.65"),
+      getAchievementPlayer("Hitari", "1.55"),
+      getAchievementPlayer("vinicjusz", "1.52"),
     ],
   },
   {
     title: "And the winner is...",
-    subtitle: "Najwięcej MVP",
+    subtitle: "Najwięcej MVP na mecz",
     description: "MVP! MVP! MVP! MVP!",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("vinicjusz", "3.1"),
+      getAchievementPlayer("Hitari", "3"),
+      getAchievementPlayer("DeiDaRa", "2.92"),
     ],
   },
   {
@@ -547,43 +261,19 @@ export const season1Achievements: Achievement[] = [
     description:
       "Jeszcze raz niech mnie kurwa zapyta co to jest Impact Factor. Chociaż jak patrzę na rozbierzności, to na następny sezon trzeba zmienić parametry",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "10+0",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "8+1",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "4+1",
-      },
+      getAchievementPlayer("Cpt. Chicken", "187"),
+      getAchievementPlayer("fy_pool_day enjoyer", "182.01"),
+      getAchievementPlayer("DeiDaRa", "164.03"),
     ],
   },
   {
     title: "Pistolet za darmo",
-    subtitle: "Glock + USP",
+    subtitle: "Glock + USP na mecz",
     description: "Zapach 82 w 6 z uspa w jednego jak ci pięciu chłopa rushuje",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.37+0.84=2.21",
-      },
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "1.09+0.87=1.96",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "0.81+0.75=1.56",
-      },
+      getAchievementPlayer("vinicjusz", "1 + 1 = 2 xD"),
+      getAchievementPlayer("Blazeoon", "0.73 + 1.08 = 1.81"),
+      getAchievementPlayer("DeiDaRa", "0.84 + 0.96 = 1.8"),
     ],
   },
   {
@@ -591,21 +281,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Mac10 + MP9",
     description: "Jebane kurwa op gówno sezon 2",
     performers: [
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "1.63+0.94=2.57",
-      },
-      {
-        name: "jajsko",
-        avatar: "jajsko.jpg",
-        score: "1 + 0.92 = 1.92",
-      },
-      {
-        name: "EMUNIA",
-        avatar: "emunia.jpg",
-        score: "0.81 + 1.02 = 1.83",
-      },
+      getAchievementPlayer("Cashotto", "1.59 + 0.89 = 2.48"),
+      getAchievementPlayer("777jajsko", "0.96 + 1.35 = 2.31"),
+      getAchievementPlayer("Blazeoon", "0.46 + 1.15 = 1.61"),
     ],
   },
   {
@@ -613,21 +291,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najwięcej killi z AK-47",
     description: "O, tutaj jak wygrałeś, to prawdopodobnie coś strzelasz",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "6.74",
-      },
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "6.73",
-      },
-      {
-        name: "Spectral.",
-        avatar: "spectral.jpg",
-        score: "6.46",
-      },
+      getAchievementPlayer("vinicjusz", "8.55"),
+      getAchievementPlayer("fy_pool_day enjoyer", "7.81"),
+      getAchievementPlayer("DeiDaRa", "7.72"),
     ],
   },
   {
@@ -635,21 +301,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najwięcej killi z M4a1",
     description: "Ale bym taką rozkochał i pokłócił się o śmieci",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "4.84",
-      },
-      {
-        name: "jajsko",
-        avatar: "jajsko.jpg",
-        score: "4.54",
-      },
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "4.17",
-      },
+      getAchievementPlayer("Blazeoon", "4.15"),
+      getAchievementPlayer("777jajsko", "4"),
+      getAchievementPlayer("Tomi", "3.68"),
     ],
   },
   {
@@ -657,21 +311,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najwięcej killi z M4a4",
     description: "Ale bym takiej nie poznał i uniknął rozmowy o feminitywach",
     performers: [
-      {
-        name: "Spectral.",
-        avatar: "spectral.jpg",
-        score: "2.69",
-      },
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "0.79",
-      },
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "0.63",
-      },
+      getAchievementPlayer("Hitari", "2.07"),
+      getAchievementPlayer("vinicjusz", "1.09"),
+      getAchievementPlayer("VEGETAble", "1"),
     ],
   },
   {
@@ -679,21 +321,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Najwięcej killi z obu M4",
     description: "2:0 dla chudej, jak Mila z Niemcami w 88'",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "4.84+0=4.84",
-      },
-      {
-        name: "Spectral.",
-        avatar: "spectral.jpg",
-        score: "2.08+2.69=4.77",
-      },
-      {
-        name: "jajsko",
-        avatar: "jajsko.jpg",
-        score: "4.54+0.15=4.69",
-      },
+      getAchievementPlayer("777jajsko", "4 + 0.42 = 4.42"),
+      getAchievementPlayer("Blazeoon", "4.15 + 0 = 4.15"),
+      getAchievementPlayer("fy_pool_day enjoyer", "3.39 + 0.75 = 4.14"),
     ],
   },
   {
@@ -701,88 +331,40 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Famas + Galil",
     description: "Śmiech na sali, że to kosztuje 2 razy tyle co mac10",
     performers: [
-      {
-        name: "DeiDaRa",
-        avatar: "deidara.jpg",
-        score: "0.61+1.03=1.64",
-      },
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "0.77+0.42=1.19",
-      },
-      {
-        name: "Tomi",
-        avatar: "tomi.jpg",
-        score: "0.41+0.72=1.13",
-      },
+      getAchievementPlayer("VEGETAble", "1.16 + 0.94 = 2.1"),
+      getAchievementPlayer("vinicjusz", "0 + 1.8 = 1.8!"),
+      getAchievementPlayer("Blazeoon", "0.42 + 1.12 = 1.54"),
     ],
   },
   {
     title: "Wróg u bram",
     subtitle: "AWP",
-    description: "",
+    description:
+      "Jak Wiśniewski to wygrywa, to przestaję się martwić o wchodzenie pod awkę na dyszkach",
     performers: [
-      {
-        name: "Arturek",
-        avatar: "artur.jpg",
-        score: "5.39",
-      },
-      {
-        name: "♣†Blady▲Miś†♣",
-        avatar: "blady_mis.jpg",
-        score: "5.25",
-      },
-      {
-        name: "Cpt. Chicken",
-        avatar: "chicken.gif",
-        score: "2.28",
-      },
+      getAchievementPlayer("Arturek", "3.27"),
+      getAchievementPlayer("Cpt. Chicken", "2.5"),
+      getAchievementPlayer("DeiDaRa", "2.12"),
     ],
   },
   {
     title: "Najgorsza broń w grze",
     subtitle: "Scout",
-    description: "Pięść się zaciska jak widzę, że teammate to kupił",
+    description: "Kurwa czemu vini ma wszędzie 1 xD? Jebany system dziesiętny",
     performers: [
-      {
-        name: "VEGETAble",
-        avatar: "vegetable.jpg",
-        score: "0.88",
-      },
-      {
-        name: "gang type shi",
-        avatar: "czarek.jpg",
-        score: "0.87",
-      },
-      {
-        name: "jajsko",
-        avatar: "jajsko.jpg",
-        score: "0.77",
-      },
+      getAchievementPlayer("vinicjusz", "1"),
+      getAchievementPlayer("Hitari", "0.87"),
+      getAchievementPlayer("VEGETAble", "0.81"),
     ],
   },
   {
     title: "Dziki zachód przed dodaniem rewolweru",
     subtitle: "Deagle",
-    description:
-      "Kurwa czemu w biegu dostaję banie z tego gówna przez pół mapy?",
+    description: "<Bania w biegu z tego gówna przez pół mapy>",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("DeiDaRa", "0.96"),
+      getAchievementPlayer("vinicjusz", "0.82"),
+      getAchievementPlayer("fy_pool_day enjoyer", "0.5"),
     ],
   },
   {
@@ -791,21 +373,9 @@ export const season1Achievements: Achievement[] = [
     description:
       "Coraz gorzej kurwa idzie na tym inferno, ale co zrobić jak banan wpuszcza",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("Cashotto", "3/3"),
+      getAchievementPlayer("Cpt. Chicken", "2/3"),
+      getAchievementPlayer("fy_pool_day enjoyer", "2/3"),
     ],
   },
   {
@@ -814,21 +384,9 @@ export const season1Achievements: Achievement[] = [
     description:
       "Trzech na longa w pierwsze tempo i nic poza rushem b się nie da zrobić",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("Arturek", "2/3"),
+      getAchievementPlayer("DeiDaRa", "2/3"),
+      getAchievementPlayer("Blazeoon", "2/3"),
     ],
   },
   {
@@ -837,21 +395,9 @@ export const season1Achievements: Achievement[] = [
     description:
       "Tutaj pełne uszanowanko dla twórców mapy, dla graczy, wspaniałe miejsce, wspaniałe zawody",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("Blazeoon", "5/6"),
+      getAchievementPlayer("EMUNIA", "5/7"),
+      getAchievementPlayer("fy_pool_day enjoyer", "5/7"),
     ],
   },
   {
@@ -859,21 +405,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "De_Train",
     description: "Co zawór odjebał za chujowy glow up to nie mam siły",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("fy_pool_day enjoyer", "3/3"),
+      getAchievementPlayer("EMUNIA", "2/3"),
+      getAchievementPlayer("?", "Nikt inny nie zrobił 50% w 3 grach xD"),
     ],
   },
   {
@@ -882,21 +416,9 @@ export const season1Achievements: Achievement[] = [
     description:
       "Nie wiem właśnie o co chodzi, że po terro A się nie da wejść, a po CT obronić",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("fy_pool_day enjoyer", "5/6"),
+      getAchievementPlayer("Arturek", "4/6"),
+      getAchievementPlayer("EMUNIA", "3/5"),
     ],
   },
   {
@@ -904,21 +426,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "De_Ancient",
     description: "A idźcie mi kurwa z tą mapą",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("Hitari", "4/4"),
+      getAchievementPlayer("VEGETAble", "5/7"),
+      getAchievementPlayer("Blazeoon", "4/6"),
     ],
   },
   {
@@ -926,21 +436,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "De_Anubis",
     description: "Wyblakła, tak bardzo się niczym nie wyróżnia",
     performers: [
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.63",
-      },
-      {
-        name: "☢K0di☢",
-        avatar: "kodi.jpg",
-        score: "1.634",
-      },
+      getAchievementPlayer("DeiDaRa", "3/3"),
+      getAchievementPlayer("EMUNIA", "2/3"),
+      getAchievementPlayer("Tomi", "2/3"),
     ],
   },
   {
@@ -948,21 +446,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "P90",
     description: "Kategoria dedykowana",
     performers: [
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "1.94",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "1.94",
-      },
-      {
-        name: "Cashotto",
-        avatar: "cashotto.jpg",
-        score: "1.94",
-      },
+      getAchievementPlayer("Cashotto", "3.07"),
+      getAchievementPlayer("Cashotto", "3.07"),
+      getAchievementPlayer("Cashotto", "3.07"),
     ],
   },
   {
@@ -970,21 +456,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "XM1014",
     description: "Kategoria dedykowana",
     performers: [
-      {
-        name: "Cpt. Chicken",
-        avatar: "chicken.gif",
-        score: "1.72",
-      },
-      {
-        name: "Cpt. Chicken",
-        avatar: "chicken.gif",
-        score: "1.72",
-      },
-      {
-        name: "Cpt. Chicken",
-        avatar: "chicken.gif",
-        score: "1.72",
-      },
+      getAchievementPlayer("Cpt. Chicken", "3.33"),
+      getAchievementPlayer("Cpt. Chicken", "3.33"),
+      getAchievementPlayer("Cpt. Chicken", "3.33"),
     ],
   },
   {
@@ -992,21 +466,9 @@ export const season1Achievements: Achievement[] = [
     subtitle: "Revolver",
     description: "Kategoria dedykowana",
     performers: [
-      {
-        name: "Tomi",
-        avatar: "tomi.jpg",
-        score: "0.19",
-      },
-      {
-        name: "Tomi",
-        avatar: "tomi.jpg",
-        score: "0.19",
-      },
-      {
-        name: "Tomi",
-        avatar: "tomi.jpg",
-        score: "0.19",
-      },
+      getAchievementPlayer("Hitari", "0.27"),
+      getAchievementPlayer("Hitari", "0.27"),
+      getAchievementPlayer("Hitari", "0.27"),
     ],
   },
 ];

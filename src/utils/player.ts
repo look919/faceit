@@ -38,3 +38,32 @@ export type StatsFromJson = {
 
   weapons: Record<WeaponName, WeaponFromJson>;
 };
+
+export const playerAvatarsMap = {
+  Arturek: "artur.jpg",
+  "♣†Blady▲Miś†♣": "blady_mis.jpg",
+  Cashotto: "cashotto.jpg",
+  "Cpt. Chicken": "chicken.gif",
+  "fy_pool_day enjoyer": "czarek.jpg",
+  DeiDaRa: "deidara.jpg",
+  EMUNIA: "emunia.jpg",
+  "777jajsko": "jajsko.jpg",
+  "☢K0di☢": "kodi.jpg",
+  Blazeoon: "spectral.jpg",
+  Tomi: "tomi.jpg",
+  VEGETAble: "vegetable.jpg",
+  vinicjusz: "vinicjusz.jpg",
+  Hitari: "hitari.jpg",
+  Limek: "default.jpg",
+  "Po Prostu Piotrek ;)": "default.jpg",
+  "?": "default.jpg",
+} as const;
+
+export const getAchievementPlayer = (
+  name: keyof typeof playerAvatarsMap,
+  score: string
+) => ({
+  avatar: playerAvatarsMap[name] || "default.jpg",
+  name,
+  score,
+});

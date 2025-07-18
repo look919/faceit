@@ -15,7 +15,7 @@ export const Podium = ({ achievement }: PodiumProps) => {
       <h3 className="text-sm text-center text-gray-500 mb-6">{subtitle}</h3>
 
       <div className="flex items-end space-x-4">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="w-20 h-32 bg-gray-300 rounded-t-lg flex items-center justify-center">
             <Image
               src={`/avatars/${performers[1].avatar}`}
@@ -25,12 +25,12 @@ export const Podium = ({ achievement }: PodiumProps) => {
               className="rounded-full border-2 border-white"
             />
           </div>
-          <p className="mt-2 font-semibold">{performers[1].name}</p>
+          <p className="mt-2 text-xs font-semibold">{performers[1].name}</p>
           <p className="text-sm text-gray-600">{performers[1].score}</p>
         </div>
 
         {/* 1st Place */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="w-24 h-40 bg-yellow-400 rounded-t-lg flex items-center justify-center">
             <Image
               src={`/avatars/${performers[0].avatar}`}
@@ -45,7 +45,7 @@ export const Podium = ({ achievement }: PodiumProps) => {
         </div>
 
         {/* 3rd Place */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <div className="w-20 h-28 bg-orange-400 rounded-t-lg flex items-center justify-center">
             <Image
               src={`/avatars/${performers[2].avatar}`}
@@ -55,7 +55,7 @@ export const Podium = ({ achievement }: PodiumProps) => {
               className="rounded-full border-2 border-white"
             />
           </div>
-          <p className="mt-2 font-semibold">{performers[2].name}</p>
+          <p className="mt-2 text-xs font-semibold">{performers[2].name}</p>
           <p className="text-sm text-gray-600">{performers[2].score}</p>
         </div>
       </div>
