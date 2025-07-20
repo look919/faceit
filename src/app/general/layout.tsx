@@ -14,7 +14,7 @@ export default function CategoryLayout({
 }>) {
   return (
     <section className="flex flex-col items-center w-fit">
-      <PageHeader name="Season 2 stats" />
+      <PageHeader name="Season 3 stats" />
       <Nav>
         <NavLink tier="sub" href="/general/main" name="Main" />
         <NavLink tier="sub" href="/general/weapons" name="Weapons" />
