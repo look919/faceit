@@ -67,7 +67,7 @@ export const season1Achievements: Achievement[] = [
     ],
   },
   {
-    title: "Luka Modric",
+    title: "Toni Kroos",
     subtitle: "Najwięcej asyst",
     description:
       "Wolałem system asyst z CS:GO, ten niesmak przy 40'stce i łagodnie uśmiechnięta, bo 41 w 2 z emeczki się udało, coś wyjątkowego",
@@ -155,7 +155,7 @@ export const season1Achievements: Achievement[] = [
   {
     title: "Holy Granade",
     subtitle: "Najwięcej killi z HE/Molotovów",
-    description: "A tu se przerwę zrobię i chuja napiszę",
+    description: "A tu se przerwę zrobię i nic nie napiszę. Taka se przerwa.",
     performers: [
       getAchievementPlayer("Hitari", "9"),
       getAchievementPlayer("Cashotto", "8"),
@@ -217,7 +217,7 @@ export const season1Achievements: Achievement[] = [
     title: "Adam Małysz",
     subtitle: "Najwięcej killi w skoku na mecz",
     description:
-      "Nwm jakim chujem czarek nie wygrał, mam wrażenie, że 2 razy na mecz mnie z powietrza napierdala",
+      "Nwm jakim chujem Czarek nie wygrał, mam wrażenie, że 2 razy na mecz mnie z powietrza napierdala",
     performers: [
       getAchievementPlayer("Cashotto", "0.19"),
       getAchievementPlayer("Arturek", "0.13"),
@@ -259,7 +259,7 @@ export const season1Achievements: Achievement[] = [
     title: "Algorytm Wirkusa",
     subtitle: "Najwyższy Impact Factor",
     description:
-      "Jeszcze raz niech mnie kurwa zapyta co to jest Impact Factor. Chociaż jak patrzę na rozbierzności, to na następny sezon trzeba zmienić parametry",
+      "Jeszcze raz niech mnie kurwa ktoś zapyta co to jest Impact Factor. Chociaż jak patrzę na rozbierzności, to na następny sezon trzeba zmienić parametry",
     performers: [
       getAchievementPlayer("Cpt. Chicken", "187"),
       getAchievementPlayer("fy_pool_day enjoyer", "182.01"),
@@ -432,7 +432,7 @@ export const season1Achievements: Achievement[] = [
     ],
   },
   {
-    title: "Ten z głową psa",
+    title: "Ten z brzydko namalowaną głową psa",
     subtitle: "De_Anubis",
     description: "Wyblakła, tak bardzo się niczym nie wyróżnia",
     performers: [
