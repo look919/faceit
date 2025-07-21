@@ -448,7 +448,7 @@ func saveStatsToFile(data map[uint64]*PlayerStats) {
 		extendedData[steamID + 2 * offset] = &allTimeStats
 	}
 
-	file, err := os.Create(`your local path to src/scripts/stats.json`)
+	file, err := os.Create(`your local path to current project src/scripts/stats.json`)
 	checkError(err)
 	defer file.Close()
 
