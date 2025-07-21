@@ -111,17 +111,6 @@ const main = async () => {
           : existingPlayer.gamesDrawn,
     };
 
-    const impactFactor =
-      collectableStats.entryFrags -
-      collectableStats.entryDeaths +
-      2 * collectableStats.mvps +
-      ((2 * collectableStats.aces) / collectableStats.gamesPlayed) *
-        (collectableStats.clutches1v1Won / 100 +
-          collectableStats.clutches1v2Won / 100 +
-          collectableStats.clutches1v3Won / 100 +
-          collectableStats.clutches1v4Won / 100 +
-          collectableStats.clutches1v5Won / 100);
-
     // Recalculate countable stats
     const countableStats = {
       kda: countKda(
@@ -162,7 +151,6 @@ const main = async () => {
         collectableStats.entryDeaths > 0
           ? collectableStats.entryFrags / collectableStats.entryDeaths
           : 0,
-      impactFactor,
       acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
       clutches1v1WinPercentage: countClutchesWinPercentage(
         collectableStats.clutches1v1Played,
@@ -186,6 +174,17 @@ const main = async () => {
       ),
     };
 
+    const impactFactor =
+      (1.75 * countableStats.entryKillRating +
+        0.4 * countableStats.mvpsPerGame +
+        5 * countableStats.acesPerGame +
+        (1.25 * countableStats.clutches1v1WinPercentage) / 100 +
+        (4 * countableStats.clutches1v2WinPercentage) / 100 +
+        (6 * countableStats.clutches1v3WinPercentage) / 100 +
+        (8 * countableStats.clutches1v4WinPercentage) / 100 +
+        (10 * countableStats.clutches1v5WinPercentage) / 100) /
+      4.75;
+
     // Update the player stats
     await prisma.playerStats.update({
       where: { id: Number(steamId) },
@@ -193,6 +192,7 @@ const main = async () => {
         ...collectableStats,
         ...resultDeterminedStats,
         ...countableStats,
+        impactFactor,
       },
     });
 

@@ -187,15 +187,15 @@ const main = async () => {
     };
 
     const impactFactor =
-      countableStats.entryKillRating +
-      1.25 * countableStats.mvpsPerGame +
-      5 * countableStats.acesPerGame +
-      (countableStats.clutches1v1WinPercentage +
-        countableStats.clutches1v2WinPercentage +
-        countableStats.clutches1v3WinPercentage +
-        countableStats.clutches1v4WinPercentage +
-        countableStats.clutches1v5WinPercentage) /
-        100;
+      (1.75 * countableStats.entryKillRating +
+        0.4 * countableStats.mvpsPerGame +
+        5 * countableStats.acesPerGame +
+        (1.25 * countableStats.clutches1v1WinPercentage) / 100 +
+        (4 * countableStats.clutches1v2WinPercentage) / 100 +
+        (6 * countableStats.clutches1v3WinPercentage) / 100 +
+        (8 * countableStats.clutches1v4WinPercentage) / 100 +
+        (10 * countableStats.clutches1v5WinPercentage) / 100) /
+      4.75;
 
     await prisma.playerStats.upsert({
       where: { id: Number(steamId) },
