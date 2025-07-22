@@ -243,7 +243,18 @@ const main = async () => {
           where: { id: existingWeapon.id },
           data: {
             kills: existingWeapon.kills - weaponStats.kills,
-            deaths: existingWeapon.deaths - weaponStats.deaths,
+            deaths: existingWeapon.deaths - weaponStats.deathsFrom,
+            deathsWith: existingWeapon.deathsWith - weaponStats.deathsWith,
+            killsPerGame:
+              (existingWeapon.kills - weaponStats.kills) /
+              collectableStats.gamesPlayed,
+            deathsPerGame:
+              (existingWeapon.deaths - weaponStats.deathsFrom) /
+              collectableStats.gamesPlayed,
+            kd: countKd(
+              existingWeapon.kills - weaponStats.kills,
+              existingWeapon.deathsWith - weaponStats.deathsWith
+            ),
           },
         });
       }

@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import {
+  createShotgunColumns,
+  createSubRiflesColumns,
   createWeaponsOthersColumns,
   createWeaponsPistolsColumns,
   createWeaponsRiflesColumns,
@@ -22,6 +24,8 @@ export const WeaponsGrid = (props: WeaponsGridProps) => {
   const pistolColumns = createWeaponsPistolsColumns(isAverageChosen);
   const riflesColumns = createWeaponsRiflesColumns(isAverageChosen);
   const secondaryColumns = createWeaponsSecondaryColumns(isAverageChosen);
+  const subRiflesColumns = createSubRiflesColumns(isAverageChosen);
+  const shotgunColumns = createShotgunColumns(isAverageChosen);
 
   return (
     <div className="flex flex-col">
@@ -38,14 +42,15 @@ export const WeaponsGrid = (props: WeaponsGridProps) => {
           AVG
         </Label>
       </div>
-      <div className="flex gap-2">
-        <Grid data={props.data} columns={otherColumns} />
+      <div className="flex flex-col gap-y-8">
         <Grid data={props.data} columns={riflesColumns} />
-      </div>
-      <div className="flex mt-6 gap-2">
         <Grid data={props.data} columns={pistolColumns} />
+        <Grid data={props.data} columns={shotgunColumns} />
         <Grid data={props.data} columns={secondaryColumns} />
+        <Grid data={props.data} columns={otherColumns} />
+        <Grid data={props.data} columns={subRiflesColumns} />
       </div>
+      <div className="flex mt-6 gap-2"></div>
     </div>
   );
 };

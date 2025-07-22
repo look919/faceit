@@ -19,8 +19,8 @@ const createWeaponColumn = (
 ) => ({
   accessorKey,
   header,
-  minSize: 30,
-  maxSize: 100,
+  minSize: 20,
+  maxSize: 50,
   enableHiding: false,
   columns: [
     createColumn(
@@ -28,14 +28,13 @@ const createWeaponColumn = (
       "K"
     ),
     createColumn(
-      `${accessorKey}.${isAverageChosen ? "deathsPerGame" : "deaths"}`,
+      `${accessorKey}.${isAverageChosen ? "deathsWithPerGame" : "deathsWith"}`,
       "D"
     ),
+    createColumn(`${accessorKey}.kd`, "K/D"),
     createColumn(
-      `${accessorKey}.${isAverageChosen ? "killsPerGame" : "kills"} / ${
-        isAverageChosen ? "deathsPerGame" : "deaths"
-      }`,
-      "K/D"
+      `${accessorKey}.${isAverageChosen ? "deathsPerGame" : "deaths"}`,
+      "DF"
     ),
   ],
 });
@@ -48,7 +47,6 @@ export const createWeaponsOthersColumns = (
   createWeaponColumn("zeus", "Zeus", isAverageChosen),
   createWeaponColumn("heGrenade", "HE", isAverageChosen),
   createWeaponColumn("molotov", "Molotov", isAverageChosen),
-  createWeaponColumn("otherGrenade", "Other", isAverageChosen),
 ];
 
 export const createWeaponsRiflesColumns = (
@@ -62,6 +60,12 @@ export const createWeaponsRiflesColumns = (
   createWeaponColumn("scout", "Scout", isAverageChosen),
   createWeaponColumn("famas", "Famas", isAverageChosen),
   createWeaponColumn("galil", "Galil", isAverageChosen),
+];
+
+export const createSubRiflesColumns = (
+  isAverageChosen: boolean
+): ColumnDef<WeaponsTableRecord>[] => [
+  ...createStartColumns<WeaponsTableRecord>(),
   createWeaponColumn("aug", "Aug", isAverageChosen),
   createWeaponColumn("sg553", "SG553", isAverageChosen),
   createWeaponColumn("scar20", "Scar20", isAverageChosen),
@@ -94,6 +98,12 @@ export const createWeaponsSecondaryColumns = (
   createWeaponColumn("ump", "UMP", isAverageChosen),
   createWeaponColumn("mp7", "MP7", isAverageChosen),
   createWeaponColumn("mp5", "MP5", isAverageChosen),
+];
+
+export const createShotgunColumns = (
+  isAverageChosen: boolean
+): ColumnDef<WeaponsTableRecord>[] => [
+  ...createStartColumns<WeaponsTableRecord>(),
   createWeaponColumn("nova", "Nova", isAverageChosen),
   createWeaponColumn("xm1014", "XM1014", isAverageChosen),
   createWeaponColumn("mag7", "Mag7", isAverageChosen),
