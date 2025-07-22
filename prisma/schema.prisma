@@ -38,6 +38,16 @@ model PlayerStats {
   killsThroughWall   Int
   killsInJump        Int
 
+  flashesThrown    Int @default(0)
+  smokesThrown     Int @default(0)
+  heGrenadesThrown Int @default(0)
+  molotovsThrown   Int @default(0)
+  decoysThrown     Int @default(0)
+  enemiesFlashed   Int @default(0)
+  grenadeDamage    Int @default(0)
+  bombPlants       Int @default(0)
+  bombDefuses      Int @default(0)
+
   clutches1v1Played  Int
   clutches1v1Won     Int
   clutches1v2Played  Int
@@ -78,6 +88,16 @@ model PlayerStats {
   killsOnFlashPerGame      Float
   killsInJumpPerGame       Float
 
+  flashesThrownPerGame      Float   @default(0)
+  smokesThrownPerGame       Float   @default(0)
+  heGrenadesThrownPerGame   Float   @default(0)
+  molotovsThrownPerGame     Float   @default(0)
+  decoysThrownPerGame       Float   @default(0)
+  enemiesFlashedPerGame     Float   @default(0)
+  grenadeDamagePerGame      Float   @default(0)
+  bombPlantsPerGame         Float   @default(0)
+  bombDefusesPerGame        Float   @default(0)
+
   clutches1v1WinPercentage Float
   clutches1v2WinPercentage Float
   clutches1v3WinPercentage Float
@@ -116,8 +136,10 @@ model WeaponStats {
 
   kills       Int        @default(0)
   deaths      Int        @default(0)
+  deathsWith  Int        @default(0)
   killsPerGame Float   @default(0)
   deathsPerGame Float  @default(0)
+  deathsWithPerGame Float @default(0)
   playerId    BigInt
   player      PlayerStats @relation(fields: [playerId], references: [id])
 }

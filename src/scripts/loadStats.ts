@@ -95,6 +95,36 @@ const main = async () => {
       clutches1v5Won: existingPlayer
         ? existingPlayer.clutches1v5Won + data.clutches_1v5_won
         : data.clutches_1v5_won,
+
+      // New grenade-related fields
+      flashesThrown: existingPlayer
+        ? existingPlayer.flashesThrown + data.grenades_thrown.flashbangs
+        : data.grenades_thrown.flashbangs,
+      smokesThrown: existingPlayer
+        ? existingPlayer.smokesThrown + data.grenades_thrown.smokes
+        : data.grenades_thrown.smokes,
+      heGrenadesThrown: existingPlayer
+        ? existingPlayer.heGrenadesThrown + data.grenades_thrown.he_grenades
+        : data.grenades_thrown.he_grenades,
+      molotovsThrown: existingPlayer
+        ? existingPlayer.molotovsThrown + data.grenades_thrown.molotovs
+        : data.grenades_thrown.molotovs,
+      decoysThrown: existingPlayer
+        ? existingPlayer.decoysThrown + data.grenades_thrown.decoys
+        : data.grenades_thrown.decoys,
+      enemiesFlashed: existingPlayer
+        ? existingPlayer.enemiesFlashed + data.enemies_flashed
+        : data.enemies_flashed,
+      grenadeDamage: existingPlayer
+        ? existingPlayer.grenadeDamage + data.grenade_damage
+        : data.grenade_damage,
+      bombPlants: existingPlayer
+        ? existingPlayer.bombPlants + data.bomb_plants
+        : data.bomb_plants,
+      bombDefuses: existingPlayer
+        ? existingPlayer.bombDefuses + data.bomb_defuses
+        : data.bomb_defuses,
+
       lastFiveMatchesOutcome: `${lastFiveMatchesOutcome.slice(-4)}${
         data.match_outcome === "Win"
           ? "W"
@@ -147,6 +177,27 @@ const main = async () => {
         collectableStats.killsInJump / collectableStats.gamesPlayed,
       killsThroughWallPerGame:
         collectableStats.killsThroughWall / collectableStats.gamesPlayed,
+
+      // New grenade-related per-game calculations
+      flashesThrownPerGame:
+        collectableStats.flashesThrown / collectableStats.gamesPlayed,
+      smokesThrownPerGame:
+        collectableStats.smokesThrown / collectableStats.gamesPlayed,
+      heGrenadesThrownPerGame:
+        collectableStats.heGrenadesThrown / collectableStats.gamesPlayed,
+      molotovsThrownPerGame:
+        collectableStats.molotovsThrown / collectableStats.gamesPlayed,
+      decoysThrownPerGame:
+        collectableStats.decoysThrown / collectableStats.gamesPlayed,
+      enemiesFlashedPerGame:
+        collectableStats.enemiesFlashed / collectableStats.gamesPlayed,
+      grenadeDamagePerGame:
+        collectableStats.grenadeDamage / collectableStats.gamesPlayed,
+      bombPlantsPerGame:
+        collectableStats.bombPlants / collectableStats.gamesPlayed,
+      bombDefusesPerGame:
+        collectableStats.bombDefuses / collectableStats.gamesPlayed,
+
       headshotPercentage:
         (collectableStats.headshots / collectableStats.kills) * 100,
       headshotsPerGame:

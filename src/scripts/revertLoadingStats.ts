@@ -92,6 +92,21 @@ const main = async () => {
       clutches1v5Played:
         existingPlayer.clutches1v5Played - data.clutches_1v5_played,
       clutches1v5Won: existingPlayer.clutches1v5Won - data.clutches_1v5_won,
+
+      // New grenade-related fields
+      flashesThrown:
+        existingPlayer.flashesThrown - data.grenades_thrown.flashbangs,
+      smokesThrown: existingPlayer.smokesThrown - data.grenades_thrown.smokes,
+      heGrenadesThrown:
+        existingPlayer.heGrenadesThrown - data.grenades_thrown.he_grenades,
+      molotovsThrown:
+        existingPlayer.molotovsThrown - data.grenades_thrown.molotovs,
+      decoysThrown: existingPlayer.decoysThrown - data.grenades_thrown.decoys,
+      enemiesFlashed: existingPlayer.enemiesFlashed - data.enemies_flashed,
+      grenadeDamage: existingPlayer.grenadeDamage - data.grenade_damage,
+      bombPlants: existingPlayer.bombPlants - data.bomb_plants,
+      bombDefuses: existingPlayer.bombDefuses - data.bomb_defuses,
+
       lastFiveMatchesOutcome: lastFiveMatchesOutcome.slice(0, -1), // Remove the last match outcome
     };
 
@@ -134,6 +149,27 @@ const main = async () => {
         collectableStats.killsInJump / collectableStats.gamesPlayed,
       killsThroughWallPerGame:
         collectableStats.killsThroughWall / collectableStats.gamesPlayed,
+
+      // New grenade-related per-game calculations
+      flashesThrownPerGame:
+        collectableStats.flashesThrown / collectableStats.gamesPlayed,
+      smokesThrownPerGame:
+        collectableStats.smokesThrown / collectableStats.gamesPlayed,
+      heGrenadesThrownPerGame:
+        collectableStats.heGrenadesThrown / collectableStats.gamesPlayed,
+      molotovsThrownPerGame:
+        collectableStats.molotovsThrown / collectableStats.gamesPlayed,
+      decoysThrownPerGame:
+        collectableStats.decoysThrown / collectableStats.gamesPlayed,
+      enemiesFlashedPerGame:
+        collectableStats.enemiesFlashed / collectableStats.gamesPlayed,
+      grenadeDamagePerGame:
+        collectableStats.grenadeDamage / collectableStats.gamesPlayed,
+      bombPlantsPerGame:
+        collectableStats.bombPlants / collectableStats.gamesPlayed,
+      bombDefusesPerGame:
+        collectableStats.bombDefuses / collectableStats.gamesPlayed,
+
       headshotPercentage:
         (collectableStats.headshots / collectableStats.kills) * 100,
       headshotsPerGame:
