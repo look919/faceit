@@ -139,6 +139,7 @@ model WeaponStats {
   deathsWith  Int        @default(0)
   killsPerGame Float   @default(0)
   deathsPerGame Float  @default(0)
+  kd           Float   @default(0)
   deathsWithPerGame Float @default(0)
   playerId    BigInt
   player      PlayerStats @relation(fields: [playerId], references: [id])

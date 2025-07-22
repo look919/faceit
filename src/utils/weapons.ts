@@ -14,7 +14,8 @@ export type MapName = (typeof mapNames)[number];
 
 export type WeaponFromJson = {
   kills: number;
-  deaths: number;
+  deathsFrom: number;
+  deathsWith: number;
 };
 export const weaponNames = [
   "ak47",

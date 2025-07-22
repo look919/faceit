@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Tomeczki",
-  description: "Gracze Ji - SEZON 2!",
+  description: "Gracze Ji - SEZON 3!",
 };
 
 export default function RootLayout({

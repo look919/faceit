@@ -22,17 +22,22 @@ const createWeaponColumn = (
   minSize: 30,
   maxSize: 100,
   enableHiding: false,
-  columns: [0, 1].map((value) =>
-    value === 0
-      ? createColumn(
-          `${accessorKey}.${isAverageChosen ? "killsPerGame" : "kills"}`,
-          "K"
-        )
-      : createColumn(
-          `${accessorKey}.${isAverageChosen ? "deathsPerGame" : "deaths"}`,
-          "D"
-        )
-  ),
+  columns: [
+    createColumn(
+      `${accessorKey}.${isAverageChosen ? "killsPerGame" : "kills"}`,
+      "K"
+    ),
+    createColumn(
+      `${accessorKey}.${isAverageChosen ? "deathsPerGame" : "deaths"}`,
+      "D"
+    ),
+    createColumn(
+      `${accessorKey}.${isAverageChosen ? "killsPerGame" : "kills"} / ${
+        isAverageChosen ? "deathsPerGame" : "deaths"
+      }`,
+      "K/D"
+    ),
+  ],
 });
 
 export const createWeaponsOthersColumns = (

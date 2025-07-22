@@ -281,9 +281,17 @@ const main = async () => {
               killsPerGame:
                 (existingWeapon.kills + weaponStats.kills) /
                 collectableStats.gamesPlayed,
-              deaths: existingWeapon.deaths + weaponStats.deaths,
+              deathsWith: existingWeapon.deathsWith + weaponStats.deathsWith,
+              deathsWithPerGame:
+                (existingWeapon.deathsWith + weaponStats.deathsWith) /
+                collectableStats.gamesPlayed,
+              kd: countKd(
+                existingWeapon.kills + weaponStats.kills,
+                existingWeapon.deathsWith + weaponStats.deathsWith
+              ),
+              deaths: existingWeapon.deaths + weaponStats.deathsFrom,
               deathsPerGame:
-                (existingWeapon.deaths + weaponStats.deaths) /
+                (existingWeapon.deaths + weaponStats.deathsFrom) /
                 collectableStats.gamesPlayed,
             },
           });
@@ -295,8 +303,13 @@ const main = async () => {
               name: weaponName,
               kills: weaponStats.kills,
               killsPerGame: weaponStats.kills / collectableStats.gamesPlayed,
-              deaths: weaponStats.deaths,
-              deathsPerGame: weaponStats.deaths / collectableStats.gamesPlayed,
+              deathsWith: weaponStats.deathsWith,
+              deathsWithPerGame:
+                weaponStats.deathsWith / collectableStats.gamesPlayed,
+              kd: countKd(weaponStats.kills, weaponStats.deathsWith),
+              deaths: weaponStats.deathsFrom,
+              deathsPerGame:
+                weaponStats.deathsFrom / collectableStats.gamesPlayed,
               playerId: Number(steamId),
             },
           });
