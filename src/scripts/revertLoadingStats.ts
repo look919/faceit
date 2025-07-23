@@ -57,7 +57,9 @@ const main = async () => {
     // Subtract collectable stats
     const collectableStats = {
       gamesPlayed: existingPlayer.gamesPlayed - 1,
-      name: existingPlayer.name, // Keep the name unchanged
+      gamesPlayedSinceSeason3Start:
+        existingPlayer.gamesPlayedSinceSeason3Start - 1,
+      name: data.name,
       playerTable: data.players_table,
       avatar: existingPlayer.avatar, // Keep the avatar unchanged
       kills: existingPlayer.kills - data.kills,
@@ -152,23 +154,32 @@ const main = async () => {
 
       // New grenade-related per-game calculations
       flashesThrownPerGame:
-        collectableStats.flashesThrown / collectableStats.gamesPlayed,
+        collectableStats.flashesThrown /
+        collectableStats.gamesPlayedSinceSeason3Start,
       smokesThrownPerGame:
-        collectableStats.smokesThrown / collectableStats.gamesPlayed,
+        collectableStats.smokesThrown /
+        collectableStats.gamesPlayedSinceSeason3Start,
       heGrenadesThrownPerGame:
-        collectableStats.heGrenadesThrown / collectableStats.gamesPlayed,
+        collectableStats.heGrenadesThrown /
+        collectableStats.gamesPlayedSinceSeason3Start,
       molotovsThrownPerGame:
-        collectableStats.molotovsThrown / collectableStats.gamesPlayed,
+        collectableStats.molotovsThrown /
+        collectableStats.gamesPlayedSinceSeason3Start,
       decoysThrownPerGame:
-        collectableStats.decoysThrown / collectableStats.gamesPlayed,
+        collectableStats.decoysThrown /
+        collectableStats.gamesPlayedSinceSeason3Start,
       enemiesFlashedPerGame:
-        collectableStats.enemiesFlashed / collectableStats.gamesPlayed,
+        collectableStats.enemiesFlashed /
+        collectableStats.gamesPlayedSinceSeason3Start,
       grenadeDamagePerGame:
-        collectableStats.grenadeDamage / collectableStats.gamesPlayed,
+        collectableStats.grenadeDamage /
+        collectableStats.gamesPlayedSinceSeason3Start,
       bombPlantsPerGame:
-        collectableStats.bombPlants / collectableStats.gamesPlayed,
+        collectableStats.bombPlants /
+        collectableStats.gamesPlayedSinceSeason3Start,
       bombDefusesPerGame:
-        collectableStats.bombDefuses / collectableStats.gamesPlayed,
+        collectableStats.bombDefuses /
+        collectableStats.gamesPlayedSinceSeason3Start,
 
       headshotPercentage:
         (collectableStats.headshots / collectableStats.kills) * 100,
@@ -210,17 +221,6 @@ const main = async () => {
       ),
     };
 
-    const impactFactor =
-      (1.75 * countableStats.entryKillRating +
-        0.4 * countableStats.mvpsPerGame +
-        5 * countableStats.acesPerGame +
-        (1.25 * countableStats.clutches1v1WinPercentage) / 100 +
-        (4 * countableStats.clutches1v2WinPercentage) / 100 +
-        (6 * countableStats.clutches1v3WinPercentage) / 100 +
-        (8 * countableStats.clutches1v4WinPercentage) / 100 +
-        (10 * countableStats.clutches1v5WinPercentage) / 100) /
-      4.75;
-
     // Update the player stats
     await prisma.playerStats.update({
       where: { id: Number(steamId) },
@@ -228,7 +228,6 @@ const main = async () => {
         ...collectableStats,
         ...resultDeterminedStats,
         ...countableStats,
-        impactFactor,
       },
     });
 
@@ -243,17 +242,21 @@ const main = async () => {
           where: { id: existingWeapon.id },
           data: {
             kills: existingWeapon.kills - weaponStats.kills,
-            deaths: existingWeapon.deaths - weaponStats.deathsFrom,
-            deathsWith: existingWeapon.deathsWith - weaponStats.deathsWith,
+            deaths: existingWeapon.deaths - weaponStats.deaths_from,
+            deathsWith: existingWeapon.deathsWith - weaponStats.deaths_with,
+            deathsWithPerGame:
+              existingWeapon.deathsWith -
+              weaponStats.deaths_with /
+                collectableStats.gamesPlayedSinceSeason3Start,
             killsPerGame:
               (existingWeapon.kills - weaponStats.kills) /
-              collectableStats.gamesPlayed,
+              collectableStats.gamesPlayedSinceSeason3Start,
             deathsPerGame:
-              (existingWeapon.deaths - weaponStats.deathsFrom) /
-              collectableStats.gamesPlayed,
+              (existingWeapon.deaths - weaponStats.deaths_from) /
+              collectableStats.gamesPlayedSinceSeason3Start,
             kd: countKd(
               existingWeapon.kills - weaponStats.kills,
-              existingWeapon.deathsWith - weaponStats.deathsWith
+              existingWeapon.deathsWith - weaponStats.deaths_with
             ),
           },
         });

@@ -13,7 +13,11 @@ export default async function GeneralPage() {
     <div>
       <MainGrid
         primaryData={playersWithMoreGamesThanSeparator}
-        secondaryData={playersWithLessGamesThanSeparator}
+        secondaryData={
+          SEASON_MATCHES_PLAYED_SEPARATOR > 0
+            ? playersWithLessGamesThanSeparator
+            : undefined
+        }
         separator={SEASON_MATCHES_PLAYED_SEPARATOR}
       />
     </div>

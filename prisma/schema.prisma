@@ -20,6 +20,7 @@ model PlayerStats {
   gamesWon           Int
   gamesLost          Int
   gamesDrawn         Int
+  gamesPlayedSinceSeason3Start Int @default(0)
 
   kills              Int
   deaths             Int

@@ -45,10 +45,12 @@ export const WeaponsGrid = (props: WeaponsGridProps) => {
       <div className="flex flex-col gap-y-8">
         <Grid data={props.data} columns={riflesColumns} />
         <Grid data={props.data} columns={pistolColumns} />
-        <Grid data={props.data} columns={shotgunColumns} />
         <Grid data={props.data} columns={secondaryColumns} />
-        <Grid data={props.data} columns={otherColumns} />
-        <Grid data={props.data} columns={subRiflesColumns} />
+        <Grid data={props.data} columns={shotgunColumns} />
+        <div className="flex gap-4">
+          <Grid data={props.data} columns={otherColumns} />
+          <Grid data={props.data} columns={subRiflesColumns} />
+        </div>
       </div>
       <div className="flex mt-6 gap-2"></div>
     </div>

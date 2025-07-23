@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
-import { AdvancedGridRecord, createAdvancedColumns } from "./columns";
+import {
+  AdvancedGridRecord,
+  createAdvancedColumns,
+  createImpactFactorColumns,
+} from "./columns";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Grid } from "../../Grid";
@@ -13,7 +17,8 @@ export const AdvancedGrid = (props: WeaponsGridProps) => {
   const [shouldDisplayAdvancedData, setShouldDisplayAdvancedData] =
     React.useState(false);
 
-  const columns = createAdvancedColumns(shouldDisplayAdvancedData);
+  const columns = createImpactFactorColumns(shouldDisplayAdvancedData);
+  const advancedColumns = createAdvancedColumns(shouldDisplayAdvancedData);
 
   return (
     <div className="overflow-x-auto">
@@ -29,7 +34,10 @@ export const AdvancedGrid = (props: WeaponsGridProps) => {
           Advanced Data
         </Label>
       </div>
-      <Grid data={props.data} columns={columns} />
+      <div className="flex flex-col gap-y-6">
+        <Grid data={props.data} columns={columns} />
+        <Grid data={props.data} columns={advancedColumns} />
+      </div>
     </div>
   );
 };

@@ -39,20 +39,42 @@ const createWeaponColumn = (
   ],
 });
 
+const createWeaponOthersColumn = (
+  accessorKey: string,
+  header: string,
+  isAverageChosen: boolean
+) => ({
+  accessorKey,
+  header,
+  minSize: 20,
+  maxSize: 50,
+  enableHiding: false,
+  columns: [
+    createColumn(
+      `${accessorKey}.${isAverageChosen ? "killsPerGame" : "kills"}`,
+      "K"
+    ),
+    createColumn(
+      `${accessorKey}.${isAverageChosen ? "deathsPerGame" : "deaths"}`,
+      "DF"
+    ),
+  ],
+});
+
 export const createWeaponsOthersColumns = (
   isAverageChosen: boolean
 ): ColumnDef<WeaponsTableRecord>[] => [
-  ...createStartColumns<WeaponsTableRecord>(),
-  createWeaponColumn("knife", "Knife", isAverageChosen),
-  createWeaponColumn("zeus", "Zeus", isAverageChosen),
-  createWeaponColumn("heGrenade", "HE", isAverageChosen),
-  createWeaponColumn("molotov", "Molotov", isAverageChosen),
+  ...createStartColumns<WeaponsTableRecord>({ shouldHideGamesPlayed: true }),
+  createWeaponOthersColumn("knife", "Knife", isAverageChosen),
+  createWeaponOthersColumn("zeus", "Zeus", isAverageChosen),
+  createWeaponOthersColumn("heGrenade", "HE", isAverageChosen),
+  createWeaponOthersColumn("molotov", "Molotov", isAverageChosen),
 ];
 
 export const createWeaponsRiflesColumns = (
   isAverageChosen: boolean
 ): ColumnDef<WeaponsTableRecord>[] => [
-  ...createStartColumns<WeaponsTableRecord>(),
+  ...createStartColumns<WeaponsTableRecord>({ shouldHideGamesPlayed: true }),
   createWeaponColumn("ak47", "AK-47", isAverageChosen),
   createWeaponColumn("m4a1s", "M4a1", isAverageChosen),
   createWeaponColumn("m4a4", "M4a4", isAverageChosen),
@@ -65,7 +87,7 @@ export const createWeaponsRiflesColumns = (
 export const createSubRiflesColumns = (
   isAverageChosen: boolean
 ): ColumnDef<WeaponsTableRecord>[] => [
-  ...createStartColumns<WeaponsTableRecord>(),
+  ...createStartColumns<WeaponsTableRecord>({ shouldHideGamesPlayed: true }),
   createWeaponColumn("aug", "Aug", isAverageChosen),
   createWeaponColumn("sg553", "SG553", isAverageChosen),
   createWeaponColumn("scar20", "Scar20", isAverageChosen),
@@ -75,7 +97,7 @@ export const createSubRiflesColumns = (
 export const createWeaponsPistolsColumns = (
   isAverageChosen: boolean
 ): ColumnDef<WeaponsTableRecord>[] => [
-  ...createStartColumns<WeaponsTableRecord>(),
+  ...createStartColumns<WeaponsTableRecord>({ shouldHideGamesPlayed: true }),
   createWeaponColumn("glock", "Glock", isAverageChosen),
   createWeaponColumn("usp", "USP", isAverageChosen),
   createWeaponColumn("p2000", "P2000", isAverageChosen),
@@ -90,7 +112,7 @@ export const createWeaponsPistolsColumns = (
 export const createWeaponsSecondaryColumns = (
   isAverageChosen: boolean
 ): ColumnDef<WeaponsTableRecord>[] => [
-  ...createStartColumns<WeaponsTableRecord>(),
+  ...createStartColumns<WeaponsTableRecord>({ shouldHideGamesPlayed: true }),
   createWeaponColumn("mac10", "Mac10", isAverageChosen),
   createWeaponColumn("mp9", "MP9", isAverageChosen),
   createWeaponColumn("p90", "P90", isAverageChosen),
@@ -103,7 +125,7 @@ export const createWeaponsSecondaryColumns = (
 export const createShotgunColumns = (
   isAverageChosen: boolean
 ): ColumnDef<WeaponsTableRecord>[] => [
-  ...createStartColumns<WeaponsTableRecord>(),
+  ...createStartColumns<WeaponsTableRecord>({ shouldHideGamesPlayed: true }),
   createWeaponColumn("nova", "Nova", isAverageChosen),
   createWeaponColumn("xm1014", "XM1014", isAverageChosen),
   createWeaponColumn("mag7", "Mag7", isAverageChosen),
