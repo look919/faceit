@@ -56,10 +56,11 @@ export const createImpactFactorColumns = (
       enableSorting: false,
       columns: [
         createColumn("impactFactor", "Impact Factor"),
-        createColumn("mvpsPerGame", "MVPs"),
-        createColumn("acesPerGame", "Aces"),
         createColumn("entryFragsPerGame", "Entry Frags"),
         createColumn("entryKillRating", "Entry K/D"),
+        createColumn("mvpsPerGame", "MVPs"),
+        createColumn("acesPerGame", "Aces"),
+        createColumn("damagePerRound", "ADR"),
         createColumn("bombPlantsPerGame", "Bomb Plants"),
         createColumn("bombDefusesPerGame", "Bomb Defuses"),
       ],

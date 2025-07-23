@@ -36,6 +36,7 @@ export async function GET() {
         avatar: player.avatar,
         gamesPlayed: player.gamesPlayed,
 
+        damagePerRound: player.damagePerRound,
         mvps: player.mvps,
         aces: player.aces,
         entryFrags: player.entryFrags,

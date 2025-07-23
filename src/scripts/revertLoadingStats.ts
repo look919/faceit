@@ -1,8 +1,13 @@
+import {
+  countWinPercentage,
+  countKd,
+  countKda,
+  divideResult,
+} from "./../utils/math";
 import { PrismaClient } from "@prisma/client";
 import { readFileSync } from "fs";
 import { StatsFromJson } from "../utils/player";
 import { revalidateAllData } from "../utils/revalidate";
-import { countClutchesWinPercentage, countKd, countKda } from "./utils";
 
 const prisma = new PrismaClient();
 
@@ -137,87 +142,140 @@ const main = async () => {
       ),
       kd: countKd(collectableStats.kills, collectableStats.deaths),
       winRatePercentage:
-        (resultDeterminedStats.gamesWon / collectableStats.gamesPlayed) * 100,
-      killsPerGame: collectableStats.kills / collectableStats.gamesPlayed,
-      deathsPerGame: collectableStats.deaths / collectableStats.gamesPlayed,
-      assistsPerGame: collectableStats.assists / collectableStats.gamesPlayed,
-      damagePerRound: collectableStats.damage / collectableStats.totalRounds,
-      damagePerGame: collectableStats.damage / collectableStats.gamesPlayed,
-      killsThroughSmokePerGame:
-        collectableStats.killsThroughSmoke / collectableStats.gamesPlayed,
-      killsOnFlashPerGame:
-        collectableStats.killsOnFlash / collectableStats.gamesPlayed,
-      killsInJumpPerGame:
-        collectableStats.killsInJump / collectableStats.gamesPlayed,
-      killsThroughWallPerGame:
-        collectableStats.killsThroughWall / collectableStats.gamesPlayed,
+        divideResult(
+          resultDeterminedStats.gamesWon,
+          collectableStats.gamesPlayed
+        ) * 100,
+      killsPerGame: divideResult(
+        collectableStats.kills,
+        collectableStats.gamesPlayed
+      ),
+      deathsPerGame: divideResult(
+        collectableStats.deaths,
+        collectableStats.gamesPlayed
+      ),
+      assistsPerGame: divideResult(
+        collectableStats.assists,
+        collectableStats.gamesPlayed
+      ),
+      damagePerRound: divideResult(
+        collectableStats.damage,
+        collectableStats.totalRounds
+      ),
+      damagePerGame: divideResult(
+        collectableStats.damage,
+        collectableStats.gamesPlayed
+      ),
+      killsThroughSmokePerGame: divideResult(
+        collectableStats.killsThroughSmoke,
+        collectableStats.gamesPlayed
+      ),
+      killsOnFlashPerGame: divideResult(
+        collectableStats.killsOnFlash,
+        collectableStats.gamesPlayed
+      ),
+      killsInJumpPerGame: divideResult(
+        collectableStats.killsInJump,
+        collectableStats.gamesPlayed
+      ),
+      killsThroughWallPerGame: divideResult(
+        collectableStats.killsThroughWall,
+        collectableStats.gamesPlayed
+      ),
 
       // New grenade-related per-game calculations
-      flashesThrownPerGame:
-        collectableStats.flashesThrown /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      smokesThrownPerGame:
-        collectableStats.smokesThrown /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      heGrenadesThrownPerGame:
-        collectableStats.heGrenadesThrown /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      molotovsThrownPerGame:
-        collectableStats.molotovsThrown /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      decoysThrownPerGame:
-        collectableStats.decoysThrown /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      enemiesFlashedPerGame:
-        collectableStats.enemiesFlashed /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      grenadeDamagePerGame:
-        collectableStats.grenadeDamage /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      bombPlantsPerGame:
-        collectableStats.bombPlants /
-        collectableStats.gamesPlayedSinceSeason3Start,
-      bombDefusesPerGame:
-        collectableStats.bombDefuses /
-        collectableStats.gamesPlayedSinceSeason3Start,
+      flashesThrownPerGame: divideResult(
+        collectableStats.flashesThrown,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      smokesThrownPerGame: divideResult(
+        collectableStats.smokesThrown,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      heGrenadesThrownPerGame: divideResult(
+        collectableStats.heGrenadesThrown,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      molotovsThrownPerGame: divideResult(
+        collectableStats.molotovsThrown,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      decoysThrownPerGame: divideResult(
+        collectableStats.decoysThrown,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      enemiesFlashedPerGame: divideResult(
+        collectableStats.enemiesFlashed,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      grenadeDamagePerGame: divideResult(
+        collectableStats.grenadeDamage,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      bombPlantsPerGame: divideResult(
+        collectableStats.bombPlants,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
+      bombDefusesPerGame: divideResult(
+        collectableStats.bombDefuses,
+        collectableStats.gamesPlayedSinceSeason3Start
+      ),
 
       headshotPercentage:
-        (collectableStats.headshots / collectableStats.kills) * 100,
-      headshotsPerGame:
-        collectableStats.headshots / collectableStats.gamesPlayed,
-      roundsWonPerGame:
-        collectableStats.roundsWon / collectableStats.gamesPlayed,
-      totalRoundsPerGame:
-        collectableStats.totalRounds / collectableStats.gamesPlayed,
+        divideResult(collectableStats.headshots, collectableStats.kills) * 100,
+      headshotsPerGame: divideResult(
+        collectableStats.headshots,
+        collectableStats.gamesPlayed
+      ),
+      roundsWonPerGame: divideResult(
+        collectableStats.roundsWon,
+        collectableStats.gamesPlayed
+      ),
+      totalRoundsPerGame: divideResult(
+        collectableStats.totalRounds,
+        collectableStats.gamesPlayed
+      ),
       roundsWinPercentage:
-        (collectableStats.roundsWon / collectableStats.totalRounds) * 100,
-      mvpsPerGame: collectableStats.mvps / collectableStats.gamesPlayed,
-      entryFragsPerGame:
-        collectableStats.entryFrags / collectableStats.gamesPlayed,
+        divideResult(collectableStats.roundsWon, collectableStats.totalRounds) *
+        100,
+      mvpsPerGame: divideResult(
+        collectableStats.mvps,
+        collectableStats.gamesPlayed
+      ),
+      entryFragsPerGame: divideResult(
+        collectableStats.entryFrags,
+        collectableStats.gamesPlayed
+      ),
       entryKillRating:
         collectableStats.entryDeaths > 0
-          ? collectableStats.entryFrags / collectableStats.entryDeaths
+          ? divideResult(
+              collectableStats.entryFrags,
+              collectableStats.entryDeaths
+            )
           : 0,
-      acesPerGame: collectableStats.aces / collectableStats.gamesPlayed,
-      clutches1v1WinPercentage: countClutchesWinPercentage(
-        collectableStats.clutches1v1Played,
-        collectableStats.clutches1v1Won
+      acesPerGame: divideResult(
+        collectableStats.aces,
+        collectableStats.gamesPlayed
       ),
-      clutches1v2WinPercentage: countClutchesWinPercentage(
-        collectableStats.clutches1v2Played,
-        collectableStats.clutches1v2Won
+      clutches1v1WinPercentage: countWinPercentage(
+        collectableStats.clutches1v1Won,
+        collectableStats.clutches1v1Played
       ),
-      clutches1v3WinPercentage: countClutchesWinPercentage(
-        collectableStats.clutches1v3Played,
-        collectableStats.clutches1v3Won
+      clutches1v2WinPercentage: countWinPercentage(
+        collectableStats.clutches1v2Won,
+        collectableStats.clutches1v2Played
       ),
-      clutches1v4WinPercentage: countClutchesWinPercentage(
-        collectableStats.clutches1v4Played,
-        collectableStats.clutches1v4Won
+      clutches1v3WinPercentage: countWinPercentage(
+        collectableStats.clutches1v3Won,
+        collectableStats.clutches1v3Played
       ),
-      clutches1v5WinPercentage: countClutchesWinPercentage(
-        collectableStats.clutches1v5Played,
-        collectableStats.clutches1v5Won
+      clutches1v4WinPercentage: countWinPercentage(
+        collectableStats.clutches1v4Won,
+        collectableStats.clutches1v4Played
+      ),
+      clutches1v5WinPercentage: countWinPercentage(
+        collectableStats.clutches1v5Won,
+        collectableStats.clutches1v5Played
       ),
     };
 
@@ -244,16 +302,6 @@ const main = async () => {
             kills: existingWeapon.kills - weaponStats.kills,
             deaths: existingWeapon.deaths - weaponStats.deaths_from,
             deathsWith: existingWeapon.deathsWith - weaponStats.deaths_with,
-            deathsWithPerGame:
-              existingWeapon.deathsWith -
-              weaponStats.deaths_with /
-                collectableStats.gamesPlayedSinceSeason3Start,
-            killsPerGame:
-              (existingWeapon.kills - weaponStats.kills) /
-              collectableStats.gamesPlayedSinceSeason3Start,
-            deathsPerGame:
-              (existingWeapon.deaths - weaponStats.deaths_from) /
-              collectableStats.gamesPlayedSinceSeason3Start,
             kd: countKd(
               existingWeapon.kills - weaponStats.kills,
               existingWeapon.deathsWith - weaponStats.deaths_with
