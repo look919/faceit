@@ -13,12 +13,12 @@ export const apiGET = async <T>(url: string): Promise<T> => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL!}/api${url}`,
       {
-        // cache: "force-cache",
-        // next: {
-        //   revalidate: 7200, // Cache for 2 hours (7200 seconds)
-        //   tags: [tag], // Tag-based revalidation
-        // },
-        cache: "no-store", // Disable caching for API calls
+        cache: "force-cache",
+        next: {
+          revalidate: 7200, // Cache for 2 hours (7200 seconds)
+          tags: [tag], // Tag-based revalidation
+        },
+        // cache: "no-store", // Disable caching for API calls
       }
     );
 
