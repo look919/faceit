@@ -36,6 +36,19 @@ export type StatsFromJson = {
   clutches_1v5_played: number;
   clutches_1v5_won: number;
 
+  // New grenade-related fields
+  grenades_thrown: {
+    flashbangs: number;
+    smokes: number;
+    he_grenades: number;
+    molotovs: number;
+    decoys: number;
+  };
+  enemies_flashed: number;
+  grenade_damage: number;
+  bomb_plants: number;
+  bomb_defuses: number;
+
   weapons: Record<WeaponName, WeaponFromJson>;
 };
 

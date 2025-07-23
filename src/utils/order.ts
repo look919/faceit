@@ -20,7 +20,7 @@ export const weaponsOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
 
 export const advancedOrderBy: Prisma.PlayerStatsOrderByWithRelationInput[] = [
   {
-    name: "asc",
+    impactFactor: "desc",
   },
 ];
 

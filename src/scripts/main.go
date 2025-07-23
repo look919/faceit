@@ -54,6 +54,13 @@ type PlayerStats struct {
 	Clutches1v5Won     int               `json:"clutches_1v5_won"`     // Clutches 1v5 won
 	Weapons            map[string]WeaponStats `json:"weapons"`
 
+	// New grenade-related stats
+	GrenadesThrown      GrenadeStats `json:"grenades_thrown"`      // Grenades thrown by type
+	EnemiesFlashed      int          `json:"enemies_flashed"`      // Total enemies flashed by this player
+	GrenadeDamage       int          `json:"grenade_damage"`       // Total damage done with grenades
+	BombPlants          int          `json:"bomb_plants"`          // Number of bombs planted
+	BombDefuses         int          `json:"bomb_defuses"`         // Number of bombs defused
+
 	//fields needed to track mvps
 	CurrentRoundKills         int `json:"-"`
 	CurrentRoundDamage        int `json:"-"`
@@ -65,9 +72,18 @@ type PlayerStats struct {
 	ClutchSituation   int 	`json:"-"`
 }
 
+type GrenadeStats struct {
+	Flashbangs      int `json:"flashbangs"`      // Flashbangs thrown
+	Smokes          int `json:"smokes"`          // Smoke grenades thrown
+	HEGrenades      int `json:"he_grenades"`     // HE grenades thrown
+	Molotovs        int `json:"molotovs"`        // Molotovs/Incendiaries thrown
+	Decoys          int `json:"decoys"`          // Decoy grenades thrown
+}
+
 type WeaponStats struct {
-	Kills  int `json:"kills"`
-	Deaths int `json:"deaths"`
+	Kills      int `json:"kills"`
+	DeathsFrom int `json:"deaths_from"` // Deaths from being killed by this weapon
+	DeathsWith int `json:"deaths_with"` // Deaths while having this weapon in inventory
 }
 
 var playerStats = make(map[uint64]*PlayerStats)
@@ -78,6 +94,41 @@ var matchEndTick int // Track the last tick of the match
 var firstKillInRound bool // Track if the first kill in the round has occurred
 var roundKills map[uint64]int // Track kills per player in the current round
 var alivePlayers map[common.Team]int // Track alive players per team
+
+// Track last grenade throw to prevent duplicate counting
+type GrenadeThrow struct {
+	PlayerID   uint64
+	WeaponType common.EquipmentType
+	Tick       int
+}
+var lastGrenadeThrows []GrenadeThrow
+
+// Track last flash to prevent duplicate counting
+type FlashEvent struct {
+	AttackerID uint64
+	VictimID   uint64
+	Tick       int
+}
+var lastFlashEvents []FlashEvent
+
+// Track active grenade throws and their effects to prevent counting same victim multiple times per grenade
+type ActiveGrenadeThrow struct {
+	AttackerID   uint64
+	WeaponType   common.EquipmentType
+	ThrowTick    int
+	ThrowID      uint64 // Unique ID for this specific throw
+	Victims      map[uint64]bool // Set of victim IDs already affected by this throw
+}
+var activeGrenadeThrows []ActiveGrenadeThrow
+var grenadeThrowCounter uint64 // Counter to generate unique throw IDs
+
+// Track last bomb events to prevent duplicate counting
+type BombEvent struct {
+	PlayerID uint64
+	EventType string // "plant" or "defuse"
+	Tick     int
+}
+var lastBombEvents []BombEvent
 
 func main() {
 	f, err := os.Open(ex.DemoPathFromArgs())
@@ -118,11 +169,19 @@ p.RegisterEventHandler(func(e events.PlayerHurt) {
 
 	initPlayerStats(e.Attacker)
 
+	damage := e.HealthDamage
 	if e.HealthDamage > e.Player.Health() {
-		playerStats[e.Attacker.SteamID64].Damage += e.Player.Health()
-		playerStats[e.Attacker.SteamID64].CurrentRoundDamage += e.Player.Health()
-	} else {
-		playerStats[e.Attacker.SteamID64].Damage += e.HealthDamage
+		damage = e.Player.Health()
+	}
+
+	playerStats[e.Attacker.SteamID64].Damage += damage
+	playerStats[e.Attacker.SteamID64].CurrentRoundDamage += damage
+
+	// Track grenade damage specifically
+	weaponName := e.Weapon.Type.String()
+	isGrenade := weaponName == "HE Grenade" || weaponName == "Molotov" || weaponName == "Incendiary Grenade"
+	if isGrenade {
+		playerStats[e.Attacker.SteamID64].GrenadeDamage += damage
 	}
 })
 
@@ -142,13 +201,25 @@ p.RegisterEventHandler(func(e events.Kill) {
 	// Track kills and deaths from weapons
 	weaponCategory := classifyWeapon(e.Weapon)
 	playerStats[killerID].Weapons[weaponCategory] = WeaponStats{
-		Kills:  playerStats[killerID].Weapons[weaponCategory].Kills + 1,
-		Deaths: playerStats[killerID].Weapons[weaponCategory].Deaths,
+		Kills:      playerStats[killerID].Weapons[weaponCategory].Kills + 1,
+		DeathsFrom: playerStats[killerID].Weapons[weaponCategory].DeathsFrom,
+		DeathsWith: playerStats[killerID].Weapons[weaponCategory].DeathsWith,
 	}
 
+	// Track victim's death from the weapon that killed them
 	playerStats[victimID].Weapons[weaponCategory] = WeaponStats{
-		Kills:  playerStats[victimID].Weapons[weaponCategory].Kills,
-		Deaths: playerStats[victimID].Weapons[weaponCategory].Deaths + 1,
+		Kills:      playerStats[victimID].Weapons[weaponCategory].Kills,
+		DeathsFrom: playerStats[victimID].Weapons[weaponCategory].DeathsFrom + 1,
+		DeathsWith: playerStats[victimID].Weapons[weaponCategory].DeathsWith,
+	}
+
+	// Track victim's death with their primary weapon in inventory
+	victimWeaponCategory := classifyWeapon(e.Victim.ActiveWeapon())
+	currentStats := playerStats[victimID].Weapons[victimWeaponCategory]
+	playerStats[victimID].Weapons[victimWeaponCategory] = WeaponStats{
+		Kills:      currentStats.Kills,
+		DeathsFrom: currentStats.DeathsFrom,
+		DeathsWith: currentStats.DeathsWith + 1,
 	}
 
 	playerStats[killerID].Kills++
@@ -364,6 +435,204 @@ p.RegisterEventHandler(func(e events.RoundEnd) {
 	roundKills = make(map[uint64]int)
 })
 
+// Track grenade throws using weapon fire events with proper filtering
+p.RegisterEventHandler(func(e events.WeaponFire) {
+	if !roundInProgress || e.Shooter == nil || e.Weapon == nil {
+		return
+	}
+
+	initPlayerStats(e.Shooter)
+	shooterID := e.Shooter.SteamID64
+
+	// Only count actual grenade throws, not gun shots
+	weaponType := e.Weapon.Type
+	if !isGrenadeWeapon(weaponType) {
+		return
+	}
+
+	currentTick := p.GameState().IngameTick()
+	
+	// Check if we already counted this grenade throw recently (within 32 ticks = ~0.5 seconds)
+	for i := len(lastGrenadeThrows) - 1; i >= 0; i-- {
+		throw := lastGrenadeThrows[i]
+		if currentTick - throw.Tick > 32 {
+			// Remove old entries
+			lastGrenadeThrows = lastGrenadeThrows[i+1:]
+			break
+		}
+		if throw.PlayerID == shooterID && throw.WeaponType == weaponType && currentTick - throw.Tick <= 32 {
+			// Already counted this grenade throw
+			return
+		}
+	}
+
+	// Record this grenade throw
+	lastGrenadeThrows = append(lastGrenadeThrows, GrenadeThrow{
+		PlayerID:   shooterID,
+		WeaponType: weaponType,
+		Tick:       currentTick,
+	})
+
+	// Track grenades by type
+	switch weaponType {
+	case common.EqFlash:
+		playerStats[shooterID].GrenadesThrown.Flashbangs++
+	case common.EqSmoke:
+		playerStats[shooterID].GrenadesThrown.Smokes++
+	case common.EqHE:
+		playerStats[shooterID].GrenadesThrown.HEGrenades++
+	case common.EqMolotov, common.EqIncendiary:
+		playerStats[shooterID].GrenadesThrown.Molotovs++
+	case common.EqDecoy:
+		playerStats[shooterID].GrenadesThrown.Decoys++
+	}
+
+	// Record this grenade throw for effect tracking (all grenade types)
+	grenadeThrowCounter++
+	activeGrenadeThrows = append(activeGrenadeThrows, ActiveGrenadeThrow{
+		AttackerID:  shooterID,
+		WeaponType:  weaponType,
+		ThrowTick:   currentTick,
+		ThrowID:     grenadeThrowCounter,
+		Victims:     make(map[uint64]bool),
+	})
+})
+
+// Track player flashed events
+p.RegisterEventHandler(func(e events.PlayerFlashed) {
+	if !roundInProgress || e.Attacker == nil || e.Player == nil {
+		return
+	}
+
+	// Don't count self-flashes
+	if e.Attacker.SteamID64 == e.Player.SteamID64 {
+		return
+	}
+
+	// Only count enemy flashes
+	if e.Attacker.Team != e.Player.Team {
+		initPlayerStats(e.Attacker)
+		
+		attackerID := e.Attacker.SteamID64
+		victimID := e.Player.SteamID64
+		currentTick := p.GameState().IngameTick()
+		
+		// Find the most recent flashbang throw from this attacker (within reasonable time window)
+		var matchingThrow *ActiveGrenadeThrow
+		for i := len(activeGrenadeThrows) - 1; i >= 0; i-- {
+			throw := &activeGrenadeThrows[i]
+			// Clean up old throws (older than 10 seconds = ~640 ticks)
+			if currentTick - throw.ThrowTick > 640 {
+				activeGrenadeThrows = activeGrenadeThrows[i+1:]
+				break
+			}
+			// Find matching flashbang throw from same attacker within last 5 seconds (~320 ticks)
+			if throw.AttackerID == attackerID && 
+			   throw.WeaponType == common.EqFlash && 
+			   currentTick - throw.ThrowTick <= 320 {
+				matchingThrow = throw
+				break
+			}
+		}
+		
+		// Only count if we haven't already counted this victim for this specific flashbang throw
+		if matchingThrow != nil {
+			if !matchingThrow.Victims[victimID] {
+				matchingThrow.Victims[victimID] = true
+				playerStats[attackerID].EnemiesFlashed++
+			}
+		} else {
+			// Fallback: if no matching throw found, use old method with short cooldown
+			for i := len(lastFlashEvents) - 1; i >= 0; i-- {
+				flash := lastFlashEvents[i]
+				if currentTick - flash.Tick > 16 {
+					lastFlashEvents = lastFlashEvents[i+1:]
+					break
+				}
+				if flash.AttackerID == attackerID && flash.VictimID == victimID && currentTick - flash.Tick <= 16 {
+					return // Already counted
+				}
+			}
+			
+			lastFlashEvents = append(lastFlashEvents, FlashEvent{
+				AttackerID: attackerID,
+				VictimID:   victimID,
+				Tick:       currentTick,
+			})
+			
+			playerStats[attackerID].EnemiesFlashed++
+		}
+	}
+})
+
+// Track bomb plants
+p.RegisterEventHandler(func(e events.BombPlanted) {
+	if !roundInProgress || e.Player == nil {
+		return
+	}
+
+	initPlayerStats(e.Player)
+	playerID := e.Player.SteamID64
+	currentTick := p.GameState().IngameTick()
+	
+	// Check if we already counted this bomb plant recently (within 32 ticks = ~0.5 seconds)
+	for i := len(lastBombEvents) - 1; i >= 0; i-- {
+		bombEvent := lastBombEvents[i]
+		if currentTick - bombEvent.Tick > 32 {
+			// Remove old entries
+			lastBombEvents = lastBombEvents[i+1:]
+			break
+		}
+		if bombEvent.PlayerID == playerID && bombEvent.EventType == "plant" && currentTick - bombEvent.Tick <= 32 {
+			// Already counted this bomb plant
+			return
+		}
+	}
+
+	// Record this bomb plant event
+	lastBombEvents = append(lastBombEvents, BombEvent{
+		PlayerID:  playerID,
+		EventType: "plant",
+		Tick:      currentTick,
+	})
+
+	playerStats[playerID].BombPlants++
+})
+
+// Track bomb defuses
+p.RegisterEventHandler(func(e events.BombDefused) {
+	if !roundInProgress || e.Player == nil {
+		return
+	}
+
+	initPlayerStats(e.Player)
+	playerID := e.Player.SteamID64
+	currentTick := p.GameState().IngameTick()
+	
+	// Check if we already counted this bomb defuse recently (within 32 ticks = ~0.5 seconds)
+	for i := len(lastBombEvents) - 1; i >= 0; i-- {
+		bombEvent := lastBombEvents[i]
+		if currentTick - bombEvent.Tick > 32 {
+			// Remove old entries
+			lastBombEvents = lastBombEvents[i+1:]
+			break
+		}
+		if bombEvent.PlayerID == playerID && bombEvent.EventType == "defuse" && currentTick - bombEvent.Tick <= 32 {
+			// Already counted this bomb defuse
+			return
+		}
+	}
+
+	// Record this bomb defuse event
+	lastBombEvents = append(lastBombEvents, BombEvent{
+		PlayerID:  playerID,
+		EventType: "defuse",
+		Tick:      currentTick,
+	})
+
+	playerStats[playerID].BombDefuses++
+})
+
 	// Parse demo
 	err = p.ParseToEnd()
 	if err != nil {
@@ -412,13 +681,18 @@ func initPlayerStats(p *common.Player) {
 			"m4a1s", "awp", "scout", "famas", "galil", "scar20", "g3sg1", "aug", "sg553", "other",
 		}
 		for _, weapon := range weaponsList {
-			weapons[weapon] = WeaponStats{Kills: 0, Deaths: 0}
+			weapons[weapon] = WeaponStats{Kills: 0, DeathsFrom: 0, DeathsWith: 0}
 		}
 
 		playerStats[p.SteamID64] = &PlayerStats{
 			Name:             p.Name,
 			Weapons:          weapons,
 			ClutchSituation:  -1, // Initialize to -1 (no clutch situation)
+			GrenadesThrown:   GrenadeStats{}, // Initialize grenade stats
+			EnemiesFlashed:   0,
+			GrenadeDamage:    0,
+			BombPlants:       0,
+			BombDefuses:      0,
 		}
 	}
 }
@@ -448,8 +722,8 @@ func saveStatsToFile(data map[uint64]*PlayerStats) {
 		extendedData[steamID + 2 * offset] = &allTimeStats
 	}
 
-	file, err := os.Create(`your local path to current project src/scripts/stats.json`)
-	checkError(err)
+	file, err := os.Create(`// your local path to current project src/scripts/stats.json`)
+
 	defer file.Close()
 
 	encoder := json.NewEncoder(file)
@@ -464,6 +738,16 @@ func saveStatsToFile(data map[uint64]*PlayerStats) {
 func checkError(err error) {
 	if err != nil {
 		log.Printf("Error: %v", err)
+	}
+}
+
+// Helper function to check if a weapon is a grenade
+func isGrenadeWeapon(weaponType common.EquipmentType) bool {
+	switch weaponType {
+	case common.EqFlash, common.EqSmoke, common.EqHE, common.EqMolotov, common.EqIncendiary, common.EqDecoy:
+		return true
+	default:
+		return false
 	}
 }
 
