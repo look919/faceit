@@ -715,11 +715,6 @@ func saveStatsToFile(data map[uint64]*PlayerStats) {
 		sessionStats := *stats
 		sessionStats.PlayersTable = PlayersTableSession
 		extendedData[steamID + offset] = &sessionStats
-
-		// 3. ALL_TIME (second copy)
-		allTimeStats := *stats
-		allTimeStats.PlayersTable = PlayersTableAllTime
-		extendedData[steamID + 2 * offset] = &allTimeStats
 	}
 
 	file, err := os.Create(`Local path to: \src\scripts\stats.json`)

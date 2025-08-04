@@ -13,9 +13,69 @@ const prisma = new PrismaClient();
 
 const main = async () => {
   const rawData = readFileSync("./src/scripts/stats.json", "utf8");
-  const stats = JSON.parse(rawData) as StatsFromJson[];
+  const stats = JSON.parse(rawData) as Record<string, StatsFromJson>;
+
+  // Target player configuration
+  const TARGET_STEAM_ID = "76561198137842758";
+  const TARGET_NICKNAME = "Tomi";
+
+  // Find Tomi's data to determine his team characteristics
+  let tomiData: StatsFromJson | null = null;
+
+  // First pass: find Tomi in the stats
+  for (const [steamId, data] of Object.entries(stats)) {
+    if (steamId === TARGET_STEAM_ID) {
+      tomiData = data;
+      break;
+    }
+  }
+
+  if (!tomiData) {
+    console.log(
+      `Warning: Target player ${TARGET_NICKNAME} (SteamID: ${TARGET_STEAM_ID}) not found in stats.json`
+    );
+    return;
+  }
+
+  // Identify teammates based on Tomi's match data
+  const teammateIds = new Set<string>();
+  if (tomiData) {
+    // Add Tomi himself
+    teammateIds.add(TARGET_STEAM_ID);
+
+    // Find teammates: players with same map, same match outcome, and similar rounds won
+    for (const [steamId, data] of Object.entries(stats)) {
+      if (steamId === TARGET_STEAM_ID) continue; // Skip Tomi himself
+
+      // Teammates should have:
+      // 1. Same map
+      // 2. Same match outcome (Win/Loss/Draw)
+      // 3. Same total rounds played
+      if (
+        data.map_played === tomiData.map_played &&
+        data.match_outcome === tomiData.match_outcome &&
+        data.total_rounds === tomiData.total_rounds
+      ) {
+        teammateIds.add(steamId);
+        console.log(`Identified teammate: ${data.name} (SteamID: ${steamId})`);
+      }
+    }
+  }
+
+  let processedPlayers = 0;
+  let skippedPlayers = 0;
 
   for (const [steamId, data] of Object.entries(stats)) {
+    // Filter: only process Tomi and his teammates
+    if (tomiData && !teammateIds.has(steamId)) {
+      console.log(`Skipping enemy player: ${data.name} (SteamID: ${steamId})`);
+      skippedPlayers++;
+      continue;
+    }
+
+    console.log(`Processing player: ${data.name} (SteamID: ${steamId})`);
+    processedPlayers++;
+
     const existingPlayer = await prisma.playerStats.findUnique({
       where: { id: Number(steamId) },
       include: { weapons: true, maps: true },
@@ -62,8 +122,6 @@ const main = async () => {
     // Subtract collectable stats
     const collectableStats = {
       gamesPlayed: existingPlayer.gamesPlayed - 1,
-      gamesPlayedSinceSeason3Start:
-        existingPlayer.gamesPlayedSinceSeason3Start - 1,
       name: data.name,
       playerTable: data.players_table,
       avatar: existingPlayer.avatar, // Keep the avatar unchanged
@@ -186,39 +244,39 @@ const main = async () => {
       // New grenade-related per-game calculations
       flashesThrownPerGame: divideResult(
         collectableStats.flashesThrown,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       smokesThrownPerGame: divideResult(
         collectableStats.smokesThrown,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       heGrenadesThrownPerGame: divideResult(
         collectableStats.heGrenadesThrown,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       molotovsThrownPerGame: divideResult(
         collectableStats.molotovsThrown,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       decoysThrownPerGame: divideResult(
         collectableStats.decoysThrown,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       enemiesFlashedPerGame: divideResult(
         collectableStats.enemiesFlashed,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       grenadeDamagePerGame: divideResult(
         collectableStats.grenadeDamage,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       bombPlantsPerGame: divideResult(
         collectableStats.bombPlants,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
       bombDefusesPerGame: divideResult(
         collectableStats.bombDefuses,
-        collectableStats.gamesPlayedSinceSeason3Start
+        collectableStats.gamesPlayed
       ),
 
       headshotPercentage:
@@ -342,6 +400,9 @@ const main = async () => {
     }
   }
 
+  console.log(`\n=== SUMMARY ===`);
+  console.log(`Processed players: ${processedPlayers}`);
+  console.log(`Skipped enemy players: ${skippedPlayers}`);
   console.log("Stats reverted in the database.");
 
   // Send revalidation request to ensure fresh data is fetched

@@ -7,11 +7,18 @@ import superjson from "superjson";
 
 export interface GeneralMainResponse {
   playersWithMoreGamesThanSeparator: PlayerStats[];
-  playersWithLessGamesThanSeparator: PlayerStats[];
+  me: PlayerStats[];
 }
 
 export async function GET() {
   try {
+    const me = await prisma.playerStats.findFirst({
+      where: {
+        name: "Tomestos",
+        playerTable: PlayerTable.SEASON,
+      },
+    });
+
     const playersWithMoreGamesThanSeparator = await prisma.playerStats.findMany(
       {
         where: {
@@ -19,17 +26,8 @@ export async function GET() {
           gamesPlayed: {
             gte: SEASON_MATCHES_PLAYED_SEPARATOR,
           },
-        },
-        orderBy: mainOrderBy,
-      }
-    );
-
-    const playersWithLessGamesThanSeparator = await prisma.playerStats.findMany(
-      {
-        where: {
-          playerTable: PlayerTable.SEASON,
-          gamesPlayed: {
-            lt: SEASON_MATCHES_PLAYED_SEPARATOR,
+          name: {
+            not: "Tomestos", // Exclude myself from the list
           },
         },
         orderBy: [
@@ -48,7 +46,7 @@ export async function GET() {
 
     const data = {
       playersWithMoreGamesThanSeparator,
-      playersWithLessGamesThanSeparator,
+      me: [me],
     } as GeneralMainResponse;
 
     const serialized = superjson.stringify(data);

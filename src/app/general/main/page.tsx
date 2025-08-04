@@ -4,18 +4,18 @@ import { apiGET } from "@/lib/api";
 import { GeneralMainResponse } from "@/app/api/players/general/main/route";
 
 export default async function GeneralPage() {
-  const {
-    playersWithMoreGamesThanSeparator,
-    playersWithLessGamesThanSeparator,
-  } = await apiGET<GeneralMainResponse>(`/players/general/main`);
+  const { playersWithMoreGamesThanSeparator, me } =
+    await apiGET<GeneralMainResponse>(`/players/general/main`);
+
+  console.log(me);
 
   return (
     <div>
       <MainGrid
-        primaryData={playersWithMoreGamesThanSeparator}
+        primaryData={me}
         secondaryData={
           SEASON_MATCHES_PLAYED_SEPARATOR > 0
-            ? playersWithLessGamesThanSeparator
+            ? playersWithMoreGamesThanSeparator
             : undefined
         }
         separator={SEASON_MATCHES_PLAYED_SEPARATOR}
