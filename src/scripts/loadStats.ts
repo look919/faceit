@@ -49,10 +49,6 @@ const main = async () => {
     for (const [steamId, data] of Object.entries(stats)) {
       if (steamId === TARGET_STEAM_ID) continue; // Skip Tomi himself
 
-      // Teammates should have:
-      // 1. Same map
-      // 2. Same match outcome (Win/Loss/Draw)
-      // 3. Same total rounds played
       if (
         data.map_played === tomiData.map_played &&
         data.match_outcome === tomiData.match_outcome &&

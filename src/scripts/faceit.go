@@ -646,9 +646,15 @@ p.RegisterEventHandler(func(e events.BombDefused) {
 	// Assign match outcome, map name, and duration to each player
 	for _, stats := range playerStats {
 		stats.TotalRounds = totalRounds
-		if stats.RoundsWon > totalRounds/2 {
+		// In CS:GO/CS2, you need more than half the rounds to win
+		// For odd total rounds (e.g., 31), you need (31+1)/2 = 16 rounds to win
+		// For even total rounds (e.g., 30), you need 16 rounds to win (30/2 + 1)
+		roundsNeededToWin := (totalRounds / 2) + 1
+		
+		if stats.RoundsWon >= roundsNeededToWin {
 			stats.MatchOutcome = "Win"
-		} else if stats.RoundsWon == totalRounds/2 {
+		} else if totalRounds%2 == 0 && stats.RoundsWon == totalRounds/2 {
+			// Only even total rounds can result in a true draw (15-15 in a 30-round match)
 			stats.MatchOutcome = "Draw"
 		} else {
 			stats.MatchOutcome = "Loss"
